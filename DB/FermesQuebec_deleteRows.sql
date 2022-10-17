@@ -3,6 +3,7 @@
 DELETE FROM UsagersFermes;
 DELETE FROM Usagers;
 DELETE FROM NiveauAcces;
+DELETE FROM Medias;
 DELETE FROM Notes;
 DELETE FROM Experiences;
 DELETE FROM Categories;

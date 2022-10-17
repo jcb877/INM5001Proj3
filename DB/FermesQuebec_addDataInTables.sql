@@ -53,6 +53,16 @@ INSERT INTO Notes(dateNote, note, experienceId) VALUES
     ('2022-07-24', 'Note no 3', 3),
     ('2022-09-13', 'La vache va mieux', 1);
 
+INSERT INTO Medias(media, noteId) VALUES
+    ('c:/desktop/vache1/a1.jpg', 1),
+    ('c:/desktop/vache1/a2.jpg', 1),
+    ('c:/desktop/vache1/a3.jpg', 1),
+    ('c:/desktop/vache1/a4.jpg', 1),
+    ('c:/desktop/vache2/b1.jpg', 2),
+    ('c:/desktop/vache3/c2.jpg', 3),
+    ('c:/desktop/vache2/b3.jpg', 2),
+    ('c:/desktop/vache1/a40.jpg', 1);
+
 INSERT INTO UsagersFermes(login, fermeId) VALUES
     ('SGchercheur', 3),
     ('JCBadmin', 1),

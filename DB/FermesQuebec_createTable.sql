@@ -49,9 +49,16 @@ CREATE TABLE Notes (
     noteId              INT(11)         AUTO_INCREMENT PRIMARY KEY,
     dateNote            DATE            NOT NULL,
     note                TEXT            ,
-    video               VARCHAR(255)    ,
     experienceId        INT(11)         NOT NULL,
     FOREIGN KEY (experienceId)   REFERENCES Experiences(experienceId)
+    ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE Medias (
+    mediaId             INT(11)         AUTO_INCREMENT PRIMARY KEY,
+    media               VARCHAR(255)    NOT NULL,
+    noteId              INT(11)         NOT NULL,
+    FOREIGN KEY (noteId)        REFERENCES Notes(noteId)
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
