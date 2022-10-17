@@ -12,8 +12,7 @@ CREATE TABLE Usagers (
     motPasse        TEXT            NOT NULL,
     accesId         INT(11)         NOT NULL,
     FOREIGN KEY (accesId)    REFERENCES NiveauAcces(accesId)
-    ON UPDATE CASCADE
-    ON DELETE CASCADE
+    ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Fermes (
@@ -38,11 +37,12 @@ CREATE TABLE Experiences (
     nomCategorie        VARCHAR(255)    NOT NULL,
     nomSousCategorie    VARCHAR(255)    NOT NULL,
     fermeId             INT(11)         NOT NULL,
-    FOREIGN KEY (fermeId)           REFERENCES Fermes(fermeId),
-    FOREIGN KEY (nomCategorie)      REFERENCES Categories(nomCategorie),
+    FOREIGN KEY (fermeId)           REFERENCES Fermes(fermeId)
+    ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (nomCategorie)      REFERENCES Categories(nomCategorie)
+    ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (nomSousCategorie)  REFERENCES SousCategories(nomSousCategorie)
-    ON UPDATE CASCADE
-    ON DELETE CASCADE
+    ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Notes (
@@ -52,16 +52,15 @@ CREATE TABLE Notes (
     video               VARCHAR(255)    ,
     experienceId        INT(11)         NOT NULL,
     FOREIGN KEY (experienceId)   REFERENCES Experiences(experienceId)
-    ON UPDATE CASCADE
-    ON DELETE CASCADE
+    ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE UsagersFermes (
     usagersFermesId     INT(11)         AUTO_INCREMENT PRIMARY KEY,
     login               VARCHAR(255)    NOT NULL,
     fermeId             INT(11)         NOT NULL,
-    FOREIGN KEY (login)     REFERENCES Usagers(login),
+    FOREIGN KEY (login)     REFERENCES Usagers(login)
+    ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (fermeId)   REFERENCES Fermes(fermeId)
-    ON UPDATE CASCADE
-    ON DELETE CASCADE
+    ON UPDATE CASCADE ON DELETE CASCADE
 );
