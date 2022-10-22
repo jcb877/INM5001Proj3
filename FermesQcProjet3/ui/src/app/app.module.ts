@@ -13,6 +13,8 @@ import { SharedService } from './shared.service';
 
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     AddEditNivaccesComponent,
     UsagersComponent,
     ShowUsgrComponent,
-    AddEditUsgrComponent
+    AddEditUsgrComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
