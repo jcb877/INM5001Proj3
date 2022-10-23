@@ -1,3 +1,4 @@
+import { UsagersComponent } from './usagers/usagers.component';
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -51,5 +52,6 @@ export class SharedService {
   getAllNiveauAccessNames():Observable<any[]>{
     return this.http.get<any[]>(this.APIUrl+'/niveauAcces/');
   }
+
 
 }
