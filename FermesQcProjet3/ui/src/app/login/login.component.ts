@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   password?: string;
   messageErreur?: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private precedent: Location) { }
 
   authenticate (form: NgForm) {
     if (form.valid) {
@@ -21,6 +22,10 @@ export class LoginComponent implements OnInit {
     } else {
       this.messageErreur = 'Données invalides';
     }
+  }
+
+  retour(){
+    this.precedent.back();
   }
 
   ngOnInit(): void {

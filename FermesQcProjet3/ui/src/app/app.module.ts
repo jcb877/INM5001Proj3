@@ -15,6 +15,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { DepartComponent } from './depart/depart.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HomeComponent } from './home/home.component';
     ShowUsgrComponent,
     AddEditUsgrComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DepartComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
