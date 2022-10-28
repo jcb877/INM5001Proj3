@@ -1,0 +1,54 @@
+
+
+<div id="outer">
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">Back To All Functions Portal page</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddEditUser" class="btn btn-success">Add new user</button>
+  </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">All Users List</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th>User ID</th>
+              <th>UserName</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Password</th>
+              <th>AccessID</th>
+              <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of UsagersList">
+              <td>{{user.usagerId}}</td>
+              <td>{{user.login}}</td>
+              <td>{{user.prenomUsager}}</td>
+              <td>{{user.nomUsager}}</td>
+              <td>{{user.motPasse}}</td>
+              <td>{{user.accesId}}</td>
+                <td class="options">                   
+                    <button routerLink="../AddEditUser" class="btn btn-primary" (click)="editClick(user)">Edit</button>&nbsp;&nbsp;
+                    <button class="btn btn-danger" (click)="deleteClick(user)" >Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

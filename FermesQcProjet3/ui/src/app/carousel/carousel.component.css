@@ -1,0 +1,13 @@
+/* Ici pour controller la taille du carousel */
+
+img {
+    width: 1000px;
+    height: 500px;
+    object-fit: contain;
+    
+}
+
+/* #carousel{
+    background-color: rgb(178, 175, 175);
+
+} */

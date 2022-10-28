@@ -1,0 +1,45 @@
+<div id="outer">
+    <div class="text-left">
+      &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">Back To All Functions Portal page</button>&nbsp;&nbsp;&nbsp;
+      <button routerLink="../AddEditCategory" class="btn btn-success">Add new category</button>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div>
+      <p class="p-2 bg-info text-light text-center">All Categories List</p>
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Operations</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let c of categoriesList">
+                <td>{{c.categorieId}}</td>
+                <td>{{c.nomCategorie}}</td>
+                  <td class="options">                   
+                      <button routerLink="../AddEditCategory" class="btn btn-primary" (click)="editClick(c)">Edit</button>&nbsp;&nbsp;
+                      <button class="btn btn-danger" (click)="deleteClick(c)" >Delete</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

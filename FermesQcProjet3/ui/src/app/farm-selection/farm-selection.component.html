@@ -1,0 +1,59 @@
+<div id="outer" *ngIf="showForm">
+    <div class="text-left">
+        &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">Back To All Functions Portal page</button>
+    </div>
+
+    <div class="line">
+        <hr>
+    </div>
+
+    <div>
+        <p class="p-2 bg-info text-light text-center">The farm selection page</p>
+    </div>
+
+    <div id="inner">
+        
+    <div class="form-group row" style="width: 70%;">
+
+
+       <label class="col-sm-4 col-form-label">Farm Selection</label>
+       <div class="col-sm-8">
+          <select class="form-control" [(ngModel)]="nomFerme">
+            <option>--Select--</option>
+            <option *ngFor="let f of farmsList">{{f.nomFerme}}</option>
+          </select>
+          <br>
+       </div>
+
+
+       <div>
+        <button (click)="selectFarm()" class="btn btn-primary">Select</button>&nbsp;&nbsp; 
+        <button routerLink="../Functions" class="btn btn-warning">Cancel</button>
+       </div>
+
+    </div>
+
+    <br>
+
+ </div>
+    
+</div>
+
+
+<div *ngIf="showSuccessMsg" class="alert alert-success" id="msgSuccess">
+    <div class="text-center">
+        <p>Farm is selected successfully !</p>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-success" routerLink="../Functions" (click)="closeSuccessMsg()">Close message</button>
+    </div>
+</div>
+
+<div *ngIf="showFailMsg" class="alert alert-danger" id="msgFail">
+    <div class="text-center">
+        <p>Failed to select farm !</p>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-warning" routerLink="../Functions" (click)="closeFailMsg()">Close message</button>
+    </div>
+</div>

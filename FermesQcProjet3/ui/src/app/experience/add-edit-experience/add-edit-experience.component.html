@@ -1,0 +1,103 @@
+<div id="outer" *ngIf="showForm">
+    <div class="text-left">
+        &nbsp;&nbsp;&nbsp;<button routerLink="../ExperienceManager" class="btn btn-primary">Back</button>
+    </div>
+
+    <div class="line">
+        <hr>
+    </div>
+
+    <div>
+        <p class="p-2 bg-info text-light text-center">The form to add new experience</p>
+    </div>
+
+    <div id="inner">
+        
+    <div class="form-group row" style="width: 70%;">
+
+        <label class="col-sm-4 col-form-label">Experience Date</label>
+        <div class="col-sm-8">
+           <input type="date" class="form-control" [(ngModel)]="dateExperience" placeholder="Enter date">
+        </div>
+
+        <br>
+        <br>
+
+
+       <label class="col-sm-4 col-form-label">Category Name</label>
+       <div class="col-sm-8">
+          <select class="form-control" [(ngModel)]="nomCategorie">
+            <option>--Select--</option>
+            <option *ngFor="let c of categoriesList">{{c.nomCategorie}}</option>
+          </select>
+       </div>
+
+
+    
+       <br>
+       <br>
+
+
+
+       <label class="col-sm-4 col-form-label">Sub Category Name</label>
+       <div class="col-sm-8">
+           <select class="form-control" [(ngModel)]="nomSousCategorie">
+            <option>--Select--</option>
+            <option *ngFor="let sc of subCategoriesList">{{sc.nomSousCategorie}}</option>
+          </select>
+       </div>
+
+
+
+       <br>
+       <br>
+
+
+
+
+       <label class="col-sm-4 col-form-label">Farm ID</label>
+       <div class="col-sm-8">
+           <select class="form-control" [(ngModel)]="nomFerme">
+            <option>--Select--</option>
+            <option *ngFor="let f of farmsList">{{f.nomFerme}}</option>
+          </select>
+       </div>
+
+
+
+
+
+
+       <br>
+       <br>
+       </div>
+
+
+    <div>
+        <button (click)="addNewExperience()" *ngIf="!showUpdateButton" class="btn btn-primary">Add</button>&nbsp;&nbsp; 
+        <button (click)="updateExperience()" *ngIf="showUpdateButton" class="btn btn-primary">Update</button>&nbsp;&nbsp;
+        <button routerLink="../ExperienceManager" class="btn btn-warning">Cancel</button>
+    </div>
+
+ </div>
+    
+</div>
+
+
+<div *ngIf="showSuccessMsg" class="alert alert-success" id="msgSuccess">
+    <div class="text-center">
+        <p>Experience is saved successfully !</p>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-success" routerLink="../ExperienceManager" (click)="closeSuccessMsg()">Close message</button>
+    </div>
+</div>
+
+<div *ngIf="showFailMsg" class="alert alert-danger" id="msgFail">
+    <div class="text-center">
+        <p>Failed to save experience !</p>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-warning" routerLink="../ExperienceManager" (click)="closeFailMsg()">Close message</button>
+    </div>
+</div>

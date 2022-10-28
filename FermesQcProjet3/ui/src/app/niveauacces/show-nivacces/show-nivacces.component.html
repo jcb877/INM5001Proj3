@@ -1,0 +1,32 @@
+
+<div id="outer">
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">Back To All Functions Portal page</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddAccess" class="btn btn-success">Add new access</button>
+  </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">Access Levels List</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Access ID</th>
+                <th>Access Name</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let level of NiveauAccesList">
+                <td>{{level.accesId}}</td>
+                <td>{{level.access}}</td>
+                <td class="options">                   
+                    <button routerLink="../AddAccess" class="btn btn-primary" (click)="editClick(level)">Edit</button>&nbsp;&nbsp;
+                    <button class="btn btn-danger" (click)="deleteClick(level)" >Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

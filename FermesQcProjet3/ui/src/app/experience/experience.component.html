@@ -1,0 +1,38 @@
+
+<div id="outer">
+    <div class="text-left">
+      &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">Back To All Functions Portal page</button>&nbsp;&nbsp;&nbsp;
+      <button routerLink="../AddEditExperience" class="btn btn-success">Add New Experience</button>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div>
+      <p class="p-2 bg-info text-light text-center">Experience Manager Page</p>
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>Experience ID</th>
+                  <th>Experience Date</th>
+                  <th>Experience Category Name</th>
+                  <th>Experience Sub-Category Name</th>
+                  <th>Farm ID</th>
+                  <th>Operations</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let e of experienceList">
+                  <td>{{e.experienceId}}</td>
+                  <td>{{e.dateExperience}}</td>
+                  <td>{{e.nomCategorie}}</td>
+                  <td>{{e.nomSousCategorie}}</td>
+                  <td>{{e.fermeId_id}}</td>
+                  <td class="options">                   
+                      <button routerLink="../AddEditExperience" class="btn btn-primary" (click)="editClick(e)">Edit</button>&nbsp;&nbsp;
+                      <button class="btn btn-danger" (click)="deleteClick(e)">Delete</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>

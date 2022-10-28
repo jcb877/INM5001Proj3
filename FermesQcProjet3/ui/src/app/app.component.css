@@ -1,0 +1,12 @@
+#fixedHeader {
+    width: 1000px;
+    margin: 0 auto;
+    
+  }
+
+#fixedFooter{
+  width: 1000px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+  

@@ -1,0 +1,105 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NiveauaccesComponent } from './niveauacces/niveauacces.component';
+import { ShowNivaccesComponent } from './niveauacces/show-nivacces/show-nivacces.component';
+import { AddEditNivaccesComponent } from './niveauacces/add-edit-nivacces/add-edit-nivacces.component';
+import { UsagersComponent } from './usagers/usagers.component';
+import { ShowUsgrComponent } from './usagers/show-usgr/show-usgr.component';
+import { AddEditUsgrComponent } from './usagers/add-edit-usgr/add-edit-usgr.component';
+import { SharedService } from './shared.service';
+
+import {HttpClientModule} from '@angular/common/http';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ErrorComponent } from './error/error.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { FunctionsComponent } from './functions/functions.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AddComponent } from './niveauacces/add/add.component';
+import { FarmsManagerComponent } from './farms-manager/farms-manager.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { ExperienceComponent } from './experience/experience.component';
+import { EventComponent } from './event/event.component';
+import { AddEditFarmComponent } from './farms-manager/add-edit-farm/add-edit-farm.component';
+import { AddEditExperienceComponent } from './experience/add-edit-experience/add-edit-experience.component';
+import { SubCategoriesComponent } from './sub-categories/sub-categories.component';
+import { FarmSelectionComponent } from './farm-selection/farm-selection.component';
+import { AddEditCategoryComponent } from './categories/add-edit-category/add-edit-category.component';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
+
+
+const appRoutes:Routes=[
+  {path:'',component:CarouselComponent},
+  {path:'Acceuil',component:CarouselComponent},
+  {path:'Login',component:FunctionsComponent},
+  {path:'Logout',component:LogoutComponent},
+  {path:'Functions',component:FunctionsComponent },
+  {path:'ShowUserList',component:ShowUsgrComponent },
+  {path:'ShowAccessLevelList',component:ShowNivaccesComponent},
+  {path:'AddAccess',component:AddComponent},
+  {path:'AddEditUser',component:AddEditUsgrComponent},
+  {path:'FarmsManager',component:FarmsManagerComponent},
+  {path:'AddEditFarm',component:AddEditFarmComponent},
+  {path:'CategoriesManager',component:CategoriesComponent},
+  {path:'AddEditCategory',component:AddEditCategoryComponent},
+  {path:'SubCategoriesManager',component:SubCategoriesComponent},
+  {path:'ExperienceManager',component:ExperienceComponent},
+  {path:'AddEditExperience',component:AddEditExperienceComponent},
+  {path:'EventsManager',component:EventComponent},
+  {path:'FarmSelect',component:FarmSelectionComponent},
+  {path:'**',component:ErrorComponent}
+]
+
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    NiveauaccesComponent,
+    ShowNivaccesComponent,
+    AddEditNivaccesComponent,
+    UsagersComponent,
+    ShowUsgrComponent,
+    AddEditUsgrComponent,
+    LoginComponent,
+    FunctionsComponent,
+    LogoutComponent,
+    AddComponent,
+    FarmsManagerComponent,
+    CategoriesComponent,
+    ExperienceComponent,
+    EventComponent,
+    AddEditFarmComponent,
+    AddEditExperienceComponent,
+    SubCategoriesComponent,
+    FarmSelectionComponent,
+    AddEditCategoryComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes)
+  ],
+  providers: [SharedService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

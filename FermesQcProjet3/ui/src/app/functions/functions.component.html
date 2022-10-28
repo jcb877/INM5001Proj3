@@ -1,0 +1,76 @@
+<div class="outer">
+    <div class="inner">
+        <div>
+            <p class="p-2 bg-info text-light text-center" *ngIf="SharedService.showLogoutButton">All Functions Portal</p>
+        </div>
+        <div class="inner2">
+            &nbsp;&nbsp;&nbsp;
+            <button routerLink="../Logout" *ngIf="SharedService.showLogoutButton" class="btn btn-primary">Logout</button>
+        </div>
+        <div class="line" *ngIf="SharedService.showLogoutButton">
+            <hr>
+        </div>
+        <div *ngIf="SharedService.showLogoutButton">
+            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;Welcome {{SharedService.currentLoggedInUser.prenomUsager}}  {{SharedService.currentLoggedInUser.nomUsager}}</p>
+            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;Your user ID is {{SharedService.currentLoggedInUser.usagerId}}</p>
+            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;Your access is  {{SharedService.currentLoggedInUserAccess}}</p>
+            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;Your selected farm is  {{SharedService.currentlySelectedFarm.nomFerme}}</p>
+        </div>
+        <div class="line" *ngIf="SharedService.showLogoutButton">
+            <hr>
+        </div>
+        <div class="login">
+            <app-login *ngIf="SharedService.showLoginButton"></app-login>
+        </div>
+
+
+        <div class="text-left inner2">      
+            <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+              <ul class="navbar-nav">
+                <li class="navbar-item">
+                    <button routerLink="../ShowAccessLevelList" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showAccessManager" Button>Access level manager</button>
+                </li>
+                <li class="navbar-item">
+                  <button routerLink="../ShowUserList" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showUserAccountManager" Button>User account manager</button>
+                </li>
+                <li class="navbar-item">
+                    <button routerLink="../FarmsManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showFarmsManager" Button>Farms manager</button>
+                </li>
+                <li class="navbar-item">
+                    <button routerLink="../CategoriesManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showCategoriesManager" Button>Categories manager</button>
+                </li>
+                <li class="navbar-item">
+                    <button routerLink="../SubCategoriesManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showSubCategoriesManager" Button>SubCategories manager</button>
+                </li>
+              </ul>          
+            </nav>
+        </div>
+
+        <div class="text-left inner2">      
+            <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+              <ul class="navbar-nav">
+                <li class="navbar-item">
+                    <button routerLink="../ShowUserList" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showGraphsFarmExperimentsLink" Button>Graphs of farm experiments</button>
+                </li>
+                <li class="navbar-item">
+                    <button routerLink="../ExperienceManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showExperienceManager" Button>Experience Manager</button>
+                </li>
+                <li class="navbar-item">
+                    <button routerLink="../EventsManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showEventsManager" Button>Events Manager</button>
+                </li>
+              </ul>          
+            </nav>
+        </div>
+
+        <!-- The code below is reserver for the select of farms -->
+        <div class="text-left inner2">      
+            <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+              <ul class="navbar-nav">
+                <li class="navbar-item">
+                    <button routerLink="../FarmSelect" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showFarmsSelection" Button>Farms selection</button>            
+                </li>
+              </ul>          
+            </nav>
+        </div>
+    </div>
+</div>
