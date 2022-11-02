@@ -1,23 +1,23 @@
 
 <div id="outer">
     <div class="text-left">
-      &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">Back To All Functions Portal page</button>&nbsp;&nbsp;&nbsp;
-      <button routerLink="../AddEditExperience" class="btn btn-success">Add New Experience</button>
+      &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'e.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+      <button routerLink="../AddEditExperience" class="btn btn-success">{{'e.btn_add'|translate}}</button>
     </div>
     <div class="line">
       <hr>
     </div>
     <div>
-      <p class="p-2 bg-info text-light text-center">Experience Manager Page</p>
+      <p class="p-2 bg-info text-light text-center">{{'e.title'|translate}}</p>
       <table class="table table-striped">
           <thead>
               <tr>
-                  <th>Experience ID</th>
-                  <th>Experience Date</th>
-                  <th>Experience Category Name</th>
-                  <th>Experience Sub-Category Name</th>
-                  <th>Farm ID</th>
-                  <th>Operations</th>
+                  <th>{{'e.col_id'|translate}}</th>
+                  <th>{{'e.col_date'|translate}}</th>
+                  <th>{{'e.col_name'|translate}}</th>
+                  <th>{{'e.col_subname'|translate}}</th>
+                  <th>{{'e.col_farmId'|translate}}</th>
+                  <th>{{'e.col_opts'|translate}}</th>
               </tr>
           </thead>
           <tbody>
@@ -28,8 +28,8 @@
                   <td>{{e.nomSousCategorie}}</td>
                   <td>{{e.fermeId_id}}</td>
                   <td class="options">                   
-                      <button routerLink="../AddEditExperience" class="btn btn-primary" (click)="editClick(e)">Edit</button>&nbsp;&nbsp;
-                      <button class="btn btn-danger" (click)="deleteClick(e)">Delete</button>
+                      <button routerLink="../AddEditExperience" class="btn btn-primary" (click)="editClick(e)">{{'e.btn_edit'|translate}}</button>&nbsp;&nbsp;
+                      <button class="btn btn-danger" (click)="deleteClick(e)">{{'e.btn_delete'|translate}}</button>
                   </td>
               </tr>
           </tbody>

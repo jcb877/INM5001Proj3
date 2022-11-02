@@ -16,7 +16,7 @@ import { ShowUsgrComponent } from './usagers/show-usgr/show-usgr.component';
 import { AddEditUsgrComponent } from './usagers/add-edit-usgr/add-edit-usgr.component';
 import { SharedService } from './shared.service';
 
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -35,9 +35,15 @@ import { SubCategoriesComponent } from './sub-categories/sub-categories.componen
 import { FarmSelectionComponent } from './farm-selection/farm-selection.component';
 import { AddEditCategoryComponent } from './categories/add-edit-category/add-edit-category.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AddEditSubCategoryComponent } from './sub-categories/add-edit-sub-category/add-edit-sub-category.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http,'./assets/i18n/','.json');
+}
 
 const appRoutes:Routes=[
   {path:'',component:CarouselComponent},
@@ -54,6 +60,7 @@ const appRoutes:Routes=[
   {path:'CategoriesManager',component:CategoriesComponent},
   {path:'AddEditCategory',component:AddEditCategoryComponent},
   {path:'SubCategoriesManager',component:SubCategoriesComponent},
+  {path:'AddEditSubCategory',component:AddEditSubCategoryComponent},
   {path:'ExperienceManager',component:ExperienceComponent},
   {path:'AddEditExperience',component:AddEditExperienceComponent},
   {path:'EventsManager',component:EventComponent},
@@ -85,6 +92,7 @@ const appRoutes:Routes=[
     SubCategoriesComponent,
     FarmSelectionComponent,
     AddEditCategoryComponent,
+    AddEditSubCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,6 +105,17 @@ const appRoutes:Routes=[
     MatFormFieldModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
+
+    TranslateModule.forRoot(
+      {
+      loader:{
+        provide: TranslateLoader,
+        useFactory:HttpLoaderFactory,
+        deps: [HttpClient]
+       }
+      }
+    ),
+    
     RouterModule.forRoot(appRoutes)
   ],
   providers: [SharedService],

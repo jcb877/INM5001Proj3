@@ -1,19 +1,19 @@
 <div id="outer">
     <div class="text-left">
-      &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">Back To All Functions Portal page</button>&nbsp;&nbsp;&nbsp;
-      <button routerLink="../AddEditCategory" class="btn btn-success">Add new category</button>
+      &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'cat.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+      <button routerLink="../AddEditCategory" class="btn btn-success">{{'cat.btn_add'|translate}}</button>
     </div>
     <div class="line">
       <hr>
     </div>
     <div>
-      <p class="p-2 bg-info text-light text-center">All Categories List</p>
+      <p class="p-2 bg-info text-light text-center">{{'cat.title'|translate}}</p>
       <table class="table table-striped">
           <thead>
               <tr>
-                <th>Category ID</th>
-                <th>Category Name</th>
-                <th>Operations</th>
+                <th>{{'cat.col_id'|translate}}</th>
+                <th>{{'cat.col_name'|translate}}</th>
+                <th>{{'cat.col_opts'|translate}}</th>
               </tr>
           </thead>
           <tbody>
@@ -21,8 +21,8 @@
                 <td>{{c.categorieId}}</td>
                 <td>{{c.nomCategorie}}</td>
                   <td class="options">                   
-                      <button routerLink="../AddEditCategory" class="btn btn-primary" (click)="editClick(c)">Edit</button>&nbsp;&nbsp;
-                      <button class="btn btn-danger" (click)="deleteClick(c)" >Delete</button>
+                      <button routerLink="../AddEditCategory" class="btn btn-primary" (click)="editClick(c)">{{'cat.btn_edit'|translate}}</button>&nbsp;&nbsp;
+                      <button class="btn btn-danger" (click)="deleteClick(c)">{{'cat.btn_delete'|translate}}</button>
                   </td>
               </tr>
           </tbody>

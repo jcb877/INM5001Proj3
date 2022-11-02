@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
 
 
       if(this.userN===""&&this.pw===""){
-        alert("Saisez votre nom d'utilisateur et le mot de passe !");
+        alert("Saisez votre nom d'utilisateur et le mot de passe ! Please input username and password !");
       }
       else{
          //if username and password are input,check if pw is correct
@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
       }
 
       if(!this.userFound){
-        alert("Utilisateur n'existe pas !");
+        alert("Utilisateur n'existe pas ! The user does not exist");
         this.loginForm.value.userName.value='';
       }
 
@@ -85,14 +85,14 @@ export class LoginComponent implements OnInit {
         
         if(this.pw===this.pwRef){
           //if all is correct,show welcome message.
-          alert("Tout est correct.Bienvenue !");
+          alert("Tout est correct.Bienvenue ! All correct.Welcome !");
           //console.log(this.service.currentLoggedInUser.accesId);
           console.log(this.service.currentLoggedInUser.login);
           this.showAllFuncAfterLoginWithSuccess(this.service.currentLoggedInUser.accesId);
         }
         else{
            //if not correct,show error message.
-           alert("Erreur,verifiez ce que vous avez entré !");
+           alert("Erreur,verifiez ce que vous avez entré !  Error,please verify what you input");
            console.log(this.userN);
            console.log(this.pw);
            console.log(this.pwRef);
@@ -109,20 +109,19 @@ export class LoginComponent implements OnInit {
     console.log("Logged in successfully !");
     
       switch(accessId) {
-        case 1:
-          // code block reserved for admin access
-           this.service.currentLoggedInUserAccess="Admin";
+        case 19:
+          // code block reserved for super admin access
+          //all access
+           this.service.currentLoggedInUserAccess="superAdmin";
 
-           console.log("Admin access !");
+           console.log("Super Admin access !");
 
            this.service.showLoginButton=false;
 
            this.service.showLogoutButton=true;
-
-
            
            this.service.showAccessManager=true;
-           //only 2 manangers
+
            this.service.showUserAccountManager=true;
 
            this.service.showFarmsManager=true;
@@ -131,7 +130,6 @@ export class LoginComponent implements OnInit {
 
            this.service.showSubCategoriesManager=true;
 
-           //remove the following later
            this.service.showGraphsFarmExperimentsLink=true;
 
            this.service.showExperienceManager=true;
@@ -170,6 +168,29 @@ export class LoginComponent implements OnInit {
            this.service.showEventsManager=true;
   
            this.service.showFarmsSelection=true;
+
+           break;
+        case 1:
+           // code block reserved for admin access
+           this.service.currentLoggedInUserAccess="Admin";
+
+           console.log("Admin access !");
+
+           this.service.showLoginButton=false;
+
+           this.service.showLogoutButton=true;
+
+
+           
+           this.service.showAccessManager=true;
+           //only 2 manangers
+           this.service.showUserAccountManager=true;
+
+           this.service.showFarmsManager=true;
+
+           this.service.showCategoriesManager=true;
+
+           this.service.showSubCategoriesManager=true;
 
            break;
         default:

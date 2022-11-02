@@ -1,20 +1,20 @@
 <div class="outer">
     <div class="inner">
         <div>
-            <p class="p-2 bg-info text-light text-center" *ngIf="SharedService.showLogoutButton">All Functions Portal</p>
+            <p class="p-2 bg-info text-light text-center" *ngIf="SharedService.showLogoutButton">{{'funcs.title'|translate}}</p>
         </div>
         <div class="inner2">
             &nbsp;&nbsp;&nbsp;
-            <button routerLink="../Logout" *ngIf="SharedService.showLogoutButton" class="btn btn-primary">Logout</button>
+            <button routerLink="../Logout" *ngIf="SharedService.showLogoutButton" class="btn btn-primary">{{'funcs.btn_logout'|translate}}</button>
         </div>
         <div class="line" *ngIf="SharedService.showLogoutButton">
             <hr>
         </div>
         <div *ngIf="SharedService.showLogoutButton">
-            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;Welcome {{SharedService.currentLoggedInUser.prenomUsager}}  {{SharedService.currentLoggedInUser.nomUsager}}</p>
-            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;Your user ID is {{SharedService.currentLoggedInUser.usagerId}}</p>
-            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;Your access is  {{SharedService.currentLoggedInUserAccess}}</p>
-            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;Your selected farm is  {{SharedService.currentlySelectedFarm.nomFerme}}</p>
+            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;{{'funcs.info_username'|translate}} {{SharedService.currentLoggedInUser.prenomUsager}}  {{SharedService.currentLoggedInUser.nomUsager}}</p>
+            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;{{'funcs.info_uId'|translate}} {{SharedService.currentLoggedInUser.usagerId}}</p>
+            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;{{'funcs.info_uAccess'|translate}} {{SharedService.currentLoggedInUserAccess}}</p>
+            <p class="p-1 bg-info text-light text-left">&nbsp;&nbsp;&nbsp;{{'funcs.info_selectedFarm'|translate}} {{SharedService.currentlySelectedFarm.nomFerme}}</p>
         </div>
         <div class="line" *ngIf="SharedService.showLogoutButton">
             <hr>
@@ -28,19 +28,19 @@
             <nav class="navbar navbar-expand-sm bg-light navbar-dark">
               <ul class="navbar-nav">
                 <li class="navbar-item">
-                    <button routerLink="../ShowAccessLevelList" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showAccessManager" Button>Access level manager</button>
+                    <button routerLink="../ShowAccessLevelList" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showAccessManager" Button>{{'funcs.btn_accessLevelManager'|translate}}</button>
                 </li>
                 <li class="navbar-item">
-                  <button routerLink="../ShowUserList" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showUserAccountManager" Button>User account manager</button>
+                  <button routerLink="../ShowUserList" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showUserAccountManager" Button>{{'funcs.btn_userManager'|translate}}</button>
                 </li>
                 <li class="navbar-item">
-                    <button routerLink="../FarmsManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showFarmsManager" Button>Farms manager</button>
+                    <button routerLink="../FarmsManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showFarmsManager" Button>{{'funcs.btn_farmManager'|translate}}</button>
                 </li>
                 <li class="navbar-item">
-                    <button routerLink="../CategoriesManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showCategoriesManager" Button>Categories manager</button>
+                    <button routerLink="../CategoriesManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showCategoriesManager" Button>{{'funcs.btn_categoriesManager'|translate}}</button>
                 </li>
                 <li class="navbar-item">
-                    <button routerLink="../SubCategoriesManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showSubCategoriesManager" Button>SubCategories manager</button>
+                    <button routerLink="../SubCategoriesManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showSubCategoriesManager" Button>{{'funcs.btn_subCategoriesManager'|translate}}</button>
                 </li>
               </ul>          
             </nav>
@@ -50,13 +50,13 @@
             <nav class="navbar navbar-expand-sm bg-light navbar-dark">
               <ul class="navbar-nav">
                 <li class="navbar-item">
-                    <button routerLink="../ShowUserList" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showGraphsFarmExperimentsLink" Button>Graphs of farm experiments</button>
+                    <button routerLink="../ShowUserList" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showGraphsFarmExperimentsLink" Button>{{'funcs.btn_graph_experiment'|translate}}</button>
                 </li>
                 <li class="navbar-item">
-                    <button routerLink="../ExperienceManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showExperienceManager" Button>Experience Manager</button>
+                    <button routerLink="../ExperienceManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showExperienceManager" Button>{{'funcs.btn_experienceManager'|translate}}</button>
                 </li>
                 <li class="navbar-item">
-                    <button routerLink="../EventsManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showEventsManager" Button>Events Manager</button>
+                    <button routerLink="../EventsManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showEventsManager" Button>{{'funcs.btn_eventsManager'|translate}}</button>
                 </li>
               </ul>          
             </nav>
@@ -67,7 +67,7 @@
             <nav class="navbar navbar-expand-sm bg-light navbar-dark">
               <ul class="navbar-nav">
                 <li class="navbar-item">
-                    <button routerLink="../FarmSelect" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showFarmsSelection" Button>Farms selection</button>            
+                    <button routerLink="../FarmSelect" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showFarmsSelection" Button>{{'funcs.btn_farmSelect'|translate}}</button>            
                 </li>
               </ul>          
             </nav>
