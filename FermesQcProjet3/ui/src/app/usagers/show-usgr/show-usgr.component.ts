@@ -8,7 +8,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class ShowUsgrComponent implements OnInit {
 
-  constructor(private service:SharedService) { 
+  constructor(private service:SharedService) {
     this.ModalTitle = "";
   }
 
@@ -46,7 +46,7 @@ export class ShowUsgrComponent implements OnInit {
 
   deleteClick(item: any){
     if(confirm('Are you sure?')){
-      this.service.deleteNivAcc(item.usagerId).subscribe(data=>{
+      this.service.deleteUsager(item.usagerId).subscribe(data=>{
         alert(data.toString());
         this.refreshUsagersList();
       })
@@ -60,8 +60,8 @@ export class ShowUsgrComponent implements OnInit {
   refreshUsagersList(){
     this.service.getUsagerList().subscribe(data=> {
       this.UsagersList=data;
-      
-      
+
+
       console.log("Printing");
     console.log("length is "+this.UsagersList.length)
     for(let user of this.UsagersList){
@@ -70,7 +70,7 @@ export class ShowUsgrComponent implements OnInit {
     }
     })
 
-    
+
   }
 }
 

@@ -34,7 +34,7 @@ def niveauAccesApi(request, accesId=0):
         return JsonResponse("Failed to update",safe=False)
     
     elif request.method=='DELETE':
-        niveauAcces=NiveauAcces.objects.get(accesId=id)
+        niveauAcces=NiveauAcces.objects.get(accesId=accesId)
         niveauAcces.delete()
         return JsonResponse("Deleted Succesfully!!", safe=False)
 
@@ -62,7 +62,7 @@ def usagersApi(request, usagerId=0):
         return JsonResponse("Failed to update",safe=False)
     
     elif request.method=='DELETE':
-        usager=Usagers.objects.get(usagerId=id)
+        usager=Usagers.objects.get(usagerId=usagerId)
         usager.delete()
         return JsonResponse("Deleted Succesfully!!", safe=False)
 

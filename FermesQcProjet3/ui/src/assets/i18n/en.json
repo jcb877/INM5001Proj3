@@ -1,4 +1,4 @@
-{    
+{
     "header":{
         "title":"Quebec Farms",
         "login":"Login",
@@ -8,7 +8,7 @@
         "lang_fr":"French"
     },
     "footer":{
-        "intro":"This website is developped by Team A - Jose Carlos Braul,Steve Gordon,Jean-Louis Jousso,Yang Wang"
+        "intro":"This website is developped by Team A - Jose Carlos Braul, Steve Gordon, Jean-Louis Jousso and Yang Wang"
     },
     "login":{
         "title":"Authentication Form",

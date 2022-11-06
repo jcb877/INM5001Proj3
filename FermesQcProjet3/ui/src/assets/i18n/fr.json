@@ -1,25 +1,25 @@
-{    
+{
     "header":{
-        "title":"Fermes Quebec",
+        "title":"Fermes Québec",
         "login":"Connexion",
         "home":"Accueil",
-        "choose_lang":"Selectionnez Language",
+        "choose_lang":"Selectionnez Langage",
         "lang_en":"Anglais",
         "lang_fr":"Français"
     },
     "footer":{
-        "intro":"Ce site est développé par l'équipe A - Jose Carlos Braul,Steve Gordon,Jean-Louis Jousso,Yang Wang"
+        "intro":"Ce site est développé par l'équipe A - Jose Carlos Braul, Steve Gordon, Jean-Louis Jousso et Yang Wang"
     },
     "login":{
-        "title":"Le page de l'authentication",
+        "title":"La page d'authentification",
         "username":"Nom de l'utilisateur",
         "password":"Le mot de passe",
         "btn_submit":"Soumettre",
-        "btn_reset":"Remettre"
+        "btn_reset":"Retour"
     },
     "logout":{
-        "msg":"Vous êtes déconnecté avec succès !",
-        "btn":"Retourner au Accueil"
+        "msg":"Vous vous êtes déconnecté avec succès !",
+        "btn":"Retourner à l'Accueil"
     },
     "funcs":{
         "title":"Portail de toutes les fonctions",
@@ -33,14 +33,14 @@
         "btn_farmManager":"Gestionnaire de fermes",
         "btn_categoriesManager":"Gestionnaire de catégories",
         "btn_subCategoriesManager":"Gestionnaire de sous-catégories",
-        "btn_graph_experiment":"Graphiques d'expérimentations agricoles",
-        "btn_experienceManager":"Gestionnaire d'expérience",
+        "btn_graph_experiment":"Graphiques d'expériences agricoles",
+        "btn_experienceManager":"Gestionnaire d'expériences",
         "btn_eventsManager":"Gestionnaire d'événements",
         "btn_farmSelect":"Sélection des fermes"
     },
     "access":{
         "title":"Liste des niveaux d'accès",
-        "btn_back":"Retour à la page du portail de toutes les fonctions",
+        "btn_back":"Retour à toutes les fonctions",
         "btn_add":"Ajouter un nouvel accès",
         "btn_edit":"Modifier",
         "btn_delete":"Supprimer",
@@ -103,7 +103,7 @@
         "add_btn_add":"Ajouter",
         "add_btn_update":"Mettre à jour",
         "add_btn_cancel":"Annuler",
-        "msg_success":"La ferme a été enregistré avec succès !",
+        "msg_success":"La ferme a été enregistrée avec succès !",
         "msg_fail":"Échec d'enregistrer La ferme !",
         "btn_close":"Fermer le message"
     },
@@ -141,13 +141,13 @@
         "add_btn_add":"Ajouter",
         "add_btn_update":"Mettre à jour",
         "add_btn_cancel":"Annuler",
-        "msg_success":"La sous-categorie a été enregistré avec succès !",
-        "msg_fail":"Échec d'enregistrer La sous-catégorie !",
+        "msg_success":"La sous-categorie a été enregistrée avec succès !",
+        "msg_fail":"Échec d'enregistrer la sous-catégorie !",
         "btn_close":"Fermer le message"
     },
     "e":{
-        "title":"Page du gestionnaire d'expérience",
-        "btn_back":"Retour à la page du portail de toutes les fonctions",
+        "title":"Page du gestionnaire d'expériences",
+        "btn_back":"Retour à toutes les fonctions",
         "btn_add":"Ajouter une nouvelle expérience",
         "btn_edit":"Modifier",
         "btn_delete":"Supprimer",
@@ -163,9 +163,9 @@
         "add_btn_add":"Ajouter",
         "add_btn_update":"Mettre à jour",
         "add_btn_cancel":"Annuler",
-        "msg_success":"L'expérience a été enregistré avec succès !",
+        "msg_success":"L'expérience a été enregistrée avec succès !",
         "msg_fail":"Échec d'enregistrer l'expérience !",
         "btn_close":"Fermer le message"
     }
-    
+
 }

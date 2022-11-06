@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
 
   userFound:boolean=false;  //if the user is found,change the value,default value is usager is not found.
-  
+
   userAuthenticated:boolean=false;  //if user authenticated correctly,the value will be changed into true.
 
   loginForm:FormGroup=new FormGroup({
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   getAllUsers(){
     this.service.getUsagerList().subscribe(
       res=>{
-      this.allUsers=res;   
+      this.allUsers=res;
       console.log("Inside login module,the users list length is ",this.allUsers.length);
     }
   );
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
 
       //if user is found,check pw correctness.
       if(this.userFound){
-        
+
         if(this.pw===this.pwRef){
           //if all is correct,show welcome message.
           alert("Tout est correct.Bienvenue ! All correct.Welcome !");
@@ -107,7 +107,7 @@ export class LoginComponent implements OnInit {
 
     //access ID decides which functions will be acquired after logging in.
     console.log("Logged in successfully !");
-    
+
       switch(accessId) {
         case 19:
           // code block reserved for super admin access
@@ -119,7 +119,7 @@ export class LoginComponent implements OnInit {
            this.service.showLoginButton=false;
 
            this.service.showLogoutButton=true;
-           
+
            this.service.showAccessManager=true;
 
            this.service.showUserAccountManager=true;
@@ -135,14 +135,14 @@ export class LoginComponent implements OnInit {
            this.service.showExperienceManager=true;
 
            this.service.showEventsManager=true;
-  
+
            this.service.showFarmsSelection=true;
 
            break;
         case 2:
            // code block reserved for rechercheur access
-           this.service.currentLoggedInUserAccess="Rechercheur";
-           console.log("Rechercheur access !");
+           this.service.currentLoggedInUserAccess="Chercheur";
+           console.log("Chercheur access !");
 
            this.service.showLoginButton=false;
 
@@ -152,7 +152,7 @@ export class LoginComponent implements OnInit {
            this.service.showGraphsFarmExperimentsLink=true;
 
            this.service.showExperienceManager=true;
-  
+
 
            break;
         case 3:
@@ -166,7 +166,7 @@ export class LoginComponent implements OnInit {
 
            //show only 2 manangers
            this.service.showEventsManager=true;
-  
+
            this.service.showFarmsSelection=true;
 
            break;
@@ -181,7 +181,7 @@ export class LoginComponent implements OnInit {
            this.service.showLogoutButton=true;
 
 
-           
+
            this.service.showAccessManager=true;
            //only 2 manangers
            this.service.showUserAccountManager=true;
@@ -200,6 +200,6 @@ export class LoginComponent implements OnInit {
 
     }
 
-  
+
 
 }
