@@ -1,0 +1,115 @@
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
+
+@Component({
+  selector: 'app-add-edit-farm',
+  templateUrl: './add-edit-farm.component.html',
+  styleUrls: ['./add-edit-farm.component.css']
+})
+export class AddEditFarmComponent implements OnInit {
+
+  fermeId:string="";
+  nomFerme:string="";  
+  addresseFerme:string="";
+  villeFerme:string="";
+  provinceFerme:string="";
+
+
+  showSuccessMsg:boolean=false;
+  showFailMsg:boolean=false;
+  showForm:boolean=true;
+  showUpdateButton:boolean=false;
+  
+  constructor(private service:SharedService) {
+
+  }
+
+
+
+  ngOnInit(): void {
+
+    if(this.service.editingFarm.fermeId==0){
+      console.log("For new farm");
+    }
+    else{
+      console.log("For update farm");
+
+      this.fermeId=this.service.editingFarm.fermeId.toString();
+
+      this.nomFerme=this.service.editingFarm.nomFerme;
+
+      this.addresseFerme=this.service.editingFarm.addresseFerme;
+
+      this.villeFerme=this.service.editingFarm.villeFerme;
+
+      this.provinceFerme=this.service.editingFarm.provinceFerme;
+
+      this.showUpdateButton=true;
+    }
+
+  }
+
+
+  addNewFarm(){
+
+    var val = {
+      nomFerme:this.nomFerme,
+      addresseFerme:this.addresseFerme,
+      villeFerme:this.villeFerme,
+      provinceFerme:this.provinceFerme
+    };
+
+    //modify this once farm api is done
+    this.service.addUsager(val).subscribe(res=>{
+      alert(res.toString());
+
+      if(res.toString().includes("Success")){
+        this.showForm=false;
+        this.showSuccessMsg=true;
+      }
+      else{
+        this.showForm=false;
+        this.showFailMsg=true;
+      }
+
+    });
+  }
+
+  updateFarm(){
+    var val = {
+      nomFerme:this.nomFerme,
+      addresseFerme:this.addresseFerme,
+      villeFerme:this.villeFerme,
+      provinceFerme:this.provinceFerme
+    };
+    this.service.updateUsager(val).subscribe(res=>{
+    alert(res.toString());
+
+    if(res.toString().includes("Success")){
+      this.showForm=false;
+      this.showSuccessMsg=true;
+    }
+    else{
+      this.showForm=false;
+      this.showFailMsg=true;
+    }
+
+    
+    });
+  }
+
+
+
+
+  closeSuccessMsg(){
+      this.showSuccessMsg=false;
+      this.ngOnInit();
+  }
+  
+  closeFailMsg(){
+      this.showFailMsg=false;
+      this.ngOnInit();
+  
+  }
+
+}

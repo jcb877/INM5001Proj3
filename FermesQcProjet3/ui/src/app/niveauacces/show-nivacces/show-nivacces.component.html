@@ -1,0 +1,32 @@
+
+<div id="outer">
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'access.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddAccess" class="btn btn-success">{{'access.btn_add'|translate}}</button>
+  </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'access.title'|translate}}</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{'access.col_id'|translate}}</th>
+                <th>{{'access.col_name'|translate}}</th>
+                <th>{{'access.col_opts'|translate}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let level of NiveauAccesList">
+                <td>{{level.accesId}}</td>
+                <td>{{level.access}}</td>
+                <td class="options">                   
+                    <button routerLink="../AddAccess" class="btn btn-primary" (click)="editClick(level)">{{'access.btn_edit'|translate}}</button>&nbsp;&nbsp;
+                    <button class="btn btn-danger" (click)="deleteClick(level)" >{{'access.btn_delete'|translate}}</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
