@@ -1,6 +1,6 @@
 from dataclasses import field
 from rest_framework import serializers
-from UsagerApp.models import NiveauAcces, Usagers, UsagersFermes, Fermes
+from UsagerApp.models import Categories, Experiences, NiveauAcces, Notes, Usagers, UsagersFermes, Fermes, Vaches, Medias
 
 class NiveauAccesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,7 +22,7 @@ class UsagersFermesSerializer(serializers.ModelSerializer):
     class Meta:
         model = UsagersFermes
         fields = ('usagersFermesId',
-                'login',
+                'usagerId',
                 'fermeId')
 
 class FermesSerializer(serializers.ModelSerializer):
@@ -32,4 +32,52 @@ class FermesSerializer(serializers.ModelSerializer):
                 'nomFerme',
                 'addresseFerme',
                 'villeFerme',
-                'provinceFerme')
+                'provinceFerme',
+                'deleted',
+                'deletedDate')
+
+class VachesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vaches
+        fields = ('vacheId',
+                  'nomVache',
+                  'fermeId')
+
+
+class ExperiencesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Experiences
+        fields = ('experienceId',
+                'dateExperience',
+                'categorieId',
+                'vacheId')
+
+class NotesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notes
+        fields = ('noteId',
+                'dateNote',
+                'note',
+                'experienceId')
+
+class MediasSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Medias
+        fields = ('mediaId',
+                  'media',
+                  'noteId')
+
+class CategoriesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Categories
+        fields = ('categorieId',
+                'nomCategorie') 
+
+class SousCategoriesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Categories
+        fields = ('sousCategorieId',
+                'nomSousCategorie',
+                'categorieId')  
+
+               
