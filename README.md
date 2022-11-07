@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # INM5001Proj3
-# Test de commit SG
 =======
 Avant de commencer
 Assurer vous d'avoir d'installer sur votre machine
@@ -54,4 +52,3 @@ ng serve
 -----------------------------------------------------------
 
 
->>>>>>> frontEnd_modified
