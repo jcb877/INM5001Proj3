@@ -1,6 +1,6 @@
 from dataclasses import field
 from rest_framework import serializers
-from UsagerApp.models import Categories, Experiences, NiveauAcces, Notes, Usagers, UsagersFermes, Fermes, Vaches, Medias
+from UsagerApp.models import Categories, SousCategories, Experiences, NiveauAcces, Notes, Usagers, UsagersFermes, Fermes, Vaches, Medias
 
 class NiveauAccesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -75,9 +75,7 @@ class CategoriesSerializer(serializers.ModelSerializer):
 
 class SousCategoriesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Categories
+        model = SousCategories
         fields = ('sousCategorieId',
                 'nomSousCategorie',
                 'categorieId')  
-
-               
