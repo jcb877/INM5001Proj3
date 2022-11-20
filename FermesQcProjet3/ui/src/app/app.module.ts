@@ -16,7 +16,7 @@ import { ShowUsgrComponent } from './usagers/show-usgr/show-usgr.component';
 import { AddEditUsgrComponent } from './usagers/add-edit-usgr/add-edit-usgr.component';
 import { SharedService } from './shared.service';
 
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -115,7 +115,7 @@ const appRoutes:Routes=[
        }
       }
     ),
-    
+
     RouterModule.forRoot(appRoutes)
   ],
   providers: [SharedService],

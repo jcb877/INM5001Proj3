@@ -17,7 +17,7 @@ export class AddComponent implements OnInit {
   showUpdateButton:boolean=false;
 
   constructor(private service:SharedService) {
-     
+
   }
 
   ngOnInit(): void {
@@ -30,6 +30,7 @@ export class AddComponent implements OnInit {
 
     if(this.service.editingAccess.accesId==0){
          console.log("For new access");
+         
     }
     else{
          console.log("For update access");

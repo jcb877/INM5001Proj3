@@ -35,6 +35,7 @@ DATABASES = {
 ------Ajouter les nouvelles tables --------
 python manage.py makemigrations UsagerApp
 python manage.py migrate UsagerApp
+python manage.py loaddata add_data.json
 
 
 -----------Executer le program ------------

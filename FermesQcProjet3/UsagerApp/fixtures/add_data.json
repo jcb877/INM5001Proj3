@@ -1,0 +1,34 @@
+[
+    {
+        "model": "UsagerApp.niveauacces",
+        "pk": 1,
+        "fields": {
+            "access": "Admin"
+        }
+    },
+    {
+        "model": "UsagerApp.niveauacces",
+        "pk": 2,
+        "fields": {
+            "access": "Chercheur"
+        }
+    },
+    {
+        "model": "UsagerApp.niveauacces",
+        "pk": 3,
+        "fields": {
+            "access": "PI"
+        }
+    },
+    {
+        "model": "UsagerApp.usagers",
+        "pk": 1,
+        "fields": {
+            "login": "SuperAdmin",
+            "prenomUsager": "Admin",
+            "nomUsager": "Admin",
+            "motPasse": "INM5001",
+            "accesId_id": "1"
+        }
+    }
+]

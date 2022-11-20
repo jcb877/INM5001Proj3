@@ -5,48 +5,48 @@ import { Observable, Subject } from 'rxjs';
 export interface User{
   usagerId:number;
   login:string;   //this is username
-  prenomUsager:string; 
-  nomUsager:string; 
-  motPasse:string; 
+  prenomUsager:string;
+  nomUsager:string;
+  motPasse:string;
   accesId:number;
 }
 
 export interface Access{
   accesId:number;
-  accessName:string; 
+  accessName:string;
 }
 
 export interface Farm{
   fermeId:number;
-  nomFerme:string;   
-  addresseFerme:string; 
-  villeFerme:string; 
-  provinceFerme:string; 
+  nomFerme:string;
+  addresseFerme:string;
+  villeFerme:string;
+  provinceFerme:string;
 }
 
 
 export interface Experience{
   experienceId:number;
-  dateExperience:string;   
-  nomCategorie:string; 
-  nomSousCategorie:string; 
-  fermeId_id:number; 
+  dateExperience:string;
+  nomCategorie:string;
+  nomSousCategorie:string;
+  fermeId_id:number;
 }
 
 export interface Category{
   categorieId:number;
-  nomCategorie:string;   
+  nomCategorie:string;
 }
 
 export interface SubCategory{
   sousCategorieId:number;
-  nomSousCategorie:string;   
+  nomSousCategorie:string;
 }
 
 export interface Event{
   noteId:number;
-  dateNote:string;  
-  note:string;   
+  dateNote:string;
+  note:string;
   experienceId:number;
 }
 
@@ -62,7 +62,7 @@ export class SharedService {
  readonly APIUrl = "http://127.0.0.1:8000/";
  readonly PhotoUrl = "http://127.0.0.1:8000/media/"
 
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient) {
 
     this.showLogoutButtonChanged.subscribe((value)=>{
       this.showLogoutButton=value;
@@ -146,7 +146,7 @@ export class SharedService {
     return this.http.post(this.APIUrl + 'usagers/',val);
   }
 
-  //modify user 
+  //modify user
   updateUsager(val:any){
     return this.http.put(this.APIUrl + 'usagers/',val);
   }
@@ -258,21 +258,21 @@ export class SharedService {
 
   showExperienceManagerEnabled(){
     this.showExperienceManagerChanged.next(true);
-  } 
+  }
 
   //to control to show event manager
   showEventsManagerChanged:Subject<boolean>=new Subject<boolean>();
 
   showEventsManagerEnabled(){
     this.showEventsManagerChanged.next(true);
-  } 
+  }
 
   //to control to show farms selection
   showFarmsSelectionChanged:Subject<boolean>=new Subject<boolean>();
 
   showFarmsSelectionEnabled(){
     this.showFarmsSelectionChanged.next(true);
-  } 
+  }
 
 
 
@@ -290,7 +290,7 @@ export class SharedService {
   editingSubCategory:SubCategory={sousCategorieId:0,nomSousCategorie:""};
 
   //currently selected farm
-  currentlySelectedFarm:Farm={fermeId:0,nomFerme:"Not Selected Yet",addresseFerme:"",villeFerme:"",provinceFerme:""};
+  currentlySelectedFarm:Farm={fermeId:0,nomFerme:"Not Selected Yet ",addresseFerme:"",villeFerme:"",provinceFerme:""};
 
 
 }

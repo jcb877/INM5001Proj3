@@ -1,3 +1,4 @@
+import { Access } from 'src/app/shared.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl } from '@angular/forms';
 import { SharedService, User } from '../shared.service';
@@ -32,10 +33,43 @@ export class LoginComponent implements OnInit {
 
   allUsers:any=[];
 
+  // accessList: Access[] = [];
+  // fakeAccessList: Access[] = [];
+
+  // userList: User[] = [];
+  // fakeUserList: User[] = [];
+
   constructor(private service:SharedService) { }
 
   ngOnInit(): void {
     this.getAllUsers();
+
+    // if (this.accessList.length == 0) {
+    //   console.log("Fake list started");
+    //   var a1: Access = { accesId: 1, accessName: "Admin" };
+    //   var a2: Access = { accesId: 2, accessName: "Chercheur" };
+    //   var a3: Access = { accesId: 3, accessName: "PI" };
+
+    //   this.fakeAccessList.push(a1);
+    //   this.fakeAccessList.push(a2);
+    //   this.fakeAccessList.push(a3);
+
+    //   this.accessList = this.fakeAccessList;
+
+    //   console.log("length" + this.accessList.length);
+    // }
+
+    // if (this.userList.length == 0) {
+    //   var u1: User = { usagerId: 1, login: "SuperAdmin", prenomUsager: "Super", nomUsager: "Admin", motPasse: "123456", accesId: 1 };
+
+    //   this.fakeUserList.push(u1);
+
+    //   this.userList = this.fakeUserList;
+
+    //   console.log("length : " + this.userList.length);
+
+    // }
+
   }
 
   getAllUsers(){
