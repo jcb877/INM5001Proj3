@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SharedService } from 'src/app/shared.service';
+import { Category, SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-add-edit-category',
@@ -8,10 +8,10 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class AddEditCategoryComponent implements OnInit {
 
-  categoryId: number = 0;
+  categorieId: number = 0;
   categoryName: string = "";
 
-
+  categoriesList: Category[] = [];
 
   showSuccessMsg: boolean = false;
   showFailMsg: boolean = false;
@@ -25,14 +25,14 @@ export class AddEditCategoryComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.refreshCategoryList();
     if (this.service.editingCategory.categorieId == 0) {
       console.log("For new category");
     }
     else {
       console.log("For update category");
 
-      this.categoryId = this.service.editingCategory.categorieId;
+      this.categorieId = this.service.editingCategory.categorieId;
       this.categoryName = this.service.editingCategory.nomCategorie;
 
       this.showUpdateButton = true;
@@ -66,24 +66,26 @@ export class AddEditCategoryComponent implements OnInit {
   }
 
   updateCategory() {
+
     var val = {
-      categoryId: this.categoryId,
+      categorieId: this.categorieId,
       nomCategorie: this.categoryName
     };
 
+console.log(val);
 
     this.service.updateCategory(val).subscribe(res => {
       alert(res.toString());
 
 
-      // if (res.toString().includes("Succes")) {
-      //   this.showForm = false;
-      //   this.showSuccessMsg = true;
-      // }
-      // else {
-      //   this.showForm = false;
-      //   this.showFailMsg = true;
-      // }
+      if (res.toString().includes("Succes")) {
+        this.showForm = false;
+        this.showSuccessMsg = true;
+      }
+      else {
+        this.showForm = false;
+        this.showFailMsg = true;
+      }
       // this.service.editingCategory = { categorieId: 0, nomCategorie: "" };
     });
   }
@@ -98,6 +100,12 @@ export class AddEditCategoryComponent implements OnInit {
     this.showFailMsg = false;
     this.ngOnInit();
 
+  }
+
+  refreshCategoryList() {
+    this.service.getCategoryList().subscribe(data => {
+      this.categoriesList = data;
+    })
   }
 
 }

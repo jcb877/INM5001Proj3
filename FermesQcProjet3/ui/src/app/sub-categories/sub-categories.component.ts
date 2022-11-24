@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService, SubCategory } from '../shared.service';
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-sub-categories',
@@ -52,7 +53,9 @@ export class SubCategoriesComponent implements OnInit {
 
 
     editClick(item:any){
-      // this.service.editingSubCategory.sousCategorieId=item.sousCategorieId;
+      console.log(item);
+
+      this.service.editingSubCategory=item;
       // this.service.editingSubCategory.nomSousCategorie=item.nomSousCategorie;
       // console.log("sub category id"+this.service.editingSubCategory.sousCategorieId);
       // console.log("sub category name"+this.service.editingSubCategory.nomSousCategorie);

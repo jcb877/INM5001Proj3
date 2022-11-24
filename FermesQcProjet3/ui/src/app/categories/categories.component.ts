@@ -46,8 +46,8 @@ export class CategoriesComponent implements OnInit {
 
 
   editClick(item: any) {
-    // this.service.editingCategory.categorieId = item.categorieId;
-    // this.service.editingCategory.nomCategorie = item.nomCategorie;
+    this.service.editingCategory.categorieId = item.categorieId;
+    this.service.editingCategory.nomCategorie = item.nomCategorie;
   }
 
   deleteClick(item: any) {

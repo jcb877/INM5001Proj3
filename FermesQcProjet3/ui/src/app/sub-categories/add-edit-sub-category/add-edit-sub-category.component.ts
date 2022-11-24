@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, importProvidersFrom, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-add-edit-sub-category',
@@ -73,7 +74,7 @@ export class AddEditSubCategoryComponent implements OnInit {
   updateSubCategory(){
 
     var val = {
-      sousCategorieId: 2, //******************************************************* */
+      sousCategorieId: this.sousCategorieId,
       nomSousCategorie: this.nomSousCategorie,
       categorieId: this.categorieId
     };
