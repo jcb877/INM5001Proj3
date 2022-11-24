@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule} from '@angular/material/input';
-import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -17,7 +17,7 @@ import { AddEditUsgrComponent } from './usagers/add-edit-usgr/add-edit-usgr.comp
 import { SharedService } from './shared.service';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
@@ -41,31 +41,31 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 
-export function HttpLoaderFactory(http:HttpClient){
-  return new TranslateHttpLoader(http,'./assets/i18n/','.json');
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-const appRoutes:Routes=[
-  {path:'',component:CarouselComponent},
-  {path:'Acceuil',component:CarouselComponent},
-  {path:'Login',component:FunctionsComponent},
-  {path:'Logout',component:LogoutComponent},
-  {path:'Functions',component:FunctionsComponent },
-  {path:'ShowUserList',component:ShowUsgrComponent },
-  {path:'ShowAccessLevelList',component:ShowNivaccesComponent},
-  {path:'AddAccess',component:AddComponent},
-  {path:'AddEditUser',component:AddEditUsgrComponent},
-  {path:'FarmsManager',component:FarmsManagerComponent},
-  {path:'AddEditFarm',component:AddEditFarmComponent},
-  {path:'CategoriesManager',component:CategoriesComponent},
-  {path:'AddEditCategory',component:AddEditCategoryComponent},
-  {path:'SubCategoriesManager',component:SubCategoriesComponent},
-  {path:'AddEditSubCategory',component:AddEditSubCategoryComponent},
-  {path:'ExperienceManager',component:ExperienceComponent},
-  {path:'AddEditExperience',component:AddEditExperienceComponent},
-  {path:'EventsManager',component:EventComponent},
-  {path:'FarmSelect',component:FarmSelectionComponent},
-  {path:'**',component:ErrorComponent}
+const appRoutes: Routes = [
+  { path: '', component: CarouselComponent },
+  { path: 'Acceuil', component: CarouselComponent },
+  { path: 'Login', component: FunctionsComponent },
+  { path: 'Logout', component: LogoutComponent },
+  { path: 'Functions', component: FunctionsComponent },
+  { path: 'ShowUserList', component: ShowUsgrComponent },
+  { path: 'ShowAccessLevelList', component: ShowNivaccesComponent },
+  { path: 'AddAccess', component: AddComponent },
+  { path: 'AddEditUser', component: AddEditUsgrComponent },
+  { path: 'FarmsManager', component: FarmsManagerComponent },
+  { path: 'AddEditFarm', component: AddEditFarmComponent },
+  { path: 'CategoriesManager', component: CategoriesComponent },
+  { path: 'AddEditCategory', component: AddEditCategoryComponent },
+  { path: 'SubCategoriesManager', component: SubCategoriesComponent },
+  { path: 'AddEditSubCategory', component: AddEditSubCategoryComponent },
+  { path: 'ExperienceManager', component: ExperienceComponent },
+  { path: 'AddEditExperience', component: AddEditExperienceComponent },
+  { path: 'EventsManager', component: EventComponent },
+  { path: 'FarmSelect', component: FarmSelectionComponent },
+  { path: '**', component: ErrorComponent }
 ]
 
 
@@ -108,11 +108,11 @@ const appRoutes:Routes=[
 
     TranslateModule.forRoot(
       {
-      loader:{
-        provide: TranslateLoader,
-        useFactory:HttpLoaderFactory,
-        deps: [HttpClient]
-       }
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+        }
       }
     ),
 

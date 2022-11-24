@@ -7,9 +7,19 @@
         <div class="form-group row">
            <label class="col-sm-2 col-form-label">{{'scat.col_name'|translate}}</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control"placeholder="Enter New Category" [(ngModel)]="subCategoryName">
+               <input type="text" class="form-control"placeholder="Enter New Category" [(ngModel)]="nomSousCategorie">
             </div>
         </div>
+<div class="form-group row">
+        <label class="col-sm-2 col-form-label">{{'cat.title'|translate}}</label>
+        <div class="col-sm-10">
+          <select class="form-control" [(ngModel)]="categorieId">
+            <option>--Select--</option>
+            <option *ngFor="let cat of categoryList" [value]="cat.categorieId">{{cat.nomCategorie}}</option>
+          </select>
+        </div>
+</div>
+
         <button  *ngIf="!showUpdateButton" (click)="addNewSubCategory()" class="btn btn-primary">{{'scat.add_btn_add'|translate}}</button>&nbsp;&nbsp;
         <button  *ngIf="showUpdateButton" (click)="updateSubCategory()" class="btn btn-primary">{{'scat.add_btn_update'|translate}}</button>&nbsp;&nbsp;
         <button  routerLink="../SubCategoriesManager" class="btn btn-warning">{{'scat.add_btn_cancel'|translate}}</button>
@@ -24,7 +34,7 @@
         <button class="btn btn-success" routerLink="../SubCategoriesManager" (click)="closeSuccessMsg()">{{'scat.btn_close'|translate}}</button>
         </div>
     </div>
-    
+
     <div *ngIf="showFailMsg" class="alert alert-danger">
         <div class="text-center">
             <p>{{'scat.msg_fail'|translate}}</p>
