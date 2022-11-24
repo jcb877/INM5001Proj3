@@ -10,7 +10,7 @@ export class ExperienceComponent implements OnInit {
 
   experienceList:Experience[]=[];
 
-  fakeExperienceList:Experience[]=[];
+  // fakeExperienceList:Experience[]=[];
 
 
   constructor(private service:SharedService) { }
@@ -19,19 +19,19 @@ export class ExperienceComponent implements OnInit {
     //this.getFarmsList();
 
     //fake only for testing
-    if(this.experienceList.length==0){
-      console.log("Fake list started");
-      var e1:Experience={experienceId:1,dateExperience:"2022-10-23",  nomCategorie:"Farm check",nomSousCategorie:"Regular check",fermeId_id:2};
-      var e2:Experience={experienceId:2,dateExperience:"2022-10-24",  nomCategorie:"Farm cleaning",nomSousCategorie:"Desinfection",fermeId_id:6};
-      var e3:Experience={experienceId:3,dateExperience:"2022-10-25",  nomCategorie:"Environment test",nomSousCategorie:"Chemical residues",fermeId_id:8};
-      
-      this.fakeExperienceList.push(e1);
-      this.fakeExperienceList.push(e2);
-      this.fakeExperienceList.push(e3);
+    // if(this.experienceList.length==0){
+    //   console.log("Fake list started");
+    //   var e1:Experience={experienceId:1,dateExperience:"2022-10-23",  nomCategorie:"Farm check",nomSousCategorie:"Regular check",fermeId_id:2};
+    //   var e2:Experience={experienceId:2,dateExperience:"2022-10-24",  nomCategorie:"Farm cleaning",nomSousCategorie:"Desinfection",fermeId_id:6};
+    //   var e3:Experience={experienceId:3,dateExperience:"2022-10-25",  nomCategorie:"Environment test",nomSousCategorie:"Chemical residues",fermeId_id:8};
 
-      this.experienceList=this.fakeExperienceList;
-      console.log("length"+this.experienceList.length);
-    }
+    //   this.fakeExperienceList.push(e1);
+    //   this.fakeExperienceList.push(e2);
+    //   this.fakeExperienceList.push(e3);
+
+    //   this.experienceList=this.fakeExperienceList;
+    //   console.log("length"+this.experienceList.length);
+    // }
   }
 
 

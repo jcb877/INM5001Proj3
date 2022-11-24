@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, importProvidersFrom, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-add-edit-sub-category',
@@ -8,8 +9,9 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class AddEditSubCategoryComponent implements OnInit {
 
-  subCategoryId:number=0;
-  subCategoryName:string="";  
+  sousCategorieId:number;
+  nomSousCategorie:string;
+  categorieId:number;
 
 
 
@@ -17,23 +19,27 @@ export class AddEditSubCategoryComponent implements OnInit {
   showFailMsg:boolean=false;
   showForm:boolean=true;
   showUpdateButton:boolean=false;
-  
-  constructor(private service:SharedService) {
 
+  constructor(private service:SharedService) {
+    this.sousCategorieId=0;
+    this.nomSousCategorie="";
+    this.categorieId=0;
   }
 
-
+  categoryList: any = [];
 
   ngOnInit(): void {
+    this.refreshCategorieList();
 
-    if(this.service.editingSubCategory.sousCategorieId==0){
+    if(this.service.editingSubCategory.sousCategorieId == null){
       console.log("For new sub category");
     }
     else{
       console.log("For update sub category");
 
-      this.subCategoryId=this.service.editingSubCategory.sousCategorieId;
-      this.subCategoryName=this.service.editingSubCategory.nomSousCategorie;  
+      this.sousCategorieId=this.service.editingSubCategory.sousCategorieId;
+      this.nomSousCategorie=this.service.editingSubCategory.nomSousCategorie;
+      this.categorieId=this.service.editingSubCategory.categorieId;
 
       this.showUpdateButton=true;
     }
@@ -44,11 +50,11 @@ export class AddEditSubCategoryComponent implements OnInit {
   addNewSubCategory(){
 
     var val = {
-      nomSousCategorie:this.subCategoryName  
+      nomSousCategorie:this.nomSousCategorie,
+      categorieId:this.categorieId
     };
 
-    //modify this once farm api is done
-    this.service.addUsager(val).subscribe(res=>{
+    this.service.addSubCategory(val).subscribe(res=>{
       alert(res.toString());
 
       if(res.toString().includes("Success")){
@@ -66,12 +72,16 @@ export class AddEditSubCategoryComponent implements OnInit {
   }
 
   updateSubCategory(){
+
     var val = {
-      nomCategorie:this.subCategoryName  
+      sousCategorieId: this.sousCategorieId,
+      nomSousCategorie: this.nomSousCategorie,
+      categorieId: this.categorieId
     };
+console.log(val);
 
 
-    this.service.updateUsager(val).subscribe(res=>{
+    this.service.updateSubCategory(val).subscribe(res=>{
     alert(res.toString());
 
     if(res.toString().includes("Succes")){
@@ -83,22 +93,26 @@ export class AddEditSubCategoryComponent implements OnInit {
       this.showFailMsg=true;
     }
 
-    
+
     });
   }
 
-
+  refreshCategorieList() {
+    this.service.getCategoryList().subscribe(data => {
+      this.categoryList = data;
+    })
+  }
 
 
   closeSuccessMsg(){
       this.showSuccessMsg=false;
       this.ngOnInit();
   }
-  
+
   closeFailMsg(){
       this.showFailMsg=false;
       this.ngOnInit();
-  
+
   }
 
 }

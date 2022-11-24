@@ -22,7 +22,7 @@ def niveauAccesApi(request, accesId=0):
         if niveauAcces_serializer.is_valid():
             niveauAcces_serializer.save()
             return JsonResponse("Added Successfully!!", safe=False)
-        return JsonResponse("Failes to add", safe=False)
+        return JsonResponse("Failed to add", safe=False)
     
     elif request.method=='PUT':
         niveauAcces_data = JSONParser().parse(request)
@@ -50,7 +50,7 @@ def usagersApi(request, usagerId=0):
         if usager_serializer.is_valid():
             usager_serializer.save()
             return JsonResponse("Added Successfully!!", safe=False)
-        return JsonResponse("Failes to add", safe=False)
+        return JsonResponse("Failed to add", safe=False)
     elif request.method=='PUT':
         usager_data = JSONParser().parse(request)
         usager=Usagers.objects.get(usagerId=usager_data['usagerId'])
@@ -76,7 +76,7 @@ def UsagersFermesApi(request, usagersFermesId=0):
         if usagersFermes_serializer.is_valid():
             usagersFermes_serializer.save()
             return JsonResponse("Added Successfully!!", safe=False)
-        return JsonResponse("Failes to add", safe=False)        
+        return JsonResponse("Failed to add", safe=False)        
     elif request.method=='PUT':
         usagersFermes_data = JSONParser().parse(request)
         usagersFermes=UsagersFermes.objects.get(usagersFermesId=usagersFermes_data['usagersFermesId'])

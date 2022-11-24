@@ -9,11 +9,11 @@ import { Category, Farm, SharedService, SubCategory } from 'src/app/shared.servi
 export class AddEditExperienceComponent implements OnInit {
 
   experienceId:number=0;
-  dateExperience:string="";   
-  nomCategorie:string=""; 
-  nomSousCategorie:string=""; 
+  dateExperience:string="";
+  nomCategorie:string="";
+  nomSousCategorie:string="";
   nomFerme:string="";
-  fermeId_id:number=0; 
+  fermeId_id:number=0;
 
   categoriesList:Category[]=[];
 
@@ -22,15 +22,15 @@ export class AddEditExperienceComponent implements OnInit {
   farmsList:Farm[]=[];
 
   //for testing
-  fakeCategoriesList:Category[]=[];
-  fakeSubCategoriesList:SubCategory[]=[];
-  fakeFarmsList:Farm[]=[];
+  // fakeCategoriesList:Category[]=[];
+  // fakeSubCategoriesList:SubCategory[]=[];
+  // fakeFarmsList:Farm[]=[];
 
   showSuccessMsg:boolean=false;
   showFailMsg:boolean=false;
   showForm:boolean=true;
   showUpdateButton:boolean=false;
-  
+
   constructor(private service:SharedService) {
 
   }
@@ -69,13 +69,13 @@ export class AddEditExperienceComponent implements OnInit {
   addNewExperience(){
 
     this.convertFarmNameIntoFarmId();
-    
+
     var val = {
       experienceId:this.experienceId,
-      dateExperience:this.dateExperience,  
-      nomCategorie:this.nomCategorie, 
-      nomSousCategorie:this.nomSousCategorie, 
-      fermeId_id:this.fermeId_id 
+      dateExperience:this.dateExperience,
+      nomCategorie:this.nomCategorie,
+      nomSousCategorie:this.nomSousCategorie,
+      fermeId_id:this.fermeId_id
     };
 
     console.log("This is date "+this.dateExperience);
@@ -99,10 +99,10 @@ export class AddEditExperienceComponent implements OnInit {
   updateExperience(){
     var val = {
       experienceId:this.experienceId,
-      dateExperience:this.dateExperience,   
-      nomCategorie:this.nomCategorie, 
-      nomSousCategorie:this.nomSousCategorie, 
-      fermeId_id:this.fermeId_id 
+      dateExperience:this.dateExperience,
+      nomCategorie:this.nomCategorie,
+      nomSousCategorie:this.nomSousCategorie,
+      fermeId_id:this.fermeId_id
     };
 
 
@@ -118,53 +118,53 @@ export class AddEditExperienceComponent implements OnInit {
       this.showFailMsg=true;
     }
 
-    
+
     });
   }
 
 
   getCategoryList(){
 
-    console.log("Fake list started");
-      var c1:Category={categorieId:1,nomCategorie:"Livestock Health Testing"};
-      var c2:Category={categorieId:2,nomCategorie:"Environment Pollution Testing"};
-      var c3:Category={categorieId:3,nomCategorie:"Pesticide Residues Testing"};
-      
-      this.fakeCategoriesList.push(c1);
-      this.fakeCategoriesList.push(c2);
-      this.fakeCategoriesList.push(c3);
+    // console.log("Fake list started");
+    //   var c1:Category={categorieId:1,nomCategorie:"Livestock Health Testing"};
+    //   var c2:Category={categorieId:2,nomCategorie:"Environment Pollution Testing"};
+    //   var c3:Category={categorieId:3,nomCategorie:"Pesticide Residues Testing"};
 
-      this.categoriesList=this.fakeCategoriesList;
+    //   this.fakeCategoriesList.push(c1);
+    //   this.fakeCategoriesList.push(c2);
+    //   this.fakeCategoriesList.push(c3);
+
+    //   this.categoriesList=this.fakeCategoriesList;
 
   }
 
   getSubCategoryList(){
 
-    console.log("Fake list started");
-    var sc1:SubCategory={sousCategorieId:1,nomSousCategorie:"Test 1"};
-    var sc2:SubCategory={sousCategorieId:2,nomSousCategorie:"Test 2"};
-    var sc3:SubCategory={sousCategorieId:3,nomSousCategorie:"Test 3"};
-    
-    this.fakeSubCategoriesList.push(sc1);
-    this.fakeSubCategoriesList.push(sc2);
-    this.fakeSubCategoriesList.push(sc3);
+    // console.log("Fake list started");
+    // var sc1:SubCategory={sousCategorieId:1,nomSousCategorie:"Test 1"};
+    // var sc2:SubCategory={sousCategorieId:2,nomSousCategorie:"Test 2"};
+    // var sc3:SubCategory={sousCategorieId:3,nomSousCategorie:"Test 3"};
 
-    this.subCategoriesList=this.fakeSubCategoriesList;
-    
+    // this.fakeSubCategoriesList.push(sc1);
+    // this.fakeSubCategoriesList.push(sc2);
+    // this.fakeSubCategoriesList.push(sc3);
+
+    // this.subCategoriesList=this.fakeSubCategoriesList;
+
   }
 
 
   getFarmsList(){
-    console.log("Fake list started");
-    var farm1:Farm={fermeId:1,nomFerme:"test farm 1",addresseFerme:"123 test street",villeFerme:"test city",provinceFerme:"test province"};
-    var farm2:Farm={fermeId:2,nomFerme:"test farm 2",addresseFerme:"456 test street",villeFerme:"test city",provinceFerme:"test province"};
-    var farm3:Farm={fermeId:3,nomFerme:"test farm 2",addresseFerme:"789 test street",villeFerme:"test city",provinceFerme:"test province"};
-      
-    this.fakeFarmsList.push(farm1);
-    this.fakeFarmsList.push(farm2);
-    this.fakeFarmsList.push(farm3);
+    // console.log("Fake list started");
+    // var farm1:Farm={fermeId:1,nomFerme:"test farm 1",addresseFerme:"123 test street",villeFerme:"test city",provinceFerme:"test province"};
+    // var farm2:Farm={fermeId:2,nomFerme:"test farm 2",addresseFerme:"456 test street",villeFerme:"test city",provinceFerme:"test province"};
+    // var farm3:Farm={fermeId:3,nomFerme:"test farm 2",addresseFerme:"789 test street",villeFerme:"test city",provinceFerme:"test province"};
 
-    this.farmsList=this.fakeFarmsList;
+    // this.fakeFarmsList.push(farm1);
+    // this.fakeFarmsList.push(farm2);
+    // this.fakeFarmsList.push(farm3);
+
+    // this.farmsList=this.fakeFarmsList;
   }
 
   convertFarmNameIntoFarmId(){
@@ -179,11 +179,11 @@ export class AddEditExperienceComponent implements OnInit {
       this.showSuccessMsg=false;
       this.ngOnInit();
   }
-  
+
   closeFailMsg(){
       this.showFailMsg=false;
       this.ngOnInit();
-  
+
   }
 
 }

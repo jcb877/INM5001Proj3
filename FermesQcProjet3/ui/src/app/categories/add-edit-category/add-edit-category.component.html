@@ -7,7 +7,7 @@
         <div class="form-group row">
            <label class="col-sm-2 col-form-label">{{'cat.col_name'|translate}}</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control"placeholder="Enter New Category" [(ngModel)]="categoryName">
+               <input type="text" class="form-control"placeholder="Enter New Category" name="categoryName" [(ngModel)]="categoryName">
             </div>
         </div>
         <button  *ngIf="!showUpdateButton" (click)="addNewCategory()" class="btn btn-primary">{{'cat.add_btn_add'|translate}}</button>&nbsp;&nbsp;
@@ -24,7 +24,7 @@
         <button class="btn btn-success" routerLink="../CategoriesManager" (click)="closeSuccessMsg()">{{'cat.btn_close'|translate}}</button>
         </div>
     </div>
-    
+
     <div *ngIf="showFailMsg" class="alert alert-danger">
         <div class="text-center">
             <p>{{'cat.msg_fail'|translate}}</p>

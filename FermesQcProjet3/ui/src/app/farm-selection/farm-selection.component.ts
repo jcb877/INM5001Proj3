@@ -18,9 +18,9 @@ export class FarmSelectionComponent implements OnInit {
   showFailMsg:boolean=false;
   showForm:boolean=true;
 
-  
+
   constructor(private service:SharedService) {
-  
+
   }
 
 
@@ -34,7 +34,7 @@ export class FarmSelectionComponent implements OnInit {
       var farm1:Farm={fermeId:1,nomFerme:"Test Farm 1",addresseFerme:"123 test street",villeFerme:"test city",provinceFerme:"test province"};
       var farm2:Farm={fermeId:2,nomFerme:"Test Farm 2",addresseFerme:"456 test street",villeFerme:"test city",provinceFerme:"test province"};
       var farm3:Farm={fermeId:3,nomFerme:"Test Farm 3",addresseFerme:"789 test street",villeFerme:"test city",provinceFerme:"test province"};
-      
+
       this.fakeFarmsList.push(farm1);
       this.fakeFarmsList.push(farm2);
       this.fakeFarmsList.push(farm3);
@@ -77,7 +77,7 @@ export class FarmSelectionComponent implements OnInit {
       this.showForm=false;
       this.showFailMsg=true;
     }
-    
+
 
   }
 
@@ -85,11 +85,11 @@ export class FarmSelectionComponent implements OnInit {
       this.showSuccessMsg=false;
       this.ngOnInit();
   }
-  
+
   closeFailMsg(){
       this.showFailMsg=false;
       this.ngOnInit();
-  
+
   }
 
 }
