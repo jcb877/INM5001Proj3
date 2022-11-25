@@ -56,6 +56,10 @@ export class ShowNivaccesComponent implements OnInit {
     }
   }
 
+  clearPage(){
+    this.service.editingAccess.accesId=0;
+    this.service.editingAccess.accessName="";
+  }
 
   closeClick(){
     this.ActivateAddEditNivAccComp=false;

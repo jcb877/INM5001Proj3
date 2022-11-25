@@ -2,7 +2,7 @@
 <div id="outer">
     <div class="text-left">
       &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'farm.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
-      <button routerLink="../AddEditFarm" class="btn btn-success">{{'farm.btn_add'|translate}}</button>
+      <button routerLink="../AddEditFarm" (click)="clearPage()" class="btn btn-success">{{'farm.btn_add'|translate}}</button>
     </div>
     <div class="line">
       <hr>

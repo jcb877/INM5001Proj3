@@ -2,7 +2,7 @@
 <div id="outer">
   <div class="text-left">
     &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'access.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
-    <button routerLink="../AddAccess" class="btn btn-success">{{'access.btn_add'|translate}}</button>
+    <button routerLink="../AddAccess" (click)="clearPage()" class="btn btn-success">{{'access.btn_add'|translate}}</button>
   </div>
   <div class="line">
     <hr>

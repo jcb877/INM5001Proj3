@@ -209,8 +209,26 @@ export class SharedService {
   }
 
   // ******************************************************************
+  //get farms list
+  getFarmList(): Observable<any[]> {
+  return this.http.get<any[]>(this.APIUrl + 'fermes/');
+   }
 
+//add sFarm to db
+addFarm(val: any) {
+  return this.http.post(this.APIUrl + 'fermes/', val);
+}
 
+//modify Farm to db
+updateFarm(val: any) {
+  return this.http.put(this.APIUrl + 'fermes/', val);
+}
+
+//delete Farm to db
+deleteFarm(val: any) {
+  return this.http.delete(this.APIUrl + 'fermes/' + val);
+}
+// ******************************************************************
 
 
 

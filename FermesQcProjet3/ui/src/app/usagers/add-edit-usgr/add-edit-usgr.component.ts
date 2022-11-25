@@ -149,6 +149,10 @@ export class AddEditUsgrComponent implements OnInit {
         this.showForm=false;
         this.showSuccessMsg=true;
       }
+      else{
+        this.showForm=false;
+        this.showFailMsg=true;
+      }
 
     });
   }
@@ -163,6 +167,16 @@ export class AddEditUsgrComponent implements OnInit {
     };
     this.service.updateUsager(val).subscribe(res=>{
     alert(res.toString());
+
+    if(res.toString().includes("Succes")){
+      this.showForm=false;
+      this.showSuccessMsg=true;
+    }
+    else{
+      this.showForm=false;
+      this.showFailMsg=true;
+    }
+
     });
   }
 

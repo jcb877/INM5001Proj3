@@ -9,9 +9,9 @@ import { FormsModule } from "@angular/forms";
 })
 export class AddEditSubCategoryComponent implements OnInit {
 
-  sousCategorieId:number;
-  nomSousCategorie:string;
-  categorieId:number;
+  sousCategorieId:number=0;
+  nomSousCategorie:string="";
+  categorieId:number=0;
 
 
 
@@ -21,9 +21,7 @@ export class AddEditSubCategoryComponent implements OnInit {
   showUpdateButton:boolean=false;
 
   constructor(private service:SharedService) {
-    this.sousCategorieId=0;
-    this.nomSousCategorie="";
-    this.categorieId=0;
+
   }
 
   categoryList: any = [];
@@ -31,7 +29,7 @@ export class AddEditSubCategoryComponent implements OnInit {
   ngOnInit(): void {
     this.refreshCategorieList();
 
-    if(this.service.editingSubCategory.sousCategorieId == null){
+    if(this.service.editingSubCategory.sousCategorieId == 0){
       console.log("For new sub category");
     }
     else{
@@ -78,7 +76,7 @@ export class AddEditSubCategoryComponent implements OnInit {
       nomSousCategorie: this.nomSousCategorie,
       categorieId: this.categorieId
     };
-console.log(val);
+     console.log(val);
 
 
     this.service.updateSubCategory(val).subscribe(res=>{

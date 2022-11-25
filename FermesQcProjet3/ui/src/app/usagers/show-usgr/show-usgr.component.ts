@@ -43,6 +43,16 @@ export class ShowUsgrComponent implements OnInit {
     this.service.editingUser = item;
   }
 
+  clearPage(){
+    this.service.editingUser.usagerId=0;
+    this.service.editingUser.login="";
+    this.service.editingUser.prenomUsager="";
+    this.service.editingUser.nomUsager="";
+    this.service.editingUser.motPasse="";
+    this.service.editingUser.accesId=0
+  }
+
+
 
   deleteClick(item: any) {
     if (confirm('Are you sure?')) {

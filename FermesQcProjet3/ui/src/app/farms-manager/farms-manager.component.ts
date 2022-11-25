@@ -32,11 +32,13 @@ export class FarmsManagerComponent implements OnInit {
     //   this.farmsList=this.fakeFarmsList;
     //   console.log("length"+this.farmsList.length);
     // }
+
+    this.getFarmsList();
   }
 
 
   getFarmsList(){
-    this.service.getNivAccList().subscribe(data=> {
+    this.service.getFarmList().subscribe(data=> {
       this.farmsList=data;
     })
   }
@@ -56,10 +58,17 @@ export class FarmsManagerComponent implements OnInit {
 
   }
 
+  clearPage(){
+    this.service.editingFarm.fermeId=0;
+    this.service.editingFarm.nomFerme="";
+    this.service.editingFarm.addresseFerme="";
+    this.service.editingFarm.villeFerme="";
+    this.service.editingFarm.provinceFerme="";
+  }
 
   deleteClick(item: any){
-    if(confirm('Are you sure?')){
-      this.service.deleteNivAcc(item.accesId).subscribe(data=>{
+    if(confirm('Are you sure ? Vous etes sur ?')){
+      this.service.deleteFarm(item.fermeId).subscribe(data=>{
         alert(data.toString());
         this.ngOnInit();
       })

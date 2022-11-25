@@ -8,7 +8,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class AddEditFarmComponent implements OnInit {
 
-  fermeId:string="";
+  fermeId:number=0;
   nomFerme:string="";  
   addresseFerme:string="";
   villeFerme:string="";
@@ -34,7 +34,7 @@ export class AddEditFarmComponent implements OnInit {
     else{
       console.log("For update farm");
 
-      this.fermeId=this.service.editingFarm.fermeId.toString();
+      this.fermeId=this.service.editingFarm.fermeId;
 
       this.nomFerme=this.service.editingFarm.nomFerme;
 
@@ -60,7 +60,7 @@ export class AddEditFarmComponent implements OnInit {
     };
 
     //modify this once farm api is done
-    this.service.addUsager(val).subscribe(res=>{
+    this.service.addFarm(val).subscribe(res=>{
       alert(res.toString());
 
       if(res.toString().includes("Success")){
@@ -77,15 +77,16 @@ export class AddEditFarmComponent implements OnInit {
 
   updateFarm(){
     var val = {
+      fermeId:this.fermeId,
       nomFerme:this.nomFerme,
       addresseFerme:this.addresseFerme,
       villeFerme:this.villeFerme,
       provinceFerme:this.provinceFerme
     };
-    this.service.updateUsager(val).subscribe(res=>{
+    this.service.updateFarm(val).subscribe(res=>{
     alert(res.toString());
 
-    if(res.toString().includes("Success")){
+    if(res.toString().includes("Succes")){
       this.showForm=false;
       this.showSuccessMsg=true;
     }
@@ -97,7 +98,6 @@ export class AddEditFarmComponent implements OnInit {
     
     });
   }
-
 
 
 

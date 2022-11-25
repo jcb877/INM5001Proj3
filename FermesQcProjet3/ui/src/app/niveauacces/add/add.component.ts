@@ -54,7 +54,10 @@ export class AddComponent implements OnInit {
         this.showForm=false;
         this.showSuccessMsg=true;
       }
-
+      else{
+        this.showForm=false;
+        this.showFailMsg=true;
+      }
     });
   }
 
@@ -71,6 +74,10 @@ export class AddComponent implements OnInit {
       this.showSuccessMsg=true;
 
       this.service.editingAccess={accesId: 0,accessName:""};
+    }
+    else{
+      this.showForm=false;
+      this.showFailMsg=true;
     }
 
     });

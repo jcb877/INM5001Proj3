@@ -62,7 +62,17 @@ export class ExperienceComponent implements OnInit {
     console.log("Editing Experience name "+this.service.editingExperience.dateExperience);
 
   }
+  clearPage(){
+    this.service.editingExperience.experienceId=0;
 
+    this.service.editingExperience.dateExperience='{{Date.now}}';
+
+    this.service.editingExperience.nomCategorie="";
+
+    this.service.editingExperience.nomSousCategorie="";
+
+    this.service.editingExperience.fermeId_id=0;
+  }
 
   deleteClick(item: any){
     if(confirm('Are you sure?')){

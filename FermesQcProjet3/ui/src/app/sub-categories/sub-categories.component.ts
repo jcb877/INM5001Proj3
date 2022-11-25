@@ -70,6 +70,12 @@ export class SubCategoriesComponent implements OnInit {
       }
     }
 
+    clearPage(){
+      this.service.editingSubCategory.sousCategorieId=0;
+      this.service.editingSubCategory.nomSousCategorie="",
+      this.service.editingSubCategory.categorieId=0
+    }
+
   refreshSubCategoryList() {
     this.service.getSubCategoryList().subscribe(data => {
       this.subCategoriesList = data;

@@ -3,7 +3,7 @@
 <div id="outer">
   <div class="text-left">
     &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'user.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
-    <button routerLink="../AddEditUser" class="btn btn-success">{{'user.btn_add'|translate}}</button>
+    <button routerLink="../AddEditUser" (click)="clearPage()" class="btn btn-success">{{'user.btn_add'|translate}}</button>
   </div>
   <div class="line">
     <hr>
