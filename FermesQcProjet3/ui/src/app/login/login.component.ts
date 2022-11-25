@@ -143,7 +143,7 @@ export class LoginComponent implements OnInit {
     console.log("Logged in successfully !");
 
       switch(accessId) {
-        case 19:
+        case 4:
           // code block reserved for super admin access
           //all access
            this.service.currentLoggedInUserAccess="superAdmin";

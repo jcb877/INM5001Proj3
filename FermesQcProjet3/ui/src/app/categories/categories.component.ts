@@ -59,6 +59,13 @@ export class CategoriesComponent implements OnInit {
     }
   }
 
+  clearPage(){
+    this.service.editingCategory.categorieId = 0;
+    this.service.editingCategory.nomCategorie = "";
+  }
+
+
+
   refreshCategoryList() {
     this.service.getCategoryList().subscribe(data => {
       this.categoriesList = data;
