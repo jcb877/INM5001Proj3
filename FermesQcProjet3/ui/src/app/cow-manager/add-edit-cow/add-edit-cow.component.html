@@ -1,0 +1,63 @@
+<div id="outer" *ngIf="showForm">
+    <div class="text-left">
+        &nbsp;&nbsp;&nbsp;<button routerLink="../CowManager" class="btn btn-primary">{{'cow.add_btn_back'|translate}}</button>
+    </div>
+
+    <div class="line">
+        <hr>
+    </div>
+
+    <div>
+        <p class="p-2 bg-info text-light text-center">{{'cow.add_title_add'|translate}}</p>
+    </div>
+
+    <div id="inner">
+
+        <div class="form-group row" style="width: 70%;">
+
+            <label class="col-sm-4 col-form-label">{{'cow.cow_name'|translate}}</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" [(ngModel)]="nomVache" placeholder="Enter Cow Name">
+            </div>
+    
+            <br>
+            <br>
+
+           <label class="col-sm-4 col-form-label">{{'cow.farm_id'|translate}}</label>
+             <div class="col-sm-8">
+               <select class="form-control" name="sub_catId" [(ngModel)]="fermeId">
+                 <option>--Select--</option>
+                 <option *ngFor="let farm of farmsList" [value]="farm.fermeId">{{farm.nomFerme}}</option>
+              </select>
+             </div>
+        </div>
+
+    <div>
+        <button (click)="addNewCow()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'farm.add_btn_add'|translate}}</button>&nbsp;&nbsp; 
+        <button (click)="updateCow()" *ngIf="showUpdateButton" class="btn btn-primary">{{'farm.add_btn_update'|translate}}</button>&nbsp;&nbsp;
+        <button routerLink="../CowManager" class="btn btn-warning">{{'farm.add_btn_cancel'|translate}}</button>
+    </div>
+
+ </div>
+    
+</div>
+
+
+<div *ngIf="showSuccessMsg" class="alert alert-success" id="msgSuccess">
+    <div class="text-center">
+        <p>{{'farm.msg_success'|translate}}</p>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-success" routerLink="../CowManager" (click)="closeSuccessMsg()">{{'farm.btn_close'|translate}}</button>
+    </div>
+</div>
+
+<div *ngIf="showFailMsg" class="alert alert-danger" id="msgFail">
+    <div class="text-center">
+        <p>{{'farm.msg_fail'|translate}}</p>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-warning" routerLink="../CowManager" (click)="closeFailMsg()">{{'farm.btn_close'|translate}}</button>
+    </div>
+</div>
+

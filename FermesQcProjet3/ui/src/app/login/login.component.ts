@@ -168,9 +168,11 @@ export class LoginComponent implements OnInit {
 
            this.service.showExperienceManager=true;
 
-           this.service.showEventsManager=true;
+           this.service.showNotesManager=true;
 
            this.service.showFarmsSelection=true;
+
+           this.service.showCowManager=true;
 
            break;
         case 2:
@@ -199,7 +201,7 @@ export class LoginComponent implements OnInit {
            this.service.showLogoutButton=true;
 
            //show only 2 manangers
-           this.service.showEventsManager=true;
+           this.service.showNotesManager=true;
 
            this.service.showFarmsSelection=true;
 
@@ -221,6 +223,8 @@ export class LoginComponent implements OnInit {
            this.service.showUserAccountManager=true;
 
            this.service.showFarmsManager=true;
+
+           this.service.showCowManager=true;
 
            this.service.showCategoriesManager=true;
 

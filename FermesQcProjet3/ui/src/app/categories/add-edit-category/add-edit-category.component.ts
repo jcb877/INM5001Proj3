@@ -72,7 +72,7 @@ export class AddEditCategoryComponent implements OnInit {
       nomCategorie: this.categoryName
     };
 
-console.log(val);
+    console.log(val);
 
     this.service.updateCategory(val).subscribe(res => {
       alert(res.toString());

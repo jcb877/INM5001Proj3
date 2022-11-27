@@ -28,7 +28,6 @@ import { AddComponent } from './niveauacces/add/add.component';
 import { FarmsManagerComponent } from './farms-manager/farms-manager.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ExperienceComponent } from './experience/experience.component';
-import { EventComponent } from './event/event.component';
 import { AddEditFarmComponent } from './farms-manager/add-edit-farm/add-edit-farm.component';
 import { AddEditExperienceComponent } from './experience/add-edit-experience/add-edit-experience.component';
 import { SubCategoriesComponent } from './sub-categories/sub-categories.component';
@@ -38,6 +37,15 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { AddEditSubCategoryComponent } from './sub-categories/add-edit-sub-category/add-edit-sub-category.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CowManagerComponent } from './cow-manager/cow-manager.component';
+import { AddEditCowComponent } from './cow-manager/add-edit-cow/add-edit-cow.component';
+import { DeletedFarmsManagerComponent } from './farms-manager/deleted-farms-manager/deleted-farms-manager.component';
+import { NotesManagerComponent } from './notes-manager/notes-manager.component';
+import { AddEditNoteComponent } from './notes-manager/add-edit-note/add-edit-note.component';
+import { MediaManagerComponent } from './media-manager/media-manager.component';
+import { AddEditMediaComponent } from './media-manager/add-edit-media/add-edit-media.component';
+import { UsersFarmsManagerComponent } from './users-farms-manager/users-farms-manager.component';
+import { AddEditUserFarmComponent } from './users-farms-manager/add-edit-user-farm/add-edit-user-farm.component';
 
 
 
@@ -63,8 +71,16 @@ const appRoutes: Routes = [
   { path: 'AddEditSubCategory', component: AddEditSubCategoryComponent },
   { path: 'ExperienceManager', component: ExperienceComponent },
   { path: 'AddEditExperience', component: AddEditExperienceComponent },
-  { path: 'EventsManager', component: EventComponent },
+  { path: 'NotesManager', component: NotesManagerComponent },
+  { path: 'AddEditNote', component: AddEditNoteComponent },
   { path: 'FarmSelect', component: FarmSelectionComponent },
+  { path: 'CowManager', component: CowManagerComponent },
+  { path: 'AddEditCow', component: AddEditCowComponent },
+  { path: 'DeletedFarmsManager', component: DeletedFarmsManagerComponent },
+  { path: 'MediasManager', component: MediaManagerComponent },
+  { path: 'AddEditMedia', component: AddEditMediaComponent },
+  { path: 'UsersFarmsManager', component: UsersFarmsManagerComponent },
+  { path: 'AddEditUserFarm', component: AddEditUserFarmComponent },
   { path: '**', component: ErrorComponent }
 ]
 
@@ -86,13 +102,21 @@ const appRoutes: Routes = [
     FarmsManagerComponent,
     CategoriesComponent,
     ExperienceComponent,
-    EventComponent,
     AddEditFarmComponent,
     AddEditExperienceComponent,
     SubCategoriesComponent,
     FarmSelectionComponent,
     AddEditCategoryComponent,
     AddEditSubCategoryComponent,
+    CowManagerComponent,
+    AddEditCowComponent,
+    DeletedFarmsManagerComponent,
+    NotesManagerComponent,
+    AddEditNoteComponent,
+    MediaManagerComponent,
+    AddEditMediaComponent,
+    UsersFarmsManagerComponent,
+    AddEditUserFarmComponent,
   ],
   imports: [
     BrowserModule,

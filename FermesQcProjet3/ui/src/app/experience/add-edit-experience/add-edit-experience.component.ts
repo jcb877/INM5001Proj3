@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, Farm, SharedService, SubCategory } from 'src/app/shared.service';
+import { Category, Cow, Farm, SharedService, SubCategory } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-add-edit-experience',
@@ -10,21 +10,13 @@ export class AddEditExperienceComponent implements OnInit {
 
   experienceId:number=0;
   dateExperience:string="";
-  nomCategorie:string="";
-  nomSousCategorie:string="";
-  nomFerme:string="";
-  fermeId_id:number=0;
+  categorieId:number=0;
+  vacheId:number=0;
+
+
 
   categoriesList:Category[]=[];
-
-  subCategoriesList:SubCategory[]=[];
-
-  farmsList:Farm[]=[];
-
-  //for testing
-  // fakeCategoriesList:Category[]=[];
-  // fakeSubCategoriesList:SubCategory[]=[];
-  // fakeFarmsList:Farm[]=[];
+  cowsList:Cow[]=[];
 
   showSuccessMsg:boolean=false;
   showFailMsg:boolean=false;
@@ -49,39 +41,35 @@ export class AddEditExperienceComponent implements OnInit {
 
       this.dateExperience=this.service.editingExperience.dateExperience;
 
-      this.nomCategorie=this.service.editingExperience.nomCategorie;
+      this.categorieId=this.service.editingExperience.categorieId;
 
-      this.nomSousCategorie=this.service.editingExperience.nomSousCategorie;
-
-      this.fermeId_id=this.service.editingExperience.fermeId_id;
+      this.vacheId=this.service.editingExperience.vacheId;
 
       this.showUpdateButton=true;
     }
 
 
     this.getCategoryList();
-    this.getSubCategoryList();
-    this.getFarmsList();
+    this.getCowsList();
 
   }
 
 
   addNewExperience(){
 
-    this.convertFarmNameIntoFarmId();
-
     var val = {
       experienceId:this.experienceId,
       dateExperience:this.dateExperience,
-      nomCategorie:this.nomCategorie,
-      nomSousCategorie:this.nomSousCategorie,
-      fermeId_id:this.fermeId_id
+      categorieId:this.categorieId,
+      vacheId:this.vacheId
     };
 
-    console.log("This is date "+this.dateExperience);
+    console.log("This is date (before adding into db )"+this.dateExperience);
 
-    //modify this once farm api is done
-    this.service.addUsager(val).subscribe(res=>{
+    console.log("This is date (before adding into db )"+val.dateExperience);
+
+    
+    this.service.addExperience(val).subscribe(res=>{
       alert(res.toString());
 
       if(res.toString().includes("Success")){
@@ -100,16 +88,15 @@ export class AddEditExperienceComponent implements OnInit {
     var val = {
       experienceId:this.experienceId,
       dateExperience:this.dateExperience,
-      nomCategorie:this.nomCategorie,
-      nomSousCategorie:this.nomSousCategorie,
-      fermeId_id:this.fermeId_id
+      categorieId:this.categorieId,
+      vacheId:this.vacheId
     };
 
 
-    this.service.updateUsager(val).subscribe(res=>{
+    this.service.updateExperience(val).subscribe(res=>{
     alert(res.toString());
 
-    if(res.toString().includes("Success")){
+    if(res.toString().includes("Succes")){
       this.showForm=false;
       this.showSuccessMsg=true;
     }
@@ -118,61 +105,31 @@ export class AddEditExperienceComponent implements OnInit {
       this.showFailMsg=true;
     }
 
-
     });
   }
 
 
   getCategoryList(){
-
-    // console.log("Fake list started");
-    //   var c1:Category={categorieId:1,nomCategorie:"Livestock Health Testing"};
-    //   var c2:Category={categorieId:2,nomCategorie:"Environment Pollution Testing"};
-    //   var c3:Category={categorieId:3,nomCategorie:"Pesticide Residues Testing"};
-
-    //   this.fakeCategoriesList.push(c1);
-    //   this.fakeCategoriesList.push(c2);
-    //   this.fakeCategoriesList.push(c3);
-
-    //   this.categoriesList=this.fakeCategoriesList;
-
-  }
-
-  getSubCategoryList(){
-
-    // console.log("Fake list started");
-    // var sc1:SubCategory={sousCategorieId:1,nomSousCategorie:"Test 1"};
-    // var sc2:SubCategory={sousCategorieId:2,nomSousCategorie:"Test 2"};
-    // var sc3:SubCategory={sousCategorieId:3,nomSousCategorie:"Test 3"};
-
-    // this.fakeSubCategoriesList.push(sc1);
-    // this.fakeSubCategoriesList.push(sc2);
-    // this.fakeSubCategoriesList.push(sc3);
-
-    // this.subCategoriesList=this.fakeSubCategoriesList;
-
+    this.service.getCategoryList().subscribe(data => {
+      this.categoriesList = data;
+    })
   }
 
 
-  getFarmsList(){
-    // console.log("Fake list started");
-    // var farm1:Farm={fermeId:1,nomFerme:"test farm 1",addresseFerme:"123 test street",villeFerme:"test city",provinceFerme:"test province"};
-    // var farm2:Farm={fermeId:2,nomFerme:"test farm 2",addresseFerme:"456 test street",villeFerme:"test city",provinceFerme:"test province"};
-    // var farm3:Farm={fermeId:3,nomFerme:"test farm 2",addresseFerme:"789 test street",villeFerme:"test city",provinceFerme:"test province"};
 
-    // this.fakeFarmsList.push(farm1);
-    // this.fakeFarmsList.push(farm2);
-    // this.fakeFarmsList.push(farm3);
 
-    // this.farmsList=this.fakeFarmsList;
+  getCowsList(){
+    this.service.getCowsList().subscribe(data=> {
+      this.cowsList=data;
+    })
   }
 
   convertFarmNameIntoFarmId(){
-    for(let f of this.farmsList){
-      if(f.nomFerme==this.nomFerme){
-        this.fermeId_id=f.fermeId;
-      }
-    }
+    // for(let f of this.farmsList){
+    //   if(f.nomFerme==this.nomFerme){
+    //     this.fermeId_id=f.fermeId;
+    //   }
+    // }
   }
 
   closeSuccessMsg(){

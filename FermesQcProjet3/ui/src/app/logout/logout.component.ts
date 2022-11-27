@@ -46,7 +46,7 @@ export class LogoutComponent implements OnInit {
 
     this.sharedService.showExperienceManager=false;
 
-    this.sharedService.showEventsManager=false;
+    this.sharedService.showNotesManager=false;
   
     this.sharedService.showFarmsSelection=false;
 

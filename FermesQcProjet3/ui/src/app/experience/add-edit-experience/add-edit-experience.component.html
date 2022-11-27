@@ -26,9 +26,9 @@
 
        <label class="col-sm-4 col-form-label">{{'e.col_name'|translate}}</label>
        <div class="col-sm-8">
-          <select class="form-control" [(ngModel)]="nomCategorie">
+          <select class="form-control" [(ngModel)]="categorieId">
             <option>--Select--</option>
-            <option *ngFor="let c of categoriesList">{{c.nomCategorie}}</option>
+            <option *ngFor="let c of categoriesList" [value]="c.categorieId">{{c.nomCategorie}}</option>
           </select>
        </div>
 
@@ -39,27 +39,11 @@
 
 
 
-       <label class="col-sm-4 col-form-label">{{'e.col_subname'|translate}}</label>
-       <div class="col-sm-8">
-           <select class="form-control" [(ngModel)]="nomSousCategorie">
-            <option>--Select--</option>
-            <option *ngFor="let sc of subCategoriesList">{{sc.nomSousCategorie}}</option>
-          </select>
-       </div>
-
-
-
-       <br>
-       <br>
-
-
-
-
        <label class="col-sm-4 col-form-label">{{'e.col_farmId'|translate}}</label>
        <div class="col-sm-8">
-           <select class="form-control" [(ngModel)]="nomFerme">
+           <select class="form-control" [(ngModel)]="vacheId">
             <option>--Select--</option>
-            <option *ngFor="let f of farmsList">{{f.nomFerme}}</option>
+            <option *ngFor="let c of cowsList" [value]="c.vacheId">{{c.nomVache}}</option>
           </select>
        </div>
 

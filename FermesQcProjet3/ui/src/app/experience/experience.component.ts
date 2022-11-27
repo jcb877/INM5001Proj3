@@ -10,34 +10,21 @@ export class ExperienceComponent implements OnInit {
 
   experienceList:Experience[]=[];
 
-  // fakeExperienceList:Experience[]=[];
+
 
 
   constructor(private service:SharedService) { }
 
   ngOnInit(): void {
-    //this.getFarmsList();
-
-    //fake only for testing
-    // if(this.experienceList.length==0){
-    //   console.log("Fake list started");
-    //   var e1:Experience={experienceId:1,dateExperience:"2022-10-23",  nomCategorie:"Farm check",nomSousCategorie:"Regular check",fermeId_id:2};
-    //   var e2:Experience={experienceId:2,dateExperience:"2022-10-24",  nomCategorie:"Farm cleaning",nomSousCategorie:"Desinfection",fermeId_id:6};
-    //   var e3:Experience={experienceId:3,dateExperience:"2022-10-25",  nomCategorie:"Environment test",nomSousCategorie:"Chemical residues",fermeId_id:8};
-
-    //   this.fakeExperienceList.push(e1);
-    //   this.fakeExperienceList.push(e2);
-    //   this.fakeExperienceList.push(e3);
-
-    //   this.experienceList=this.fakeExperienceList;
-    //   console.log("length"+this.experienceList.length);
-    // }
+    this.getExperiencesList();
+   
   }
 
 
-  getFarmsList(){
-    this.service.getNivAccList().subscribe(data=> {
+  getExperiencesList(){
+    this.service.getExperiencesList().subscribe(data=> {
       this.experienceList=data;
+      console.log("List length is "+this.experienceList.length);
     })
   }
 
@@ -49,11 +36,9 @@ export class ExperienceComponent implements OnInit {
 
     this.service.editingExperience.dateExperience=item.dateExperience;
 
-    this.service.editingExperience.nomCategorie=item.nomCategorie;
+    this.service.editingExperience.categorieId=item.categorieId;
 
-    this.service.editingExperience.nomSousCategorie=item.nomSousCategorie;
-
-    this.service.editingExperience.fermeId_id=item.fermeId_id;
+    this.service.editingExperience.vacheId=item.vacheId;
 
 
 
@@ -62,23 +47,31 @@ export class ExperienceComponent implements OnInit {
     console.log("Editing Experience name "+this.service.editingExperience.dateExperience);
 
   }
+
+
   clearPage(){
     this.service.editingExperience.experienceId=0;
 
-    this.service.editingExperience.dateExperience='{{Date.now}}';
+    this.service.editingExperience.dateExperience="";
 
-    this.service.editingExperience.nomCategorie="";
+    this.service.editingExperience.categorieId=0;
 
-    this.service.editingExperience.nomSousCategorie="";
-
-    this.service.editingExperience.fermeId_id=0;
+    this.service.editingExperience.vacheId=0;
   }
 
   deleteClick(item: any){
-    if(confirm('Are you sure?')){
-      this.service.deleteNivAcc(item.accesId).subscribe(data=>{
-        alert(data.toString());
-        this.ngOnInit();
+    if(confirm('Are you sure? Vous etes sur ?')){
+      this.service.deleteExperience(item.experienceId).subscribe(res=>{
+        
+      if(res.toString().includes("Succes")){
+          alert("L'Experience est ete supprime. The experience is deleted.");
+       }
+       else{
+          alert("Echec a supprimer. Delete is failed.");
+       }
+
+       this.ngOnInit();
+
       })
     }
   }

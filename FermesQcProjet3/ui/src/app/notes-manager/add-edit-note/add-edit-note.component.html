@@ -1,0 +1,73 @@
+<div id="outer" *ngIf="showForm">
+    <div class="text-left">
+        &nbsp;&nbsp;&nbsp;<button routerLink="../NotesManager" class="btn btn-primary">{{'note.add_btn_back'|translate}}</button>
+    </div>
+
+    <div class="line">
+        <hr>
+    </div>
+
+    <div>
+        <p class="p-2 bg-info text-light text-center">{{'note.add_title_add'|translate}}</p>
+    </div>
+
+    <div id="inner">
+
+        <div class="form-group row" style="width: 70%;">
+
+            <label class="col-sm-4 col-form-label">{{'note.col_date'|translate}}</label>
+            <div class="col-sm-8">
+               <input type="date" class="form-control" [(ngModel)]="dateNote" placeholder="Enter date">
+            </div>
+    
+            <br>
+            <br>
+
+            <label class="col-sm-4 col-form-label">{{'note.col_content'|translate}}</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" [(ngModel)]="note" placeholder="Enter note">
+            </div>
+
+        <br>
+        <br>
+
+           <label class="col-sm-4 col-form-label">{{'note.col_eId'|translate}}</label>
+           <div class="col-sm-8">
+               <select class="form-control" [(ngModel)]="experienceId">
+                 <option>--Select--</option>
+                 <option *ngFor="let e of experiencesList" [value]="e.experienceId">{{e.experienceId+"  "+e.dateExperience}}</option>
+              </select>
+           </div>
+
+
+        </div>
+
+    <div>
+        <button (click)="addNew()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'farm.add_btn_add'|translate}}</button>&nbsp;&nbsp; 
+        <button (click)="update()" *ngIf="showUpdateButton" class="btn btn-primary">{{'farm.add_btn_update'|translate}}</button>&nbsp;&nbsp;
+        <button routerLink="../NotesManager" class="btn btn-warning">{{'farm.add_btn_cancel'|translate}}</button>
+    </div>
+
+ </div>
+    
+</div>
+
+
+<div *ngIf="showSuccessMsg" class="alert alert-success" id="msgSuccess">
+    <div class="text-center">
+        <p>{{'note.msg_success'|translate}}</p>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-success" routerLink="../NotesManager" (click)="closeSuccessMsg()">{{'farm.btn_close'|translate}}</button>
+    </div>
+</div>
+
+<div *ngIf="showFailMsg" class="alert alert-danger" id="msgFail">
+    <div class="text-center">
+        <p>{{'note.msg_fail'|translate}}</p>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-warning" routerLink="../NotesManager" (click)="closeFailMsg()">{{'farm.btn_close'|translate}}</button>
+    </div>
+</div>
+

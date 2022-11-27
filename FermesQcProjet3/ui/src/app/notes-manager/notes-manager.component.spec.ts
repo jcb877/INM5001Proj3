@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EventComponent } from './event.component';
+import { NotesManagerComponent } from './notes-manager.component';
 
-describe('EventComponent', () => {
-  let component: EventComponent;
-  let fixture: ComponentFixture<EventComponent>;
+describe('NotesManagerComponent', () => {
+  let component: NotesManagerComponent;
+  let fixture: ComponentFixture<NotesManagerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EventComponent ]
+      declarations: [ NotesManagerComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EventComponent);
+    fixture = TestBed.createComponent(NotesManagerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

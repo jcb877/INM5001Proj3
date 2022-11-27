@@ -10,8 +10,6 @@ export class FarmSelectionComponent implements OnInit {
 
   farmsList:Farm[]=[];
 
-  fakeFarmsList:Farm[]=[];
-
   nomFerme:string ="";
 
   showSuccessMsg:boolean=false;
@@ -28,31 +26,13 @@ export class FarmSelectionComponent implements OnInit {
 
     this.getFarmsList();
 
-    //fake only for testing
-    if(this.farmsList.length==0){
-      console.log("Fake list started");
-      var farm1:Farm={fermeId:1,nomFerme:"Test Farm 1",addresseFerme:"123 test street",villeFerme:"test city",provinceFerme:"test province"};
-      var farm2:Farm={fermeId:2,nomFerme:"Test Farm 2",addresseFerme:"456 test street",villeFerme:"test city",provinceFerme:"test province"};
-      var farm3:Farm={fermeId:3,nomFerme:"Test Farm 3",addresseFerme:"789 test street",villeFerme:"test city",provinceFerme:"test province"};
-
-      this.fakeFarmsList.push(farm1);
-      this.fakeFarmsList.push(farm2);
-      this.fakeFarmsList.push(farm3);
-
-      this.farmsList=this.fakeFarmsList;
-      console.log("length"+this.farmsList.length);
-    }
-
   }
 
 
   getFarmsList(){
-    // this.service.getNivAccList().subscribe(data=> {
-    //   this.NivAccesList=data;
-
-
-
-    // })
+    this.service.getFarmList().subscribe(data=> {
+      this.farmsList=data;
+    })
   }
 
   getSelectedFarm(){

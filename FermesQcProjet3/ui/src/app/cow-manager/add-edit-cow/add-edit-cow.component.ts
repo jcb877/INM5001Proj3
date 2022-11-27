@@ -2,25 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
-  selector: 'app-add-edit-farm',
-  templateUrl: './add-edit-farm.component.html',
-  styleUrls: ['./add-edit-farm.component.css']
+  selector: 'app-add-edit-cow',
+  templateUrl: './add-edit-cow.component.html',
+  styleUrls: ['./add-edit-cow.component.css']
 })
-export class AddEditFarmComponent implements OnInit {
+export class AddEditCowComponent implements OnInit {
 
+  vacheId:number=0;
+  nomVache:string="";  
   fermeId:number=0;
-  nomFerme:string="";  
-  addresseFerme:string="";
-  villeFerme:string="";
-  provinceFerme:string="";
-
 
 
   showSuccessMsg:boolean=false;
   showFailMsg:boolean=false;
   showForm:boolean=true;
   showUpdateButton:boolean=false;
-  
+
+
+  farmsList: any = [];
+
   constructor(private service:SharedService) {
 
   }
@@ -29,39 +29,44 @@ export class AddEditFarmComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.service.editingFarm.fermeId==0){
-      console.log("For new farm");
+
+    this.refreshFarmsList();
+
+    if(this.service.editingCow.vacheId==0){
+      this.fermeId=this.service.editingCow.fermeId
+      console.log("For new cow");
     }
     else{
-      console.log("For update farm");
+      console.log("For update cow");
 
-      this.fermeId=this.service.editingFarm.fermeId;
+      this.vacheId=this.service.editingCow.vacheId;
 
-      this.nomFerme=this.service.editingFarm.nomFerme;
+      this.nomVache=this.service.editingCow.nomVache;
 
-      this.addresseFerme=this.service.editingFarm.addresseFerme;
-
-      this.villeFerme=this.service.editingFarm.villeFerme;
-
-      this.provinceFerme=this.service.editingFarm.provinceFerme;
+      this.fermeId=this.service.editingCow.fermeId;
 
       this.showUpdateButton=true;
     }
 
   }
 
+  refreshFarmsList() {
+    this.service.getFarmList().subscribe(data => {
+      this.farmsList = data;
+    })
+  }
 
-  addNewFarm(){
+
+
+  addNewCow(){
 
     var val = {
-      nomFerme:this.nomFerme,
-      addresseFerme:this.addresseFerme,
-      villeFerme:this.villeFerme,
-      provinceFerme:this.provinceFerme
+      nomVache:this.nomVache,
+      fermeId:this.fermeId,
     };
 
     //modify this once farm api is done
-    this.service.addFarm(val).subscribe(res=>{
+    this.service.addCow(val).subscribe(res=>{
       alert(res.toString());
 
       if(res.toString().includes("Success")){
@@ -76,15 +81,13 @@ export class AddEditFarmComponent implements OnInit {
     });
   }
 
-  updateFarm(){
+  updateCow(){
     var val = {
+      vacheId:this.vacheId,
+      nomVache:this.nomVache,
       fermeId:this.fermeId,
-      nomFerme:this.nomFerme,
-      addresseFerme:this.addresseFerme,
-      villeFerme:this.villeFerme,
-      provinceFerme:this.provinceFerme,
     };
-    this.service.updateFarm(val).subscribe(res=>{
+    this.service.updateCow(val).subscribe(res=>{
     alert(res.toString());
 
     if(res.toString().includes("Succes")){
@@ -112,5 +115,4 @@ export class AddEditFarmComponent implements OnInit {
       this.ngOnInit();
   
   }
-
 }

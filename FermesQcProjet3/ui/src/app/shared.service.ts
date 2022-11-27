@@ -22,15 +22,28 @@ export interface Farm {
   addresseFerme: string;
   villeFerme: string;
   provinceFerme: string;
+  deleted:boolean;
+  deletedDate:string
+}
+
+export interface Cow {
+   vacheId:number;
+   nomVache: string;
+   fermeId: number;
+}
+
+export interface UsersFarms {
+  usagersFermesId: number;
+  fermeId:number;
+  usagerId:number;
 }
 
 
 export interface Experience {
   experienceId: number;
   dateExperience: string;
-  nomCategorie: string;
-  nomSousCategorie: string;
-  fermeId_id: number;
+  categorieId: number;
+  vacheId: number;
 }
 
 export interface Category {
@@ -44,12 +57,23 @@ export interface SubCategory {
   categorieId:number;
 }
 
-export interface Event {
+export interface Note {
   noteId: number;
   dateNote: string;
   note: string;
   experienceId: number;
 }
+
+
+export interface Media {
+  mediaId: number;
+  media: string;
+  noteId: number;
+}
+
+
+
+
 
 
 
@@ -105,14 +129,20 @@ export class SharedService {
       console.log("Now show Experience Manager flag value is changed as " + value);
     })
 
-    this.showEventsManagerChanged.subscribe((value) => {
-      this.showEventsManager = value;
-      console.log("Now show Events Manager flag value is changed as " + value);
+    this.showNotesManagerChanged.subscribe((value) => {
+      this.showNotesManager = value;
+      console.log("Now show Notes Manager flag value is changed as " + value);
     })
 
     this.showFarmsSelectionChanged.subscribe((value) => {
       this.showFarmsSelection = value;
       console.log("Now show Farms Selection flag value is changed as " + value);
+    })
+
+
+    this.showCowManagerChanged.subscribe((value) => {
+      this.showCowManager = value;
+      console.log("Now show Cow Manager flag value is changed as " + value);
     })
 
   }
@@ -214,7 +244,7 @@ export class SharedService {
   return this.http.get<any[]>(this.APIUrl + 'fermes/');
    }
 
-//add sFarm to db
+//add Farm to db
 addFarm(val: any) {
   return this.http.post(this.APIUrl + 'fermes/', val);
 }
@@ -225,10 +255,132 @@ updateFarm(val: any) {
 }
 
 //delete Farm to db
+//just keep it here for the further use if client requirement changes later.
+//currently,the client requirement is to delete it ,but not truely deleted.
 deleteFarm(val: any) {
   return this.http.delete(this.APIUrl + 'fermes/' + val);
 }
+
+
+
 // ******************************************************************
+ //get cows list
+ getCowsList(): Observable<any[]> {
+  return this.http.get<any[]>(this.APIUrl + 'vaches/');
+   }
+
+//add cow to db
+addCow(val: any) {
+  return this.http.post(this.APIUrl + 'vaches/', val);
+}
+
+//modify cow to db
+updateCow(val: any) {
+  return this.http.put(this.APIUrl + 'vaches/', val);
+}
+
+//delete cow to db
+deleteCow(val: any) {
+  return this.http.delete(this.APIUrl + 'vaches/' + val);
+}
+// ******************************************************************
+
+
+// ******************************************************************
+ //get experience list
+ getExperiencesList(): Observable<any[]> {
+  return this.http.get<any[]>(this.APIUrl + 'experiences/');
+   }
+
+//add experience to db
+addExperience(val: any) {
+  return this.http.post(this.APIUrl + 'experiences/', val);
+}
+
+//modify experience to db
+updateExperience(val: any) {
+  return this.http.put(this.APIUrl + 'experiences/', val);
+}
+
+//delete experience to db
+deleteExperience(val: any) {
+  return this.http.delete(this.APIUrl + 'experiences/' + val);
+}
+// ******************************************************************
+
+
+
+
+// ******************************************************************
+ //get note list
+ getNotesList(): Observable<any[]> {
+  return this.http.get<any[]>(this.APIUrl + 'notes/');
+   }
+
+//add note to db
+addNote(val: any) {
+  return this.http.post(this.APIUrl + 'notes/', val);
+}
+
+//modify note to db
+updateNote(val: any) {
+  return this.http.put(this.APIUrl + 'notes/', val);
+}
+
+//delete note to db
+deleteNote(val: any) {
+  return this.http.delete(this.APIUrl + 'notes/' + val);
+}
+// ******************************************************************
+
+
+// ******************************************************************
+ //get media list
+ getMediasList(): Observable<any[]> {
+  return this.http.get<any[]>(this.APIUrl + 'medias/');
+   }
+
+//add media to db
+  addMedia(val: any) {
+  return this.http.post(this.APIUrl + 'medias/', val);
+}
+
+//modify media to db
+updateMedia(val: any) {
+  return this.http.put(this.APIUrl + 'medias/', val);
+}
+
+//delete media to db
+deleteMedia(val: any) {
+  return this.http.delete(this.APIUrl + 'medias/' + val);
+}
+// ******************************************************************
+
+ //get users farms list
+ getUsersFarmsList(): Observable<any[]> {
+  return this.http.get<any[]>(this.APIUrl + 'usagersFermes/');
+   }
+
+//add Users Farms to db
+  addUsersFarms(val: any) {
+  return this.http.post(this.APIUrl + 'usagersFermes/', val);
+}
+
+//modify Users Farms to db
+updateUsersFarms(val: any) {
+  return this.http.put(this.APIUrl + 'usagersFermes/', val);
+}
+
+//delete Users Farms to db
+deleteUsersFarms(val: any) {
+  return this.http.delete(this.APIUrl + 'usagersFermes/' + val);
+}
+// ******************************************************************
+
+
+
+
+
 
 
 
@@ -259,11 +411,11 @@ deleteFarm(val: any) {
 
   showExperienceManager: boolean = false;
 
-  showEventsManager: boolean = false;
+  showNotesManager: boolean = false;
 
   showFarmsSelection: boolean = false;
 
-
+  showCowManager:boolean=false;
 
 
   //to control to show logout button
@@ -326,11 +478,11 @@ deleteFarm(val: any) {
     this.showExperienceManagerChanged.next(true);
   }
 
-  //to control to show event manager
-  showEventsManagerChanged: Subject<boolean> = new Subject<boolean>();
+  //to control to show notes manager
+  showNotesManagerChanged: Subject<boolean> = new Subject<boolean>();
 
-  showEventsManagerEnabled() {
-    this.showEventsManagerChanged.next(true);
+  showNotesManagerEnabled() {
+    this.showNotesManagerChanged.next(true);
   }
 
   //to control to show farms selection
@@ -341,22 +493,56 @@ deleteFarm(val: any) {
   }
 
 
+   //to control to show cow manager
+   showCowManagerChanged: Subject<boolean> = new Subject<boolean>();
+
+   showCowManagerSelectionEnabled() {
+     this.showCowManagerChanged.next(true);
+   }
+
+
 
   //variable for transferring
   editingAccess: Access = { accesId: 0, accessName: "" };
 
   editingUser: User = { usagerId: 0, login: "", prenomUsager: "", nomUsager: "", motPasse: "", accesId: 0 };
 
-  editingFarm: Farm = { fermeId: 0, nomFerme: "", addresseFerme: "", villeFerme: "", provinceFerme: "" };
+  editingFarm: Farm = { fermeId: 0, nomFerme: "", addresseFerme: "", villeFerme: "", provinceFerme: "",deleted:false,deletedDate:""};
 
-  editingExperience: Experience = { experienceId: 0, dateExperience: '{{Date.now}}', nomCategorie: "", nomSousCategorie: "", fermeId_id: 0 };
+  editingExperience: Experience = { experienceId: 0, dateExperience:"", categorieId: 0, vacheId: 0};
 
   editingCategory: Category = { categorieId: 0, nomCategorie: "" };
 
   editingSubCategory: SubCategory = { sousCategorieId: 0, nomSousCategorie: "", categorieId:0};
 
+  editingCow: Cow = {
+    vacheId: 0,
+    nomVache: '',
+    fermeId: 0
+  };
+
+
+  editingNote: Note = {
+    noteId: 0,
+    dateNote: "",
+    note:"",
+    experienceId: 0
+  };
+
+  editingMedia:Media={
+    mediaId: 0,
+    media:"",
+    noteId: 0
+  }
+
+  editingUserFarm: UsersFarms = {
+    usagersFermesId: 0,
+    usagerId: 0,
+    fermeId: 0
+  }
+
   //currently selected farm
-  currentlySelectedFarm: Farm = { fermeId: 0, nomFerme: "Not Selected Yet ", addresseFerme: "", villeFerme: "", provinceFerme: "" };
+  currentlySelectedFarm: Farm = { fermeId: 0, nomFerme: "Not Selected Yet ", addresseFerme: "", villeFerme: "", provinceFerme: "",deleted:false,deletedDate:""};
 
 
 }
