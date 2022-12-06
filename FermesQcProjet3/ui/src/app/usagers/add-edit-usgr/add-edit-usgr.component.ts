@@ -14,7 +14,7 @@ export class AddEditUsgrComponent implements OnInit {
   nomUsager:string;
   motPasse:string;
   accesId:string;
-  
+
   //does db support these 2 below????
   PhotoFileName:string;
   PhotoFilePath:string;
@@ -24,7 +24,7 @@ export class AddEditUsgrComponent implements OnInit {
   showFailMsg:boolean=false;
   showForm:boolean=true;
   showUpdateButton:boolean=false;
-  
+
   constructor(private service:SharedService) {
     this.usagerId="";
     this.login="";
@@ -106,7 +106,7 @@ export class AddEditUsgrComponent implements OnInit {
   //     this.motPasse=this.usgr.motPasse;
   //     this.accesId=this.usgr.accesId;
   //     this.PhotoFileName=this.usgr.PhotoFileName;
-  //     this.PhotoFilePath=this.service.PhotoUrl + this.PhotoFileName;  
+  //     this.PhotoFilePath=this.service.PhotoUrl + this.PhotoFileName;
   //   })
 
   // }
@@ -187,11 +187,17 @@ export class AddEditUsgrComponent implements OnInit {
       var file=event.target.files[0];
       const formdata:FormData=new FormData();
       formdata.append('uploadedFile',file,file.name);
+      console.log("formdata : " + formdata);
+
 
       this.service.UploadPhoto(formdata).subscribe((data:any)=>{
         this.PhotoFileName=data.toString();
         this.PhotoFilePath=this.service.PhotoUrl+this.PhotoFileName
       })
+      console.log("photo file name : " + this.PhotoFileName);
+      console.log("photo file path : " + this.PhotoFilePath);
+
+
     }
 
 
@@ -199,10 +205,10 @@ export class AddEditUsgrComponent implements OnInit {
       this.showSuccessMsg=false;
       this.ngOnInit();
     }
-  
+
     closeFailMsg(){
       this.showFailMsg=false;
       this.ngOnInit();
-  
+
     }
 }

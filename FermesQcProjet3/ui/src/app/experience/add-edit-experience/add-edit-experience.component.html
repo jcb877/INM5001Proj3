@@ -12,8 +12,16 @@
     </div>
 
     <div id="inner">
-        
+
     <div class="form-group row" style="width: 70%;">
+
+      <label class="col-sm-4 col-form-label">{{'e.col_name'|translate}}</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" [(ngModel)]="nomExperience" placeholder="Enter Experience Name">
+      </div>
+
+      <br>
+      <br>
 
         <label class="col-sm-4 col-form-label">{{'e.col_date'|translate}}</label>
         <div class="col-sm-8">
@@ -24,7 +32,7 @@
         <br>
 
 
-       <label class="col-sm-4 col-form-label">{{'e.col_name'|translate}}</label>
+       <label class="col-sm-4 col-form-label">{{'e.col_catId'|translate}}</label>
        <div class="col-sm-8">
           <select class="form-control" [(ngModel)]="categorieId">
             <option>--Select--</option>
@@ -33,13 +41,13 @@
        </div>
 
 
-    
+
        <br>
        <br>
 
 
 
-       <label class="col-sm-4 col-form-label">{{'e.col_farmId'|translate}}</label>
+       <label class="col-sm-4 col-form-label">{{'e.col_cowId'|translate}}</label>
        <div class="col-sm-8">
            <select class="form-control" [(ngModel)]="vacheId">
             <option>--Select--</option>
@@ -58,13 +66,13 @@
 
 
     <div>
-        <button (click)="addNewExperience()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'e.add_btn_add'|translate}}</button>&nbsp;&nbsp; 
+        <button (click)="addNewExperience()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'e.add_btn_add'|translate}}</button>&nbsp;&nbsp;
         <button (click)="updateExperience()" *ngIf="showUpdateButton" class="btn btn-primary">{{'e.add_btn_update'|translate}}</button>&nbsp;&nbsp;
         <button routerLink="../ExperienceManager" class="btn btn-warning">{{'e.add_btn_cancel'|translate}}</button>
     </div>
 
  </div>
-    
+
 </div>
 
 

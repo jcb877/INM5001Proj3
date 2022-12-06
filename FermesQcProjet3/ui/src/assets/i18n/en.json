@@ -8,7 +8,7 @@
         "lang_fr":"French"
     },
     "footer":{
-        "intro":"This website is developped by Team A - Jose Carlos Braul, Steve Gordon, Jean-Louis Jousso and Yang Wang"
+        "intro":"This website is developped by Jose Carlos Braul, Steve Gordon, Jean-Louis Jousso and Yang Wang"
     },
     "login":{
         "title":"Authentication Form",
@@ -182,7 +182,8 @@
         "btn_delete":"Delete",
         "col_id":"Experience ID",
         "col_date":"Experience Date",
-        "col_name":"Experience category Name",
+        "col_name":"Experience Name",
+        "col_catId": "Category ID",
         "col_subname":"Experience subcategory Name",
         "col_cowId":"Cow ID",
         "col_opts":"Operations",

@@ -12,7 +12,7 @@
     </div>
 
     <div id="inner">
-        
+
     <div class="form-group row" style="width: 70%;">
 
         <label class="col-sm-4 col-form-label">{{'user.add_name'|translate}}</label>
@@ -27,7 +27,7 @@
        <div class="col-sm-8">
            <input type="text" class="form-control" [(ngModel)]="prenomUsager" placeholder="Enter First Name">
        </div>
-    
+
        <br>
        <br>
 
@@ -58,21 +58,21 @@
 
     <br>
 
-    <div class="ml-3 bd-highlight" style="width: 40%;" >
+    <!-- <div class="ml-3 bd-highlight" style="width: 40%;" >
          <img [src]=PhotoFilePath height="250px;" width="200px;">
          <input type="file" (change)="uploadPhoto($event)" class="mt-2">
-    </div>
-    
+    </div> -->
+
     <br>
 
     <div>
-        <button (click)="addNewUser()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'user.add_btn_add'|translate}}</button>&nbsp;&nbsp; 
+        <button (click)="addNewUser()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'user.add_btn_add'|translate}}</button>&nbsp;&nbsp;
         <button (click)="updateUser()" *ngIf="showUpdateButton" class="btn btn-primary">{{'user.add_btn_update'|translate}}</button>&nbsp;&nbsp;
         <button routerLink="../ShowUserList" class="btn btn-warning">{{'user.add_btn_cancel'|translate}}</button>
     </div>
 
  </div>
-    
+
 </div>
 
 

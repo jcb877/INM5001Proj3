@@ -9,9 +9,11 @@ import { Category, Cow, Farm, SharedService, SubCategory } from 'src/app/shared.
 export class AddEditExperienceComponent implements OnInit {
 
   experienceId:number=0;
+  nomExperience:string="";
   dateExperience:string="";
   categorieId:number=0;
-  vacheId:number=0;
+  vacheId:number=0
+  nomVache: string="";
 
 
 
@@ -38,12 +40,11 @@ export class AddEditExperienceComponent implements OnInit {
       console.log("For update experience");
 
       this.experienceId=this.service.editingExperience.experienceId;
-
+      this.nomExperience=this.service.editingExperience.nomExperience;
       this.dateExperience=this.service.editingExperience.dateExperience;
-
       this.categorieId=this.service.editingExperience.categorieId;
-
       this.vacheId=this.service.editingExperience.vacheId;
+      // this.nomVache=this.service.editingExperience.nomVache;
 
       this.showUpdateButton=true;
     }
@@ -58,17 +59,18 @@ export class AddEditExperienceComponent implements OnInit {
   addNewExperience(){
 
     var val = {
-      experienceId:this.experienceId,
+      // experienceId:this.experienceId,
+      nomExperience:this.nomExperience,
       dateExperience:this.dateExperience,
       categorieId:this.categorieId,
       vacheId:this.vacheId
     };
 
-    console.log("This is date (before adding into db )"+this.dateExperience);
+    console.log("Info sur expérience : " + val);
 
-    console.log("This is date (before adding into db )"+val.dateExperience);
+    // console.log("This is date (before adding into db )"+val.dateExperience);
 
-    
+
     this.service.addExperience(val).subscribe(res=>{
       alert(res.toString());
 

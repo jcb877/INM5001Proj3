@@ -8,7 +8,7 @@
         "lang_fr":"Français"
     },
     "footer":{
-        "intro":"Ce site est développé par l'équipe A - Jose Carlos Braul, Steve Gordon, Jean-Louis Jousso et Yang Wang"
+        "intro":"Ce site est développé par Jose Carlos Braul, Steve Gordon, Jean-Louis Jousso et Yang Wang"
     },
     "login":{
         "title":"La page d'authentification",
@@ -88,7 +88,7 @@
     },
     "farm":{
         "title":"Page du gestionnaire des fermes",
-        "d_title":"Page du gestionnaire des fermes supprimeés", 
+        "d_title":"Page du gestionnaire des fermes supprimeés",
         "d_col_deletedDate":"La date de supprission",
         "d_btn_recover":"Récuperer",
         "d_btn_back":"Retour à la Page du gestionnaire des fermes",
@@ -181,8 +181,9 @@
         "btn_edit":"Modifier",
         "btn_delete":"Supprimer",
         "col_id":"Expérience ID",
-        "col_date":"La Date d'Expérience",
-        "col_name":"Nom de la categorie d'Expérience",
+        "col_date":"Date de l'expérience",
+        "col_catId": "ID catégorie",
+        "col_name":"Nom de l'expérience",
         "col_subname":"Nom de la sous-categorie d'Expérience",
         "col_cowId":"ID de la vache",
         "col_opts":"Opérations",
