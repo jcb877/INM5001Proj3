@@ -13,17 +13,17 @@
           <thead>
               <tr>
                   <th>{{'uf.col_id'|translate}}</th>
-                  <th>{{'uf.col_fId'|translate}}</th>
                   <th>{{'uf.col_uId'|translate}}</th>
-                  <th>{{'uf.col_opts'|translate}}</th>
+                  <th>{{'uf.col_fId'|translate}}</th>
+                  <!-- <th>{{'uf.col_opts'|translate}}</th> -->
               </tr>
           </thead>
           <tbody>
               <tr *ngFor="let uf of usersFarmsList">
                   <td>{{uf.usagersFermesId}}</td>
-                  <td>{{uf.fermeId}}</td>
                   <td>{{uf.usagerId}}</td>
-                  <td class="options">                   
+                  <td>{{uf.fermeId}}</td>
+                  <td class="options">
                       <button routerLink="../AddEditUserFarm" class="btn btn-primary" (click)="editClick(uf)">{{'farm.btn_edit'|translate}}</button>&nbsp;&nbsp;
                       <button class="btn btn-danger" (click)="deleteClick(uf)">{{'farm.btn_delete'|translate}}</button>
                   </td>

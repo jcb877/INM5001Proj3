@@ -12,6 +12,7 @@ export class AddEditExperienceComponent implements OnInit {
   nomExperience:string="";
   dateExperience:string="";
   categorieId:number=0;
+  nomCategorie:string="";
   vacheId:number=0
   nomVache: string="";
 
@@ -43,8 +44,9 @@ export class AddEditExperienceComponent implements OnInit {
       this.nomExperience=this.service.editingExperience.nomExperience;
       this.dateExperience=this.service.editingExperience.dateExperience;
       this.categorieId=this.service.editingExperience.categorieId;
+      this.nomCategorie=this.service.editingExperience.nomCategorie;
       this.vacheId=this.service.editingExperience.vacheId;
-      // this.nomVache=this.service.editingExperience.nomVache;
+      this.nomVache=this.service.editingExperience.nomVache;
 
       this.showUpdateButton=true;
     }
@@ -89,6 +91,7 @@ export class AddEditExperienceComponent implements OnInit {
   updateExperience(){
     var val = {
       experienceId:this.experienceId,
+      nomExperience:this.nomExperience,
       dateExperience:this.dateExperience,
       categorieId:this.categorieId,
       vacheId:this.vacheId

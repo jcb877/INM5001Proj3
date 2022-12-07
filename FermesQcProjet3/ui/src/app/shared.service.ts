@@ -44,7 +44,9 @@ export interface Experience {
   nomExperience: string;
   dateExperience: string;
   categorieId: number;
+  nomCategorie: string;
   vacheId: number;
+  nomVache: string;
 }
 
 export interface Category {
@@ -510,7 +512,7 @@ deleteUsersFarms(val: any) {
 
   editingFarm: Farm = { fermeId: 0, nomFerme: "", addresseFerme: "", villeFerme: "", provinceFerme: "",deleted:false,deletedDate:""};
 
-  editingExperience: Experience = { experienceId: 0, nomExperience:"", dateExperience:"", categorieId: 0, vacheId: 0};
+  editingExperience: Experience = { experienceId: 0, nomExperience:"", dateExperience:"", categorieId: 0, nomCategorie:"", vacheId: 0, nomVache:""};
 
   editingCategory: Category = { categorieId: 0, nomCategorie: "" };
 

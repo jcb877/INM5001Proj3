@@ -17,7 +17,7 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     this.getExperiencesList();
-   
+
   }
 
 
@@ -33,7 +33,7 @@ export class ExperienceComponent implements OnInit {
 
   editClick(item: any){
     this.service.editingExperience.experienceId=item.experienceId;
-
+    this.service.editingExperience.nomExperience=item.nomExperience;
     this.service.editingExperience.dateExperience=item.dateExperience;
 
     this.service.editingExperience.categorieId=item.categorieId;
@@ -51,7 +51,7 @@ export class ExperienceComponent implements OnInit {
 
   clearPage(){
     this.service.editingExperience.experienceId=0;
-
+    this.service.editingExperience.nomExperience="";
     this.service.editingExperience.dateExperience="";
 
     this.service.editingExperience.categorieId=0;
@@ -62,7 +62,7 @@ export class ExperienceComponent implements OnInit {
   deleteClick(item: any){
     if(confirm('Are you sure? Vous etes sur ?')){
       this.service.deleteExperience(item.experienceId).subscribe(res=>{
-        
+
       if(res.toString().includes("Succes")){
           alert("L'Experience est ete supprime. The experience is deleted.");
        }

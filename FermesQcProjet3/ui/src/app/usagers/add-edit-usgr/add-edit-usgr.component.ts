@@ -16,8 +16,8 @@ export class AddEditUsgrComponent implements OnInit {
   accesId:string;
 
   //does db support these 2 below????
-  PhotoFileName:string;
-  PhotoFilePath:string;
+  // PhotoFileName:string;
+  // PhotoFilePath:string;
 
 
   showSuccessMsg:boolean=false;
@@ -32,8 +32,8 @@ export class AddEditUsgrComponent implements OnInit {
     this.nomUsager="";
     this.motPasse="";
     this.accesId="";
-    this.PhotoFileName="";
-    this.PhotoFilePath="";
+    // this.PhotoFileName="";
+    // this.PhotoFilePath="";
   }
 
   // @Input() usgr:any;
@@ -158,7 +158,8 @@ export class AddEditUsgrComponent implements OnInit {
   }
 
   updateUser(){
-    var val = {usagerId:this.usagerId,
+    var val = {
+      usagerId:this.usagerId,
       login:this.login,
       prenomUsager:this.prenomUsager,
       nomUsager:this.nomUsager,
@@ -190,12 +191,12 @@ export class AddEditUsgrComponent implements OnInit {
       console.log("formdata : " + formdata);
 
 
-      this.service.UploadPhoto(formdata).subscribe((data:any)=>{
-        this.PhotoFileName=data.toString();
-        this.PhotoFilePath=this.service.PhotoUrl+this.PhotoFileName
-      })
-      console.log("photo file name : " + this.PhotoFileName);
-      console.log("photo file path : " + this.PhotoFilePath);
+      // this.service.UploadPhoto(formdata).subscribe((data:any)=>{
+      //   this.PhotoFileName=data.toString();
+      //   this.PhotoFilePath=this.service.PhotoUrl+this.PhotoFileName
+      // })
+      // console.log("photo file name : " + this.PhotoFileName);
+      // console.log("photo file path : " + this.PhotoFilePath);
 
 
     }

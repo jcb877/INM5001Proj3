@@ -38,7 +38,7 @@ export class AddEditUserFarmComponent implements OnInit {
       this.fermeId=this.service.editingUserFarm.fermeId
 
       console.log("For adding new farm user pair for the farm No."+this.fermeId);
-      
+
     }
     else{
       console.log("For update farm user pair");
@@ -74,7 +74,7 @@ export class AddEditUserFarmComponent implements OnInit {
 
     var val = {
       usagerId:this.usagerId,
-      fermeId:this.fermeId,
+      fermeId:this.fermeId
     };
 
     this.service.addUsersFarms(val).subscribe(res=>{
@@ -98,7 +98,7 @@ export class AddEditUserFarmComponent implements OnInit {
       usagerId:this.usagerId,
       fermeId:this.fermeId,
     };
-    
+
     this.service.updateUsersFarms(val).subscribe(res=>{
     alert(res.toString());
 
@@ -111,7 +111,7 @@ export class AddEditUserFarmComponent implements OnInit {
       this.showFailMsg=true;
     }
 
-    
+
     });
   }
 
@@ -121,11 +121,11 @@ export class AddEditUserFarmComponent implements OnInit {
       this.showSuccessMsg=false;
       this.ngOnInit();
   }
-  
+
   closeFailMsg(){
       this.showFailMsg=false;
       this.ngOnInit();
-  
+
   }
 
 
