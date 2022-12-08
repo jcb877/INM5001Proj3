@@ -163,6 +163,7 @@
         "btn_delete":"Supprimer",
         "col_id":"Sous-Catégorie ID",
         "col_name":"Nom de Sous-Catégorie",
+        "col_catName": "Catégorie",
         "col_opts":"Opérations",
         "add_title_add":"Le formulaire pour ajouter une nouvelle sous-catégorie",
         "add_title_update":"Le formulaire pour modifier la sous-catégorie",

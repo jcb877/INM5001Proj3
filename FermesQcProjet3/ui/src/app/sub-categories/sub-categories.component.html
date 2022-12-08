@@ -15,6 +15,7 @@
           <tr>
             <th>{{'scat.col_id'|translate}}</th>
             <th>{{'scat.col_name'|translate}}</th>
+            <th>{{'scat.col_catName'|translate}}</th>
             <th>{{'scat.col_opts'|translate}}</th>
           </tr>
         </thead>
@@ -22,6 +23,7 @@
           <tr *ngFor="let c of subCategoriesList">
             <td>{{c.sousCategorieId}}</td>
             <td>{{c.nomSousCategorie}}</td>
+            <td>{{c.categorieId}}</td>
             <td class="options">
               <button routerLink="../AddEditSubCategory" class="btn btn-primary" (click)="editClick(c)">{{'scat.btn_edit'|translate}}</button>&nbsp;&nbsp;
               <button class="btn btn-danger" (click)="deleteClick(c)">{{'scat.btn_delete'|translate}}</button>

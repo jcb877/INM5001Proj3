@@ -4,11 +4,11 @@ from django.db import models
 
 class NiveauAcces(models.Model):
     accesId =  models.AutoField(primary_key=True)
-    access = models.CharField(max_length=255,null=False)
+    access = models.CharField(max_length=255,null=False, unique=True)
 
 class Usagers(models.Model):
     usagerId = models.AutoField(primary_key=True)
-    login = models.CharField(max_length=255,null=False)
+    login = models.CharField(max_length=255,null=False, unique=True)
     prenomUsager = models.CharField(max_length=255,null=False)
     nomUsager = models.CharField(max_length=255,null=False)
     motPasse = models.TextField(null=False)
@@ -18,6 +18,11 @@ class UsagersFermes(models.Model):
     usagersFermesId =  models.AutoField(primary_key=True)
     usagerId = models.ForeignKey("Usagers", on_delete=models.CASCADE)
     fermeId = models.ForeignKey("Fermes", on_delete=models.PROTECT)
+    
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['usagerId','fermeId'], name='uniqueUsagerFerme')
+        ]
 
 class Fermes(models.Model):
     fermeId = models.AutoField(primary_key=True)
@@ -27,11 +32,21 @@ class Fermes(models.Model):
     provinceFerme = models.CharField(max_length=255, null=True)
     deleted = models.BooleanField(null=True)
     deletedDate = models.DateField(null=True)
+    
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['nomFerme','addresseFerme','villeFerme'], name='uniqueFerme')
+        ]
 
 class Vaches(models.Model):
     vacheId = models.AutoField(primary_key=True)
     nomVache = models.CharField(max_length=255, null=False)
     fermeId = models.ForeignKey("Fermes", on_delete=models.PROTECT)
+    
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['nomVache','fermeId'], name='uniqueVacheFerme')
+        ]
 
 class Experiences(models.Model):
     experienceId = models.AutoField(primary_key=True)
@@ -53,10 +68,15 @@ class Medias(models.Model):
 
 class Categories(models.Model):
     categorieId = models.AutoField(primary_key=True)
-    nomCategorie = models.CharField(max_length=255, null=False)
+    nomCategorie = models.CharField(max_length=255, null=False, unique=True)
 
 class SousCategories(models.Model):
     sousCategorieId = models.AutoField(primary_key=True)
     nomSousCategorie = models.CharField(max_length=255, null=False)
     categorieId = models.ForeignKey("Categories", on_delete=models.PROTECT, null=False)
+    
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['nomSousCategorie','categorieId'], name='uniqueCatSouscat')
+        ]
 

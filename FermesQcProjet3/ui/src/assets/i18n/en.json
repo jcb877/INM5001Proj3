@@ -163,6 +163,7 @@
         "btn_delete":"Delete",
         "col_id":"Subcategory ID",
         "col_name":"Subcategory Name",
+        "col_catName": "Category",
         "col_opts":"Operations",
         "add_title_add":"The form to add new subcategory",
         "add_title_update":"The form to update subcategory",
