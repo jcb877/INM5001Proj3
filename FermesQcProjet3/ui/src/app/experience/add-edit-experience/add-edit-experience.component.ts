@@ -47,6 +47,7 @@ export class AddEditExperienceComponent implements OnInit {
       this.nomExperience=this.service.editingExperience.nomExperience;
       this.dateExperience=this.service.editingExperience.dateExperience;
       this.categorieId=this.service.editingExperience.categorieId;
+      this.sousCategorieId=this.service.editingExperience.sousCategorieId;
       this.vacheId=this.service.editingExperience.vacheId;
 
       this.showUpdateButton=true;

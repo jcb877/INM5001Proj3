@@ -35,9 +35,8 @@ export class ExperienceComponent implements OnInit {
     this.service.editingExperience.experienceId=item.experienceId;
     this.service.editingExperience.nomExperience=item.nomExperience;
     this.service.editingExperience.dateExperience=item.dateExperience;
-
     this.service.editingExperience.categorieId=item.categorieId;
-
+    this.service.editingExperience.sousCategorieId=item.sousCategorieId;
     this.service.editingExperience.vacheId=item.vacheId;
 
 
@@ -53,9 +52,8 @@ export class ExperienceComponent implements OnInit {
     this.service.editingExperience.experienceId=0;
     this.service.editingExperience.nomExperience="";
     this.service.editingExperience.dateExperience="";
-
     this.service.editingExperience.categorieId=0;
-
+    this.service.editingExperience.sousCategorieId=0;
     this.service.editingExperience.vacheId=0;
   }
 
