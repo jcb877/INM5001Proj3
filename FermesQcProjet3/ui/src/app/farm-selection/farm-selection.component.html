@@ -1,6 +1,6 @@
 <div id="outer" *ngIf="showForm">
     <div class="text-left">
-        &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">Back To All Functions Portal page</button>
+        &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'access.btn_back'|translate}}</button>
     </div>
 
     <div class="line">
@@ -8,27 +8,38 @@
     </div>
 
     <div>
-        <p class="p-2 bg-info text-light text-center">The farm selection page</p>
+        <p class="p-2 bg-info text-light text-center"> {{'farm.title' | translate}} </p>
     </div>
 
     <div id="inner">
-        
+
     <div class="form-group row" style="width: 70%;">
 
 
-       <label class="col-sm-4 col-form-label">Farm Selection</label>
+       <!-- <label class="col-sm-4 col-form-label">Farm Selection</label>
        <div class="col-sm-8">
           <select class="form-control" [(ngModel)]="nomFerme">
             <option>--Select--</option>
             <option *ngFor="let f of farmsList">{{f.nomFerme}}</option>
           </select>
           <br>
-       </div>
+       </div> -->
+
+    <label class="col-sm-4 col-form-label">{{'farm.l_selection'|translate}}</label>
+    <div class="col-sm-8">
+        <select class="form-control" [(ngModel)]="nomFerme">
+          <option>--Select--</option>
+            <ng-container *ngFor="let f of farmsList">
+                <option *ngIf="!f.deleted">{{f.nomFerme}}</option>
+            </ng-container>
+        </select>
+        <br>
+    </div>
 
 
        <div>
-        <button (click)="selectFarm()" class="btn btn-primary">Select</button>&nbsp;&nbsp; 
-        <button routerLink="../Functions" class="btn btn-warning">Cancel</button>
+        <button (click)="selectFarm()" class="btn btn-primary"> {{'farm.btn_select'|translate}} </button>&nbsp;&nbsp;
+        <button routerLink="../Functions" class="btn btn-warning">{{'access.add_btn_cancel'|translate}}</button>
        </div>
 
     </div>
@@ -36,7 +47,7 @@
     <br>
 
  </div>
-    
+
 </div>
 
 
