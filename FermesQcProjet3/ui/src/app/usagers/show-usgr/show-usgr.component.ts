@@ -1,3 +1,4 @@
+import { NiveauaccesComponent } from './../../niveauacces/niveauacces.component';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 
@@ -13,6 +14,7 @@ export class ShowUsgrComponent implements OnInit {
   }
 
   UsagersList: any = [];
+  // nivAccList: any=[];
 
   ModalTitle: string;
   usgr: any;
@@ -71,7 +73,6 @@ export class ShowUsgrComponent implements OnInit {
     this.service.getUsagerList().subscribe(data => {
       this.UsagersList = data;
 
-
       console.log("Printing");
       console.log("length is " + this.UsagersList.length)
       for (let user of this.UsagersList) {
@@ -79,7 +80,6 @@ export class ShowUsgrComponent implements OnInit {
         console.log(user.accesId_id);
       }
     })
-
 
   }
 }

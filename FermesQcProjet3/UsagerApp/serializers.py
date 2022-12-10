@@ -7,7 +7,7 @@ class NiveauAccesSerializer(serializers.ModelSerializer):
         model = NiveauAcces
         fields = ('accesId',
                   'access')
-
+        
 class UsagersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usagers
@@ -18,6 +18,16 @@ class UsagersSerializer(serializers.ModelSerializer):
                   'motPasse',
                   'accesId')
 
+# class NiveauAccesSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = NiveauAcces
+#         fields = '__all__'
+
+# class UsagersSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Usagers
+#         fields = '__all__'
+        
 class UsagersFermesSerializer(serializers.ModelSerializer):
     class Meta:
         model = UsagersFermes
@@ -51,6 +61,7 @@ class ExperiencesSerializer(serializers.ModelSerializer):
                   'nomExperience',
                   'dateExperience',
                   'categorieId',
+                  'sousCategorieId',
                   'vacheId')
 
 class NotesSerializer(serializers.ModelSerializer):
@@ -80,3 +91,13 @@ class SousCategoriesSerializer(serializers.ModelSerializer):
         fields = ('sousCategorieId',
                   'nomSousCategorie',
                   'categorieId')  
+
+# class CategoriesSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Categories
+#         fields = '__all__'
+
+# class SousCategoriesSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = SousCategories
+#         fields = '__all__'

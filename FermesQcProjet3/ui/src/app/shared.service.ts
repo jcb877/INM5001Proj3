@@ -44,9 +44,8 @@ export interface Experience {
   nomExperience: string;
   dateExperience: string;
   categorieId: number;
-  nomCategorie: string;
+  sousCategorieId: number;
   vacheId: number;
-  nomVache: string;
 }
 
 export interface Category {
@@ -225,6 +224,7 @@ export class SharedService {
   getSubCategoryList(): Observable<any[]> {
     return this.http.get<any[]>(this.APIUrl + 'sousCategories/');
   }
+
 
   //add sub-Category to db
   addSubCategory(val: any) {
@@ -512,7 +512,7 @@ deleteUsersFarms(val: any) {
 
   editingFarm: Farm = { fermeId: 0, nomFerme: "", addresseFerme: "", villeFerme: "", provinceFerme: "",deleted:false,deletedDate:""};
 
-  editingExperience: Experience = { experienceId: 0, nomExperience:"", dateExperience:"", categorieId: 0, nomCategorie:"", vacheId: 0, nomVache:""};
+  editingExperience: Experience = { experienceId: 0, nomExperience: "", dateExperience: "", categorieId: 0, sousCategorieId: 0, vacheId: 0};
 
   editingCategory: Category = { categorieId: 0, nomCategorie: "" };
 

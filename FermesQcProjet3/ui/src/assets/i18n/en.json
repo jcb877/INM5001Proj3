@@ -185,6 +185,7 @@
         "col_date":"Experience Date",
         "col_name":"Experience Name",
         "col_catId": "Category ID",
+        "col_sCatId": "Sub-category ID",
         "col_subname":"Experience subcategory Name",
         "col_cowId":"Cow ID",
         "col_opts":"Operations",

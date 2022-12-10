@@ -1,6 +1,7 @@
 <div id="outer" *ngIf="showForm">
     <div class="text-left">
-        &nbsp;&nbsp;&nbsp;<button routerLink="../ExperienceManager" class="btn btn-primary">{{'e.add_btn_back'|translate}}</button>
+        &nbsp;&nbsp;&nbsp;<button routerLink="../ExperienceManager"
+            class="btn btn-primary">{{'e.add_btn_back'|translate}}</button>
     </div>
 
     <div class="line">
@@ -13,65 +14,79 @@
 
     <div id="inner">
 
-    <div class="form-group row" style="width: 70%;">
+        <div class="form-group row" style="width: 70%;">
 
-      <label class="col-sm-4 col-form-label">{{'e.col_name'|translate}}</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" [(ngModel)]="nomExperience" placeholder="Enter Experience Name">
-      </div>
+            <label class="col-sm-4 col-form-label">{{'e.col_name'|translate}}</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" [(ngModel)]="nomExperience" placeholder="Enter Experience Name">
+            </div>
 
-      <br>
-      <br>
+            <br>
+            <br>
 
-        <label class="col-sm-4 col-form-label">{{'e.col_date'|translate}}</label>
-        <div class="col-sm-8">
-           <input type="date" class="form-control" [(ngModel)]="dateExperience" placeholder="Enter date">
+            <label class="col-sm-4 col-form-label">{{'e.col_date'|translate}}</label>
+            <div class="col-sm-8">
+                <input type="date" class="form-control" [(ngModel)]="dateExperience" placeholder="Enter date">
+            </div>
+
+            <br>
+            <br>
+
+
+            <label class="col-sm-4 col-form-label">{{'e.col_catId'|translate}}</label>
+            <div class="col-sm-8">
+                <select class="form-control" [(ngModel)]="categorieId">
+                    <option>--Select--</option>
+                    <option *ngFor="let c of categoriesList" [value]="c.categorieId">{{c.nomCategorie}}</option>
+                </select>
+            </div>
+
+            <br>
+            <br>
+
+
+            <label class="col-sm-4 col-form-label">{{'e.col_sCatId'|translate}}</label>
+            <div class="col-sm-8">
+                <select class="form-control" [(ngModel)]="sousCategorieId">
+                  <option>--Select--</option>
+                  <ng-container *ngFor="let sc of subCategoryList" >
+                    <option [value]="sc.sousCategorieId" *ngIf="sc.categorieId == categorieId">{{sc.nomSousCategorie}}
+                        </option>
+                    </ng-container>
+                </select>
+            </div>
+
+            <br>
+            <br>
+
+
+            <label class="col-sm-4 col-form-label">{{'e.col_cowId'|translate}}</label>
+            <div class="col-sm-8">
+                <select class="form-control" [(ngModel)]="vacheId">
+                    <option>--Select--</option>
+                    <option *ngFor="let c of cowsList" [value]="c.vacheId">{{c.vacheId}} : {{c.nomVache}}</option>
+                </select>
+            </div>
+
+
+
+
+
+
+            <br>
+            <br>
         </div>
 
-        <br>
-        <br>
 
+        <div>
+            <button (click)="addNewExperience()" *ngIf="!showUpdateButton"
+                class="btn btn-primary">{{'e.add_btn_add'|translate}}</button>&nbsp;&nbsp;
+            <button (click)="updateExperience()" *ngIf="showUpdateButton"
+                class="btn btn-primary">{{'e.add_btn_update'|translate}}</button>&nbsp;&nbsp;
+            <button routerLink="../ExperienceManager" class="btn btn-warning">{{'e.add_btn_cancel'|translate}}</button>
+        </div>
 
-       <label class="col-sm-4 col-form-label">{{'e.col_catId'|translate}}</label>
-       <div class="col-sm-8">
-          <select class="form-control" [(ngModel)]="categorieId">
-            <option>--Select--</option>
-            <option *ngFor="let c of categoriesList" [value]="c.categorieId">{{c.nomCategorie}}</option>
-          </select>
-       </div>
-
-
-
-       <br>
-       <br>
-
-
-
-       <label class="col-sm-4 col-form-label">{{'e.col_cowId'|translate}}</label>
-       <div class="col-sm-8">
-           <select class="form-control" [(ngModel)]="vacheId">
-            <option>--Select--</option>
-            <option *ngFor="let c of cowsList" [value]="c.vacheId">{{c.nomVache}}</option>
-          </select>
-       </div>
-
-
-
-
-
-
-       <br>
-       <br>
-       </div>
-
-
-    <div>
-        <button (click)="addNewExperience()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'e.add_btn_add'|translate}}</button>&nbsp;&nbsp;
-        <button (click)="updateExperience()" *ngIf="showUpdateButton" class="btn btn-primary">{{'e.add_btn_update'|translate}}</button>&nbsp;&nbsp;
-        <button routerLink="../ExperienceManager" class="btn btn-warning">{{'e.add_btn_cancel'|translate}}</button>
     </div>
-
- </div>
 
 </div>
 
@@ -81,7 +96,8 @@
         <p>{{'e.msg_success'|translate}}</p>
     </div>
     <div class="text-center">
-    <button class="btn btn-success" routerLink="../ExperienceManager" (click)="closeSuccessMsg()">{{'e.btn_close'|translate}}</button>
+        <button class="btn btn-success" routerLink="../ExperienceManager"
+            (click)="closeSuccessMsg()">{{'e.btn_close'|translate}}</button>
     </div>
 </div>
 
@@ -90,6 +106,7 @@
         <p>{{'e.msg_fail'|translate}}</p>
     </div>
     <div class="text-center">
-    <button class="btn btn-warning" routerLink="../ExperienceManager" (click)="closeFailMsg()">{{'e.btn_close'|translate}}</button>
+        <button class="btn btn-warning" routerLink="../ExperienceManager"
+            (click)="closeFailMsg()">{{'e.btn_close'|translate}}</button>
     </div>
 </div>

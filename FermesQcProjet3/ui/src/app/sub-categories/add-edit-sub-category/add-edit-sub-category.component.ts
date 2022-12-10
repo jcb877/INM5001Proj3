@@ -12,6 +12,7 @@ export class AddEditSubCategoryComponent implements OnInit {
   sousCategorieId:number=0;
   nomSousCategorie:string="";
   categorieId:number=0;
+  nomCategorie:string="";
 
 
 

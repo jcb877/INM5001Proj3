@@ -184,6 +184,7 @@
         "col_id":"Expérience ID",
         "col_date":"Date de l'expérience",
         "col_catId": "ID catégorie",
+        "col_sCatId": "ID sous-catégorie",
         "col_name":"Nom de l'expérience",
         "col_subname":"Nom de la sous-categorie d'Expérience",
         "col_cowId":"ID de la vache",

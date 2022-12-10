@@ -13,6 +13,7 @@ class Usagers(models.Model):
     nomUsager = models.CharField(max_length=255,null=False)
     motPasse = models.TextField(null=False)
     accesId = models.ForeignKey("NiveauAcces", on_delete=models.CASCADE)
+    
 
 class UsagersFermes(models.Model):
     usagersFermesId =  models.AutoField(primary_key=True)
@@ -48,12 +49,8 @@ class Vaches(models.Model):
             models.UniqueConstraint(fields=['nomVache','fermeId'], name='uniqueVacheFerme')
         ]
 
-class Experiences(models.Model):
-    experienceId = models.AutoField(primary_key=True)
-    nomExperience = models.CharField(max_length=255, null=False)
-    dateExperience = models.DateField(auto_now_add=False, null=False)
-    categorieId = models.ForeignKey("Categories", on_delete=models.PROTECT, null=False)
-    vacheId = models.ForeignKey("Vaches", on_delete=models.PROTECT)
+
+    
 
 class Notes(models.Model):
     noteId = models.AutoField(primary_key=True)
@@ -74,9 +71,17 @@ class SousCategories(models.Model):
     sousCategorieId = models.AutoField(primary_key=True)
     nomSousCategorie = models.CharField(max_length=255, null=False)
     categorieId = models.ForeignKey("Categories", on_delete=models.PROTECT, null=False)
+    # categorie = models.ForeignKey("Categories", on_delete=models.PROTECT, null=False)
     
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['nomSousCategorie','categorieId'], name='uniqueCatSouscat')
         ]
 
+class Experiences(models.Model):
+    experienceId = models.AutoField(primary_key=True)
+    nomExperience = models.CharField(max_length=255, null=False)
+    dateExperience = models.DateField(auto_now_add=False, null=False)
+    categorieId = models.ForeignKey("Categories", on_delete=models.PROTECT, null=False)
+    sousCategorieId = models.ForeignKey("SousCategories", on_delete=models.PROTECT, null=False)
+    vacheId = models.ForeignKey("Vaches", on_delete=models.PROTECT)

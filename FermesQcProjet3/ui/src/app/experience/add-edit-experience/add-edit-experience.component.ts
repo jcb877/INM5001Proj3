@@ -8,16 +8,19 @@ import { Category, Cow, Farm, SharedService, SubCategory } from 'src/app/shared.
 })
 export class AddEditExperienceComponent implements OnInit {
 
+
   experienceId:number=0;
   nomExperience:string="";
   dateExperience:string="";
   categorieId:number=0;
   nomCategorie:string="";
+  nomSousCategorie:string="";
+  sousCategorieId:number=0;
   vacheId:number=0
   nomVache: string="";
 
 
-
+  subCategoryList: SubCategory[]=[];
   categoriesList:Category[]=[];
   cowsList:Cow[]=[];
 
@@ -44,16 +47,14 @@ export class AddEditExperienceComponent implements OnInit {
       this.nomExperience=this.service.editingExperience.nomExperience;
       this.dateExperience=this.service.editingExperience.dateExperience;
       this.categorieId=this.service.editingExperience.categorieId;
-      this.nomCategorie=this.service.editingExperience.nomCategorie;
       this.vacheId=this.service.editingExperience.vacheId;
-      this.nomVache=this.service.editingExperience.nomVache;
 
       this.showUpdateButton=true;
     }
 
-
     this.getCategoryList();
     this.getCowsList();
+    this.getSubCategoryList();
 
   }
 
@@ -65,6 +66,7 @@ export class AddEditExperienceComponent implements OnInit {
       nomExperience:this.nomExperience,
       dateExperience:this.dateExperience,
       categorieId:this.categorieId,
+      sousCategorieId:this.sousCategorieId,
       vacheId:this.vacheId
     };
 
@@ -94,6 +96,7 @@ export class AddEditExperienceComponent implements OnInit {
       nomExperience:this.nomExperience,
       dateExperience:this.dateExperience,
       categorieId:this.categorieId,
+      sousCategorieId:this.sousCategorieId,
       vacheId:this.vacheId
     };
 
@@ -120,13 +123,23 @@ export class AddEditExperienceComponent implements OnInit {
     })
   }
 
-
+  getSubCategoryList(){
+    this.service.getSubCategoryList().subscribe(data => {
+      this.subCategoryList = data;
+    })
+  }
 
 
   getCowsList(){
     this.service.getCowsList().subscribe(data=> {
-      this.cowsList=data;
+      this.cowsList=data
     })
+  }
+
+  subCatChange(newValue: any) {
+
+      this.service.editingSubCategory.categorieId=newValue.categorieId
+
   }
 
   convertFarmNameIntoFarmId(){
