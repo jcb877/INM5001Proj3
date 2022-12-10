@@ -14,7 +14,7 @@ Demmarrer les API python
 
 ----Activer l'environnement virtuel python
 ----à partir de l'intérieur du répertoire ..\FermesQuebecPrj3\
-
+(Copier et coller la commande suivante)
 labenv\Scripts\activate 
 
 ---------Dans le projet (FermesQcAPI) ----------
@@ -31,6 +31,15 @@ DATABASES = {
     }
 }
 
+--------- Modifier la position de fichier Python.exe-----
+   -- Verifier il est ou:
+      Typer la commande Where is python dans la fenetre Command.Et Il va montrer,et juste copier la position de dossier sans \
+
+   --coller la position dans le FermesQCProjet3->FermesQcAPI->labenv->pyvenv.cfg
+
+
+------Supprimer le fichier migrations
+   --Generalement,il se trouve FermesQCProjet3->UsagerApp
 
 ------Ajouter les nouvelles tables --------
 python manage.py makemigrations UsagerApp
