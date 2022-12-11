@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService, SubCategory } from '../shared.service';
+import { Category, SharedService, SubCategory } from '../shared.service';
 import { FormsModule } from "@angular/forms";
 
 @Component({
@@ -11,9 +11,9 @@ export class SubCategoriesComponent implements OnInit {
 
   subCategoriesList:SubCategory[]=[];
 
-  // fakeSubCategoriesList:SubCategory[]=[];
 
-
+  categoriesList: Category[] = [];
+  
     constructor(private service:SharedService) {
 
     }
@@ -22,43 +22,23 @@ export class SubCategoriesComponent implements OnInit {
 
     ngOnInit(): void {
       this.refreshSubCategoryList();
-    //this.getFarmsList();
-
-    //fake only for testing
-    // if(this.subCategoriesList.length==0){
-    //   console.log("Fake list started");
-    //   var c1:SubCategory={sousCategorieId:1,nomSousCategorie:"Sub Livestock Health Testing 1"};
-    //   var c2:SubCategory={sousCategorieId:2,nomSousCategorie:"Sub Livestock Health Testing 2"};
-    //   var c3:SubCategory={sousCategorieId:3,nomSousCategorie:"Sub Livestock Health Testing 3"};
-    //   var c4:SubCategory={sousCategorieId:4,nomSousCategorie:"Sub Livestock Health Testing 4"};
-    //   var c5:SubCategory={sousCategorieId:5,nomSousCategorie:"Sub Livestock Health Testing 5"};
-    //   var c6:SubCategory={sousCategorieId:6,nomSousCategorie:"Sub Livestock Health Testing 6"};
-
-    //   this.fakeSubCategoriesList.push(c1);
-    //   this.fakeSubCategoriesList.push(c2);
-    //   this.fakeSubCategoriesList.push(c3);
-    //   this.fakeSubCategoriesList.push(c4);
-    //   this.fakeSubCategoriesList.push(c5);
-    //   this.fakeSubCategoriesList.push(c6);
-
-    //   this.subCategoriesList=this.fakeSubCategoriesList;
-    //   console.log("length"+this.subCategoriesList.length);
-    // }
-
+      this.refreshCategoryList();
 
     }
 
 
 
+    refreshCategoryList() {
+      this.service.getCategoryList().subscribe(data => {
+        this.categoriesList = data;
+      })
+    }
 
 
     editClick(item:any){
       console.log(item);
 
       this.service.editingSubCategory=item;
-      // this.service.editingSubCategory.nomSousCategorie=item.nomSousCategorie;
-      // console.log("sub category id"+this.service.editingSubCategory.sousCategorieId);
-      // console.log("sub category name"+this.service.editingSubCategory.nomSousCategorie);
     }
 
     deleteClick(item:any){
@@ -82,6 +62,20 @@ export class SubCategoriesComponent implements OnInit {
       this.subCategoriesList = data;
     })
   }
+
+  convertIdIntoNameCategory(Id:number){
+    var name="";
+    for (let i = 0; i < this.categoriesList.length; i++) {
+       if(this.categoriesList[i].categorieId==Id){
+        name=this.categoriesList[i].nomCategorie;
+        break;
+       }
+    }
+    return name;
+  }
+
+
+
 
 }
 

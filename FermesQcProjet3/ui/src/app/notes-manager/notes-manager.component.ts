@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Note, SharedService } from '../shared.service';
+import { Experience, Note, SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-notes-manager',
@@ -8,26 +8,43 @@ import { Note, SharedService } from '../shared.service';
 })
 export class NotesManagerComponent implements OnInit {
 
+  allNotesList:Note[]=[];
+
   notesList:Note[]=[];
 
-  
+  experienceList:Experience[]=[];
+
   constructor(private service:SharedService) { }
 
   ngOnInit(): void {
     this.getNotesList();
+    this.getExperiencesList();
   }
 
   getNotesList(){
+
+    this.allNotesList=[];
+
+    this.notesList=[];
+
     this.service.getNotesList().subscribe(data=> {
-      this.notesList=data;
+      this.allNotesList=data;
+
+      for (let i = 0; i < this.allNotesList.length; i++) {
+        if(this.allNotesList[i].experienceId==this.service.editingExperience.experienceId){
+          this.notesList.push(this.allNotesList[i]);
+        }
+     }
+
     })
   }
 
-  
-  
-
-  
-
+  getExperiencesList(){
+    this.service.getExperiencesList().subscribe(data=> {
+      this.experienceList=data;
+      console.log("List length is "+this.experienceList.length);
+    })
+  }
   
   //for media operation of the selected note
 
@@ -94,7 +111,17 @@ export class NotesManagerComponent implements OnInit {
   }
 
 
-  convertIdIntoName(Id:number){
+  convertIdIntoNameExperience(Id:number){
+    var name="";
+    for (let i = 0; i < this.experienceList.length; i++) {
+       if(this.experienceList[i].experienceId==Id){
+        name=this.experienceList[i].nomExperience;
+        break;
+       }
+    }
+
+
+    return name;
 
   }
 

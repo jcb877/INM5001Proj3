@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from 'src/app/shared.service';
+import { Farm, SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-add-edit-cow',
@@ -20,7 +20,8 @@ export class AddEditCowComponent implements OnInit {
 
 
   farmsList: any = [];
-
+  allFarmsList:Farm[]=[];
+  
   constructor(private service:SharedService) {
 
   }
@@ -30,7 +31,7 @@ export class AddEditCowComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this.refreshFarmsList();
+    this.getFarmsList();
 
     if(this.service.editingCow.vacheId==0){
       this.fermeId=this.service.editingCow.fermeId
@@ -50,12 +51,23 @@ export class AddEditCowComponent implements OnInit {
 
   }
 
-  refreshFarmsList() {
-    this.service.getFarmList().subscribe(data => {
-      this.farmsList = data;
+  // refreshFarmsList() {
+  //   this.service.getFarmList().subscribe(data => {
+  //     this.farmsList = data;
+  //   })
+  // }
+
+
+  getFarmsList(){
+    this.service.getFarmList().subscribe(data=> {
+      this.allFarmsList=data;
+      for (let i = 0; i < this.allFarmsList.length; i++) {
+        if(this.allFarmsList[i].deleted!=true){
+          this.farmsList.push(this.allFarmsList[i]);  //only not deleted farms in the list
+        }
+     }
     })
   }
-
 
 
   addNewCow(){

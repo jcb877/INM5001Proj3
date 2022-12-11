@@ -46,6 +46,9 @@ import { MediaManagerComponent } from './media-manager/media-manager.component';
 import { AddEditMediaComponent } from './media-manager/add-edit-media/add-edit-media.component';
 import { UsersFarmsManagerComponent } from './users-farms-manager/users-farms-manager.component';
 import { AddEditUserFarmComponent } from './users-farms-manager/add-edit-user-farm/add-edit-user-farm.component';
+import { AgricultureExperienceGraphicsComponent } from './agriculture-experience-graphics/agriculture-experience-graphics.component';
+import { AddEditGraphicsComponent } from './agriculture-experience-graphics/add-edit-graphics/add-edit-graphics.component';
+
 
 
 
@@ -81,6 +84,8 @@ const appRoutes: Routes = [
   { path: 'AddEditMedia', component: AddEditMediaComponent },
   { path: 'UsersFarmsManager', component: UsersFarmsManagerComponent },
   { path: 'AddEditUserFarm', component: AddEditUserFarmComponent },
+  { path: 'agricultureExperienceGraphics', component: AgricultureExperienceGraphicsComponent },
+  { path: 'AddEditGraphics', component: AddEditGraphicsComponent },
   { path: '**', component: ErrorComponent }
 ]
 
@@ -117,6 +122,8 @@ const appRoutes: Routes = [
     AddEditMediaComponent,
     UsersFarmsManagerComponent,
     AddEditUserFarmComponent,
+    AgricultureExperienceGraphicsComponent,
+    AddEditGraphicsComponent,
   ],
   imports: [
     BrowserModule,

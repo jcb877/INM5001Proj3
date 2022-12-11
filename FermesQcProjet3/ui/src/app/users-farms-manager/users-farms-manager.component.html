@@ -21,8 +21,8 @@
           <tbody>
               <tr *ngFor="let uf of usersFarmsList">
                   <td>{{uf.usagersFermesId}}</td>
-                  <td>{{uf.usagerId}}</td>
-                  <td>{{uf.fermeId}}</td>
+                  <td>{{convertIdIntoNameUser(uf.usagerId)}}</td>
+                  <td>{{convertIdIntoNameFarm(uf.fermeId)}}</td>
                   <td class="options">
                       <button routerLink="../AddEditUserFarm" class="btn btn-primary" (click)="editClick(uf)">{{'farm.btn_edit'|translate}}</button>&nbsp;&nbsp;
                       <button class="btn btn-danger" (click)="deleteClick(uf)">{{'farm.btn_delete'|translate}}</button>

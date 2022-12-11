@@ -1,7 +1,7 @@
 
 <div id="outer">
     <div class="text-left">
-      &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'farm.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;<button routerLink="../ExperienceManager" class="btn btn-primary">{{'note.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
       <button routerLink="../AddEditNote" (click)="clearPage()" class="btn btn-success">{{'note.btn_add'|translate}}</button>
     </div>
     <div class="line">
@@ -25,7 +25,7 @@
                   <td>{{n.noteId}}</td>
                   <td>{{n.dateNote}}</td>
                   <td>{{n.note}}</td>
-                  <td>{{n.experienceId}}</td>
+                  <td>{{ convertIdIntoNameExperience(n.experienceId)}}</td>
                   <td class="options">                   
                     <button routerLink="../MediasManager" class="btn btn-primary" (click)="checkAllAssociatedMedias(n)">{{'note.btn_checkMedia'|translate}}</button>&nbsp;&nbsp;
                     <button routerLink="../AddEditMedia" class="btn btn-success" (click)="addAssociatedMedia(n)">{{'note.btn_addMedia'|translate}}</button>&nbsp;&nbsp;

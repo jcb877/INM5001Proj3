@@ -23,7 +23,7 @@
           <tr *ngFor="let c of subCategoriesList">
             <td>{{c.sousCategorieId}}</td>
             <td>{{c.nomSousCategorie}}</td>
-            <td>{{c.categorieId}}</td>
+            <td>{{convertIdIntoNameCategory(c.categorieId)}}</td>
             <td class="options">
               <button routerLink="../AddEditSubCategory" class="btn btn-primary" (click)="editClick(c)">{{'scat.btn_edit'|translate}}</button>&nbsp;&nbsp;
               <button class="btn btn-danger" (click)="deleteClick(c)">{{'scat.btn_delete'|translate}}</button>

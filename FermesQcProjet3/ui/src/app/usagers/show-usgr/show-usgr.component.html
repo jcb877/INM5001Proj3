@@ -29,11 +29,16 @@
               <td>{{user.prenomUsager}}</td>
               <td>{{user.nomUsager}}</td>
               <td hidden>{{user.motPasse}}</td>
-              <td>{{user.accesId}}</td>
-                <td class="options">
+              <!-- <td>{{user.accesId}}</td> -->
+              <td>{{convertAccessIDIntoName(user.accesId)}}</td>
+
+
+
+
+              <td class="options">
                     <button routerLink="../AddEditUser" class="btn btn-primary" (click)="editClick(user)">{{'user.btn_edit'|translate}}</button>&nbsp;&nbsp;
                     <button class="btn btn-danger" (click)="deleteClick(user)" >{{'user.btn_delete'|translate}}</button>
-                </td>
+              </td>
             </tr>
         </tbody>
     </table>

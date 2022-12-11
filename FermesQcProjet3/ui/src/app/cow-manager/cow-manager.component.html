@@ -22,7 +22,7 @@
               <tr *ngFor="let cow of cowsList">
                   <td>{{cow.vacheId}}</td>
                   <td>{{cow.nomVache}}</td>
-                  <td>{{cow.fermeId}}</td>
+                  <td>{{ convertIdIntoName(cow.fermeId)}}</td>
                   <td class="options">                   
                       <button routerLink="../AddEditCow" class="btn btn-primary" (click)="editClick(cow)">{{'farm.btn_edit'|translate}}</button>&nbsp;&nbsp;
                       <button class="btn btn-danger" (click)="deleteClick(cow)">{{'farm.btn_delete'|translate}}</button>

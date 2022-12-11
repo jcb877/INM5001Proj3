@@ -19,6 +19,7 @@ export class AddEditUsgrComponent implements OnInit {
   // PhotoFileName:string;
   // PhotoFilePath:string;
 
+  UsagersList: any = [];
 
   showSuccessMsg:boolean=false;
   showFailMsg:boolean=false;
@@ -55,6 +56,7 @@ export class AddEditUsgrComponent implements OnInit {
 
     if(this.service.editingUser.usagerId==0){
       console.log("For new user");
+      this.refreshUsagersList();
     }
     else{
       console.log("For update user");
@@ -78,38 +80,19 @@ export class AddEditUsgrComponent implements OnInit {
   }
 
 
+
   refreshNivAccessList(){
     this.service.getNivAccList().subscribe(data=> {
       this.NivAccesList=data;
 
-      // console.log("Printing length: " + this.NivAccesList.length);
-
-      // for(let access of this.NivAccesList){
-      //       console.log(access.accesId);
-      //       console.log(access.access);
-      // }
-
-
     })
-
-
   }
 
-  // loadNivAccesList(){
-  //   this.service.getAllNiveauAccessNames().subscribe((data:any)=>{
-  //     this.NivAccesList=data;
-
-  //     this.usagerId=this.usgr.usagerId;
-  //     this.login=this.usgr.login;
-  //     this.prenomUsager=this.usgr.prenomUsager;
-  //     this.nomUsager=this.usgr.nomUsager;
-  //     this.motPasse=this.usgr.motPasse;
-  //     this.accesId=this.usgr.accesId;
-  //     this.PhotoFileName=this.usgr.PhotoFileName;
-  //     this.PhotoFilePath=this.service.PhotoUrl + this.PhotoFileName;
-  //   })
-
-  // }
+  refreshUsagersList() {
+    this.service.getUsagerList().subscribe(data => {
+      this.UsagersList = data;
+    })
+  }
 
   convertAccesNameIntoAccessId(){
     for(let access of this.NivAccesList){
@@ -130,7 +113,14 @@ export class AddEditUsgrComponent implements OnInit {
   }
 
   addNewUser(){
-    this.convertAccesNameIntoAccessId();
+
+    if(this.checkBeforeAddingNewUser()){
+      //username is already existed
+      alert("Le nom d'utilisateur existes deja.The user name already exists");
+    }
+    else{
+
+      this.convertAccesNameIntoAccessId();
 
     console.log("this is access id "+this.accesId);
 
@@ -155,7 +145,26 @@ export class AddEditUsgrComponent implements OnInit {
       }
 
     });
+    }
+
+    
   }
+
+
+  checkBeforeAddingNewUser(){
+    var userFound=false;
+
+    for(let u of this.UsagersList){
+      if(u.login==this.login){
+        userFound=true;
+        break;
+      }
+    }
+    return userFound;
+  }
+
+
+
 
   updateUser(){
     var val = {

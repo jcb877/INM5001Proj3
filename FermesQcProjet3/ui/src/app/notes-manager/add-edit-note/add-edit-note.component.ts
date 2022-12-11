@@ -35,6 +35,7 @@ export class AddEditNoteComponent implements OnInit {
 
     if(this.service.editingNote.noteId==0){
       console.log("For new note");
+      this.experienceId=this.service.editingExperience.experienceId;
     }
     else{
       console.log("For update note");

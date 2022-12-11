@@ -14,6 +14,8 @@ export class CowManagerComponent implements OnInit {
 
   farmsList:Farm[]=[];
 
+  allFarmsList:Farm[]=[];
+
   farmName:string="";
   
   constructor(private service:SharedService) { }
@@ -40,7 +42,12 @@ export class CowManagerComponent implements OnInit {
 
   getFarmsList(){
     this.service.getFarmList().subscribe(data=> {
-      this.farmsList=data;
+      this.allFarmsList=data;
+      for (let i = 0; i < this.allFarmsList.length; i++) {
+        if(this.allFarmsList[i].deleted!=true){
+          this.farmsList.push(this.allFarmsList[i]);  //only not deleted farms in the list
+        }
+     }
     })
   }
 

@@ -203,6 +203,8 @@ export class LoginComponent implements OnInit {
            //show only 2 manangers
            this.service.showNotesManager=true;
 
+           this.service.showExperienceManager=true;
+           
            this.service.showFarmsSelection=true;
 
            break;

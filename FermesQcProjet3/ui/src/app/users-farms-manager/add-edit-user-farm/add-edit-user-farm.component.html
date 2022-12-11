@@ -19,7 +19,7 @@
            <div class="col-sm-8">
                <select class="form-control" [(ngModel)]="usagerId">
                  <option>--Select--</option>
-                 <option *ngFor="let u of usersList" [value]="u.usagerId">{{u.prenomUsager+" "+u.nomUsager}}</option>
+                 <option *ngFor="let u of usersList" [value]="u.usagerId">{{u.login}}</option>
               </select>
            </div>
 

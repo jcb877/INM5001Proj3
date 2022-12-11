@@ -87,9 +87,10 @@ export class FarmsManagerComponent implements OnInit {
 
   }
 
-  deleteClick(item: any){
+  async deleteClick(item: any){
 
-    if(confirm('Are you sure ? Vous etes sur ?')){
+
+ if(confirm('Are you sure ? Vous etes sur ?')){
 
 
       var dateInString=this.generateCurrentDate();
@@ -118,9 +119,61 @@ export class FarmsManagerComponent implements OnInit {
   
       });
     } 
+
+
+
+   
   
   }
 
+  // verifierUsersBeforeDelete(item:any){
+  //   var withUser=false;
+
+  //   var allUsersFarmsList=[];
+
+  //   this.service.getUsersFarmsList().subscribe(data=> {
+  //       allUsersFarmsList=data;
+  //      for (let i = 0; i <allUsersFarmsList.length; i++) {
+  //        if(allUsersFarmsList[i].fermeId==item.fermeId){
+  //         console.log("Found user");
+  //          withUser=true;
+  //          break;
+  //        }
+  //       }
+  //       console.log("with user,cannot delete ");
+  //     });
+
+  //     if(!withUser){
+  //       console.log("Not with user,can delete ");
+  //     }
+  //   return withUser;
+    
+  // }
+
+  // verifierCowsBeforeDelete(item:any){
+  //   var withCow=false;
+
+  //   var allCowsList=[];
+
+  //   this.service.getCowsList().subscribe(data=> {
+  //       allCowsList=data;
+  //      for (let i = 0; i <allCowsList.length; i++) {
+  //        if(allCowsList[i].fermeId==item.fermeId){
+  //         console.log("Found cow");
+  //          withCow=true;
+  //          break;
+  //        }
+  //       }
+  //       console.log("with cows,cannot delete ");
+  //     });
+
+  //     if(!withCow){
+  //       console.log("Not with cow,can delete ");
+  //     }
+
+  //   return withCow;
+    
+  // }
       
 
 

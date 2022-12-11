@@ -14,7 +14,9 @@ export class ShowUsgrComponent implements OnInit {
   }
 
   UsagersList: any = [];
-  // nivAccList: any=[];
+
+
+  AccessNiveauxList: any=[];
 
   ModalTitle: string;
   usgr: any;
@@ -22,6 +24,10 @@ export class ShowUsgrComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshUsagersList();
+    this.refreshNivAccessList();
+    console.log("the user length is  "+this.UsagersList.length);
+    console.log("the access list length is  "+this.AccessNiveauxList.length);
+    
   }
 
   addClick() {
@@ -33,6 +39,7 @@ export class ShowUsgrComponent implements OnInit {
       motPasse: "",
       accesId: 0
     }
+
     this.ModalTitle = "Add Usager";
     this.ActivateAddEditUsgrComp = true;
   }
@@ -80,7 +87,33 @@ export class ShowUsgrComponent implements OnInit {
         console.log(user.accesId_id);
       }
     })
-
   }
+
+
+
+  refreshNivAccessList(){
+    this.service.getNivAccList().subscribe(data=> {
+      this.AccessNiveauxList=data;
+    })
+  }
+
+  convertAccessIDIntoName(input:number){
+    // console.log("the user length is  "+this.UsagersList.length);
+    // console.log("the access list length is  "+this.AccessNiveauxList.length);
+
+    var name="";
+
+    for (let access of this.AccessNiveauxList) {
+       if(access.accesId==input){
+        name=access.access;
+       }
+    }
+
+    name=name.toUpperCase();
+
+    return name;
+  }
+
+
 }
 

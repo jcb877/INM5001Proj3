@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Experience, SharedService } from '../shared.service';
+import { Category, Cow, Experience, SharedService, SubCategory } from '../shared.service';
 
 @Component({
   selector: 'app-experience',
@@ -11,13 +11,19 @@ export class ExperienceComponent implements OnInit {
   experienceList:Experience[]=[];
 
 
+  subCategoriesList:SubCategory[]=[];
 
+  categoriesList: Category[] = [];
+
+  allCowsList:Cow[]=[];
 
   constructor(private service:SharedService) { }
 
   ngOnInit(): void {
     this.getExperiencesList();
-
+    this.refreshSubCategoryList();
+    this.refreshCategoryList();
+    this.getCowsList();
   }
 
 
@@ -73,4 +79,77 @@ export class ExperienceComponent implements OnInit {
       })
     }
   }
+
+  refreshSubCategoryList() {
+    this.service.getSubCategoryList().subscribe(data => {
+      this.subCategoriesList = data;
+    })
+  }
+
+
+  refreshCategoryList() {
+    this.service.getCategoryList().subscribe(data => {
+      this.categoriesList = data;
+    })
+  }
+
+
+  getCowsList(){
+    this.allCowsList=[];
+
+    this.service.getCowsList().subscribe(data=> {
+      this.allCowsList=data;
+    })
+  }
+
+  convertIdIntoNameCategory(Id:number){
+    var name="";
+    for (let i = 0; i < this.categoriesList.length; i++) {
+       if(this.categoriesList[i].categorieId==Id){
+        name=this.categoriesList[i].nomCategorie;
+        break;
+       }
+    }
+
+
+    return name;
+
+  }
+
+  convertIdIntoNameSubCategory(Id:number){
+    var name="";
+    for (let i = 0; i < this.subCategoriesList.length; i++) {
+       if(this.subCategoriesList[i].sousCategorieId==Id){
+        name=this.subCategoriesList[i].nomSousCategorie;
+        break;
+       }
+    }
+
+
+    return name;
+
+  }
+
+
+  convertIdIntoNameCow(Id:number){
+    var name="";
+    for (let i = 0; i < this.allCowsList.length; i++) {
+       if(this.allCowsList[i].vacheId==Id){
+        name=this.allCowsList[i].nomVache;
+        break;
+       }
+    }
+
+
+    return name;
+
+  }
+
+
+
+  checkNotes(item:any){
+    this.service.editingExperience.experienceId=item.experienceId;
+    console.log("Check notes list of the experience "+this.service.editingExperience.experienceId);
+  }
+
 }

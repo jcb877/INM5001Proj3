@@ -74,7 +74,12 @@ export interface Media {
 }
 
 
-
+export interface Graphic {
+  Id:number;
+  name:string;
+  date:string;
+  graphicPath:string;
+}
 
 
 
