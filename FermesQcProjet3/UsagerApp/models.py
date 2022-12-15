@@ -1,4 +1,6 @@
 from django.db import models
+import hashlib
+from django.contrib.auth.hashers import make_password
 
 # Create your models here.
 
@@ -11,8 +13,19 @@ class Usagers(models.Model):
     login = models.CharField(max_length=255,null=False, unique=True)
     prenomUsager = models.CharField(max_length=255,null=False)
     nomUsager = models.CharField(max_length=255,null=False)
-    motPasse = models.TextField(null=False)
+    # motPasse = models.TextField(null=False)
+    motPasse = models.CharField(max_length=50, null=False)
+    # motPasse_md5 = models.CharField(max_length=50, editable=False)
     accesId = models.ForeignKey("NiveauAcces", on_delete=models.CASCADE)
+
+    
+    def save(self, *args, **kwargs):
+        self.motPasse=hashlib.md5(self.motPasse.encode('utf-8')).hexdigest()
+        super().save(*args, **kwargs)
+        
+    # def save(self, *args, **kwargs):
+    #     self.motPasse=make_password(self.motPasse)
+    #     super().save(*args, **kwargs)
     
 
 class UsagersFermes(models.Model):

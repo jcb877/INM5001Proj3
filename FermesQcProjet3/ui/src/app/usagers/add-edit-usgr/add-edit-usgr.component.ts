@@ -132,6 +132,9 @@ export class AddEditUsgrComponent implements OnInit {
       accesId:this.accesId
     };
 
+    console.log(val.motPasse);
+
+
     this.service.addUsager(val).subscribe(res=>{
       alert(res.toString());
 
@@ -147,7 +150,7 @@ export class AddEditUsgrComponent implements OnInit {
     });
     }
 
-    
+
   }
 
 

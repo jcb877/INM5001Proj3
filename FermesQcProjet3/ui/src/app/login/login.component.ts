@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl } from '@angular/forms';
 import { SharedService, User } from '../shared.service';
 
+import { Md5 } from "ts-md5";
 
 @Component({
   selector: 'app-login',
@@ -83,7 +84,7 @@ export class LoginComponent implements OnInit {
 
   submitForm(){
       this.userN=this.loginForm.value.userName;
-      this.pw=this.loginForm.value.password;
+    this.pw = Md5.hashStr(this.loginForm.value.password) ;
       console.log("input values are got");
 
       //verify if userName existe
@@ -204,7 +205,7 @@ export class LoginComponent implements OnInit {
            this.service.showNotesManager=true;
 
            this.service.showExperienceManager=true;
-           
+
            this.service.showFarmsSelection=true;
 
            break;

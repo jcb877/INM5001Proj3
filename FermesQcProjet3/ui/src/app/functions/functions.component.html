@@ -5,7 +5,7 @@
         </div>
         <div class="inner2">
             &nbsp;&nbsp;&nbsp;
-            <button routerLink="../Logout" *ngIf="SharedService.showLogoutButton" class="btn btn-primary">{{'funcs.btn_logout'|translate}}</button>
+            <button routerLink="../Logout"  *ngIf="SharedService.showLogoutButton" class="btn btn-primary">{{'funcs.btn_logout'|translate}}</button>
         </div>
         <div class="line" *ngIf="SharedService.showLogoutButton">
             <hr>
@@ -24,7 +24,7 @@
         </div>
 
 
-        <div class="text-left inner2">      
+        <div class="text-left inner2">
             <nav class="navbar navbar-expand-sm bg-light navbar-dark">
               <ul class="navbar-nav">
                 <li class="navbar-item">
@@ -39,13 +39,13 @@
                 <!-- <li class="navbar-item">
                     <button routerLink="../CowManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showCowManager" Button>{{'funcs.btn_cowManager'|translate}}</button>
                 </li> -->
-              </ul>          
+              </ul>
             </nav>
         </div>
 
 
 
-        <div class="text-left inner2">      
+        <div class="text-left inner2">
             <nav class="navbar navbar-expand-sm bg-light navbar-dark">
               <ul class="navbar-nav">
                 <li class="navbar-item">
@@ -54,11 +54,11 @@
                 <li class="navbar-item">
                     <button routerLink="../SubCategoriesManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showSubCategoriesManager" Button>{{'funcs.btn_subCategoriesManager'|translate}}</button>
                 </li>
-              </ul>          
+              </ul>
             </nav>
         </div>
 
-        <div class="text-left inner2">      
+        <div class="text-left inner2">
             <nav class="navbar navbar-expand-sm bg-light navbar-dark">
               <ul class="navbar-nav">
                 <li class="navbar-item">
@@ -70,18 +70,18 @@
                 <!-- <li class="navbar-item">
                     <button routerLink="../NotesManager" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showNotesManager" Button>{{'funcs.btn_notesManager'|translate}}</button>
                 </li> -->
-              </ul>          
+              </ul>
             </nav>
         </div>
 
         <!-- The code below is reserver for the select of farms -->
-        <div class="text-left inner2">      
+        <div class="text-left inner2">
             <nav class="navbar navbar-expand-sm bg-light navbar-dark">
               <ul class="navbar-nav">
                 <li class="navbar-item">
-                    <button routerLink="../FarmSelect" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showFarmsSelection" Button>{{'funcs.btn_farmSelect'|translate}}</button>            
+                    <button routerLink="../FarmSelect" class="m-1 btn btn-light btn-outline-primary" *ngIf="SharedService.showFarmsSelection" Button>{{'funcs.btn_farmSelect'|translate}}</button>
                 </li>
-              </ul>          
+              </ul>
             </nav>
         </div>
     </div>
