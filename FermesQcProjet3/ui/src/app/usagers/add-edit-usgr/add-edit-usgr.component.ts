@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/shared.service';
 export class AddEditUsgrComponent implements OnInit {
 
   usagerId:string;
-  login:string;   //this is username
+  mail:string;
   prenomUsager:string;
   nomUsager:string;
   motPasse:string;
@@ -28,7 +28,7 @@ export class AddEditUsgrComponent implements OnInit {
 
   constructor(private service:SharedService) {
     this.usagerId="";
-    this.login="";
+    this.mail="";
     this.prenomUsager="";
     this.nomUsager="";
     this.motPasse="";
@@ -63,7 +63,7 @@ export class AddEditUsgrComponent implements OnInit {
 
       this.usagerId=this.service.editingUser.usagerId.toString();
 
-      this.login=this.service.editingUser.login;
+      this.mail=this.service.editingUser.mail;
 
       this.prenomUsager=this.service.editingUser.prenomUsager;
 
@@ -125,7 +125,7 @@ export class AddEditUsgrComponent implements OnInit {
     console.log("this is access id "+this.accesId);
 
     var val = {
-      login:this.login,
+      mail:this.mail,
       prenomUsager:this.prenomUsager,
       nomUsager:this.nomUsager,
       motPasse:this.motPasse,
@@ -158,7 +158,7 @@ export class AddEditUsgrComponent implements OnInit {
     var userFound=false;
 
     for(let u of this.UsagersList){
-      if(u.login==this.login){
+      if(u.mail==this.mail){
         userFound=true;
         break;
       }
@@ -172,7 +172,7 @@ export class AddEditUsgrComponent implements OnInit {
   updateUser(){
     var val = {
       usagerId:this.usagerId,
-      login:this.login,
+      mail:this.mail,
       prenomUsager:this.prenomUsager,
       nomUsager:this.nomUsager,
       motPasse:this.motPasse,

@@ -12,7 +12,7 @@ class UsagersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usagers
         fields = ('usagerId',
-                  'login',
+                  'mail',
                   'prenomUsager',
                   'nomUsager',
                   'motPasse',

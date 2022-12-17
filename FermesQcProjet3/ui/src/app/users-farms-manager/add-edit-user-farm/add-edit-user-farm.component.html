@@ -19,7 +19,7 @@
            <div class="col-sm-8">
                <select class="form-control" [(ngModel)]="usagerId">
                  <option>--Select--</option>
-                 <option *ngFor="let u of usersList" [value]="u.usagerId">{{u.login}}</option>
+                 <option *ngFor="let u of usersList" [value]="u.usagerId">{{u.mail}}</option>
               </select>
            </div>
 
@@ -37,13 +37,13 @@
 
 
     <div>
-        <button (click)="addNew()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'farm.add_btn_add'|translate}}</button>&nbsp;&nbsp; 
+        <button (click)="addNew()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'farm.add_btn_add'|translate}}</button>&nbsp;&nbsp;
         <button (click)="update()" *ngIf="showUpdateButton" class="btn btn-primary">{{'farm.add_btn_update'|translate}}</button>&nbsp;&nbsp;
         <button routerLink="../UsersFarmsManager" class="btn btn-warning">{{'farm.add_btn_cancel'|translate}}</button>
     </div>
 
  </div>
-    
+
 </div>
 
 

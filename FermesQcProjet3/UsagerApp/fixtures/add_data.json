@@ -31,10 +31,10 @@
         "model": "UsagerApp.usagers",
         "pk": 1,
         "fields": {
-            "login": "superAdmin",
+            "mail": "abc@abc.com",
             "prenomUsager": "Admin",
             "nomUsager": "Admin",
-            "motPasse": "123456",
+            "motPasse": "725228a5e23bea57081947ccb45f41ae",
             "accesId_id": 4
         }
     }

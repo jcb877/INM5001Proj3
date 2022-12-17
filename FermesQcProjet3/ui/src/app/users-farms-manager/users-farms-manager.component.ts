@@ -15,7 +15,7 @@ export class UsersFarmsManagerComponent implements OnInit {
   farmsList:Farm[]=[];
 
   UsagersList: any = [];
-  
+
   constructor(private service:SharedService) { }
 
   ngOnInit(): void {
@@ -80,7 +80,7 @@ getFarmsList(){
 
   }
 
-  
+
 
   deleteClick(item: any){
     if(confirm('Are you sure ? Vous etes sur ?')){
@@ -102,7 +102,7 @@ getFarmsList(){
 
     for (let i = 0; i < this.UsagersList.length; i++) {
        if(this.UsagersList[i].usagerId==Id){
-        name=this.UsagersList[i].login;
+        name=this.UsagersList[i].mail;
         break;
        }
     }

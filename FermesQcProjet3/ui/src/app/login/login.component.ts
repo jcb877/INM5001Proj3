@@ -97,8 +97,8 @@ export class LoginComponent implements OnInit {
       else{
          //if username and password are input,check if pw is correct
       for(let user of this.allUsers){
-        if(user.login===this.userN){
-              console.log("This user is found - ",user.login);
+        if(user.mail===this.userN){
+              console.log("This user is found - ",user.mail);
               this.userFound=true;  //user is found
               this.pwRef=user.motPasse;  //get password reference
 
@@ -122,7 +122,7 @@ export class LoginComponent implements OnInit {
           //if all is correct,show welcome message.
           alert("Tout est correct.Bienvenue ! All correct.Welcome !");
           //console.log(this.service.currentLoggedInUser.accesId);
-          console.log(this.service.currentLoggedInUser.login);
+          console.log(this.service.currentLoggedInUser.mail);
           this.showAllFuncAfterLoginWithSuccess(this.service.currentLoggedInUser.accesId);
         }
         else{

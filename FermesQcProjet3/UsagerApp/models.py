@@ -10,7 +10,7 @@ class NiveauAcces(models.Model):
 
 class Usagers(models.Model):
     usagerId = models.AutoField(primary_key=True)
-    login = models.CharField(max_length=255,null=False, unique=True)
+    mail = models.EmailField(max_length=255, null=False, unique=True)
     prenomUsager = models.CharField(max_length=255,null=False)
     nomUsager = models.CharField(max_length=255,null=False)
     # motPasse = models.TextField(null=False)

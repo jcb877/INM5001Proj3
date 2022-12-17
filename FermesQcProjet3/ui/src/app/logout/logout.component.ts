@@ -47,7 +47,7 @@ export class LogoutComponent implements OnInit {
     this.sharedService.showExperienceManager=false;
 
     this.sharedService.showNotesManager=false;
-  
+
     this.sharedService.showFarmsSelection=false;
 
     //remove all info of the logged in account
@@ -57,7 +57,7 @@ export class LogoutComponent implements OnInit {
 
   clearAllInfoOfCurrentUser(){
     //remove all info of the logged in account
-    this.sharedService.currentLoggedInUser={usagerId:0,login:"",prenomUsager:"",nomUsager:"",motPasse:"",accesId:0};
+    this.sharedService.currentLoggedInUser={usagerId:0, mail:"",prenomUsager:"",nomUsager:"",motPasse:"",accesId:0};
     this.sharedService.currentLoggedInUserAccess="";
 
  }

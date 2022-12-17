@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 
 export interface User {
   usagerId: number;
-  login: string;   //this is username
+  mail: string;   //this is username
   prenomUsager: string;
   nomUsager: string;
   motPasse: string;
@@ -393,7 +393,7 @@ deleteUsersFarms(val: any) {
 
 
   //for user to login
-  currentLoggedInUser: User = { usagerId: 0, login: "", prenomUsager: "", nomUsager: "", motPasse: "", accesId: 0 };
+  currentLoggedInUser: User = { usagerId: 0, mail: "", prenomUsager: "", nomUsager: "", motPasse: "", accesId: 0 };
 
   currentLoggedInUserAccess: string = "";
 
@@ -513,7 +513,7 @@ deleteUsersFarms(val: any) {
   //variable for transferring
   editingAccess: Access = { accesId: 0, accessName: "" };
 
-  editingUser: User = { usagerId: 0, login: "", prenomUsager: "", nomUsager: "", motPasse: "", accesId: 0 };
+  editingUser: User = { usagerId: 0, mail: "", prenomUsager: "", nomUsager: "", motPasse: "", accesId: 0 };
 
   editingFarm: Farm = { fermeId: 0, nomFerme: "", addresseFerme: "", villeFerme: "", provinceFerme: "",deleted:false,deletedDate:""};
 

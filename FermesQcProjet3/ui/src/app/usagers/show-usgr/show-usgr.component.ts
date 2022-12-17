@@ -27,13 +27,13 @@ export class ShowUsgrComponent implements OnInit {
     this.refreshNivAccessList();
     console.log("the user length is  "+this.UsagersList.length);
     console.log("the access list length is  "+this.AccessNiveauxList.length);
-    
+
   }
 
   addClick() {
     this.usgr = {
       usagerId: 0,
-      login: "",
+      mail: "",
       prenomUsager: "",
       nomUsager: "",
       motPasse: "",
@@ -54,7 +54,7 @@ export class ShowUsgrComponent implements OnInit {
 
   clearPage(){
     this.service.editingUser.usagerId=0;
-    this.service.editingUser.login="";
+    this.service.editingUser.mail="";
     this.service.editingUser.prenomUsager="";
     this.service.editingUser.nomUsager="";
     this.service.editingUser.motPasse="";
