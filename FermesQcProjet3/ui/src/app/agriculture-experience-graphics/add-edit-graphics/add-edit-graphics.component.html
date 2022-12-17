@@ -1,6 +1,6 @@
 <div id="outer" *ngIf="showForm">
     <div class="text-left">
-        &nbsp;&nbsp;&nbsp;<button routerLink="../agricultureExperienceGraphics" class="btn btn-primary">Return to graphic pages</button>
+        &nbsp;&nbsp;&nbsp;<button routerLink="../agricultureExperienceGraphics" class="btn btn-primary">{{'graph.btn_back'|translate}}</button>
     </div>
 
     <div class="line">
@@ -8,21 +8,21 @@
     </div>
 
     <div>
-        <p class="p-2 bg-info text-light text-center">Le page pour ajouter une nouvelle graphique</p>
+        <p class="p-2 bg-info text-light text-center">{{'graph.add_title_add'|translate}}</p>
     </div>
 
     <div id="inner">
 
         <div class="form-group row" style="width: 70%;">
 
-            <label class="col-sm-4 col-form-label">Nom de Graphique</label>
+            <label class="col-sm-4 col-form-label">{{'graph.col_name'|translate}}</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" placeholder="Enter Image Name">
             </div>
-    
+
             <br>
             <br>
-            <label class="col-sm-4 col-form-label">Date de Graphique</label>
+            <label class="col-sm-4 col-form-label">{{'graph.col_date'|translate}}</label>
             <div class="col-sm-8">
                 <input type="date" class="form-control" placeholder="Enter date">
             </div>
@@ -30,11 +30,11 @@
             <br>
             <br>
 
-            <label  class="col-sm-4 col-form-label" for="img">Selectionner la graphique:</label>
+            <label  class="col-sm-4 col-form-label" for="img">{{'graph.sel_graph'|translate}}</label>
             <div class="col-sm-8">
                 <input type="file" id="img" name="img" accept="image/*" class="m-1 btn btn-light btn-outline-primary">
             </div>
-            
+
             <br>
             <br>
     <br>
@@ -43,13 +43,13 @@
         </div>
 
     <div>
-        <button (click)="addNew()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'farm.add_btn_add'|translate}}</button>&nbsp;&nbsp; 
+        <button (click)="addNew()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'farm.add_btn_add'|translate}}</button>&nbsp;&nbsp;
         <button *ngIf="showUpdateButton" class="btn btn-primary">{{'farm.add_btn_update'|translate}}</button>&nbsp;&nbsp;
         <button routerLink="../agricultureExperienceGraphics" class="btn btn-warning">{{'farm.add_btn_cancel'|translate}}</button>
     </div>
 
  </div>
-    
+
 </div>
 
 

@@ -66,8 +66,8 @@
         "btn_delete":"Delete",
         "col_id":"User ID",
         "col_name":"Email",
-        "col_fname":"FirstName",
-        "col_lname":"LastName",
+        "col_fname":"First Name",
+        "col_lname":"Last Name",
         "col_pw":"Password",
         "col_accessId":"Access Name",
         "col_opts":"Operations",
@@ -267,19 +267,19 @@
         "msg_fail":"Failed to save Farm User pair !",
         "btn_close":"Close message"
     },
-    "graphic":{
-        "title":"The Agriculture Graphs Management Page",
-        "btn_back":"Back To the all functions portal page",
+    "graph":{
+        "title":"Graphs Management Page",
+        "btn_back":"Back To Graphics",
         "btn_add":"Add new graphic",
         "btn_edit":"Edit",
         "btn_delete":"Delete",
-        "col_id":"User-Farm ID",
-        "col_uId":"User Id",
-        "col_fId":"Farm Id",
-        "col_uName":"User Name",
-        "col_fName":"Farm Name",
+        "col_id":"Graphic ID",
+        "col_name":"Graphic Name",
+        "col_date":"Graphic Date",
+        "col_graph":"Graphics",
         "col_opts":"Operations",
-        "add_title_add":"The form to add new graphic",
+        "add_title_add":"Add a New Graphic",
+        "sel_graph":"Select Graphic",
         "add_title_update":"The form to update the graphic",
         "add_btn_back":"back",
         "add_btn_add":"Add",
@@ -288,5 +288,10 @@
         "msg_success":"Graphic is saved successfully !",
         "msg_fail":"Failed to save Graphic !",
         "btn_close":"Close message"
+    },
+    "general":{
+        "btn_back":"All Functions Portal",
+        "btn_edit":"Edit",
+        "btn_delete":"Delete"
     }
 }

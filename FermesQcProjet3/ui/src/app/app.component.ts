@@ -10,13 +10,13 @@ export class AppComponent {
   title = 'fermesUI';
 
 
-  constructor(private translateService:TranslateService) { 
+  constructor(private translateService: TranslateService) {
     translateService.setDefaultLang('fr');
-      
+
   }
 
 
-  selectLang(event:any) {
+  selectLang(event: any) {
     this.translateService.use(event.target.value);
   }
 }

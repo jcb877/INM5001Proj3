@@ -9,7 +9,7 @@ import { Farm, SharedService } from 'src/app/shared.service';
 export class AddEditCowComponent implements OnInit {
 
   vacheId:number=0;
-  nomVache:string="";  
+  nomVache:string="";
   fermeId:number=0;
 
 
@@ -21,12 +21,10 @@ export class AddEditCowComponent implements OnInit {
 
   farmsList: any = [];
   allFarmsList:Farm[]=[];
-  
+
   constructor(private service:SharedService) {
 
   }
-
-
 
   ngOnInit(): void {
 
@@ -50,12 +48,6 @@ export class AddEditCowComponent implements OnInit {
     }
 
   }
-
-  // refreshFarmsList() {
-  //   this.service.getFarmList().subscribe(data => {
-  //     this.farmsList = data;
-  //   })
-  // }
 
 
   getFarmsList(){
@@ -111,7 +103,7 @@ export class AddEditCowComponent implements OnInit {
       this.showFailMsg=true;
     }
 
-    
+
     });
   }
 
@@ -121,10 +113,10 @@ export class AddEditCowComponent implements OnInit {
       this.showSuccessMsg=false;
       this.ngOnInit();
   }
-  
+
   closeFailMsg(){
       this.showFailMsg=false;
       this.ngOnInit();
-  
+
   }
 }

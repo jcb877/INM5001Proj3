@@ -73,8 +73,6 @@ export class AddEditExperienceComponent implements OnInit {
 
     console.log("Info sur expérience : " + val);
 
-    // console.log("This is date (before adding into db )"+val.dateExperience);
-
 
     this.service.addExperience(val).subscribe(res=>{
       alert(res.toString());

@@ -9,23 +9,19 @@ import { SharedService } from 'src/app/shared.service';
 export class AddEditFarmComponent implements OnInit {
 
   fermeId:number=0;
-  nomFerme:string="";  
+  nomFerme:string="";
   addresseFerme:string="";
   villeFerme:string="";
   provinceFerme:string="";
-
-
 
   showSuccessMsg:boolean=false;
   showFailMsg:boolean=false;
   showForm:boolean=true;
   showUpdateButton:boolean=false;
-  
+
   constructor(private service:SharedService) {
 
   }
-
-
 
   ngOnInit(): void {
 
@@ -96,21 +92,19 @@ export class AddEditFarmComponent implements OnInit {
       this.showFailMsg=true;
     }
 
-    
+
     });
   }
-
-
 
   closeSuccessMsg(){
       this.showSuccessMsg=false;
       this.ngOnInit();
   }
-  
+
   closeFailMsg(){
       this.showFailMsg=false;
       this.ngOnInit();
-  
+
   }
 
 }

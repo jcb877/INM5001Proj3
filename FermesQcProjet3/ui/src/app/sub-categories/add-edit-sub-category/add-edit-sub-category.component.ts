@@ -14,8 +14,6 @@ export class AddEditSubCategoryComponent implements OnInit {
   categorieId:number=0;
   nomCategorie:string="";
 
-
-
   showSuccessMsg:boolean=false;
   showFailMsg:boolean=false;
   showForm:boolean=true;

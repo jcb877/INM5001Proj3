@@ -10,8 +10,6 @@ export class CategoriesComponent implements OnInit {
 
   categoriesList: Category[] = [];
 
-
-
   constructor(private service: SharedService) {
 
   }
@@ -22,10 +20,6 @@ export class CategoriesComponent implements OnInit {
 
 
   }
-
-
-
-
 
   editClick(item: any) {
     this.service.editingCategory.categorieId = item.categorieId;
@@ -41,7 +35,7 @@ export class CategoriesComponent implements OnInit {
     }
   }
 
-  clearPage(){
+  clearPage() {
     this.service.editingCategory.categorieId = 0;
     this.service.editingCategory.nomCategorie = "";
   }

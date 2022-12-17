@@ -10,7 +10,7 @@ export class AddEditMediaComponent implements OnInit {
 
   mediaId:number=0;
   noteId:number=0;
-  media:string="";  
+  media:string="";
 
 
 
@@ -35,7 +35,7 @@ export class AddEditMediaComponent implements OnInit {
       this.noteId=this.service.editingNote.noteId;
 
       console.log("For adding new media for the note No."+this.noteId);
-      
+
     }
     else{
       console.log("For update media");
@@ -51,16 +51,12 @@ export class AddEditMediaComponent implements OnInit {
 
   }
 
-
-
-
-
   addNew(){
 
     var val = {
       mediaId:this.mediaId,
-      media:this.media, 
-      noteId:this.noteId, 
+      media:this.media,
+      noteId:this.noteId,
     };
 
     this.service.addMedia(val).subscribe(res=>{
@@ -81,13 +77,13 @@ export class AddEditMediaComponent implements OnInit {
   update(){
     var val = {
       mediaId:this.mediaId,
-      media:this.media, 
-      noteId:this.noteId, 
+      media:this.media,
+      noteId:this.noteId,
     };
 
 
    console.log("Media id is "+val.mediaId+" Note id is "+val.noteId);
-    
+
     this.service.updateMedia(val).subscribe(res=>{
     alert(res.toString());
 
@@ -100,7 +96,7 @@ export class AddEditMediaComponent implements OnInit {
       this.showFailMsg=true;
     }
 
-    
+
     });
   }
 
@@ -110,11 +106,11 @@ export class AddEditMediaComponent implements OnInit {
       this.showSuccessMsg=false;
       this.ngOnInit();
   }
-  
+
   closeFailMsg(){
       this.showFailMsg=false;
       this.ngOnInit();
-  
+
   }
 
 }

@@ -12,14 +12,9 @@ export class FarmsManagerComponent implements OnInit {
 
   originalFarmsList:Farm[]=[];
 
- 
-
-
   constructor(private service:SharedService) { }
 
   ngOnInit(): void {
-
-
     this.getValidFarmsList();
   }
 
@@ -44,9 +39,6 @@ export class FarmsManagerComponent implements OnInit {
 
     })
   }
-
-
-
 
   editClick(item: any){
     this.service.editingFarm.fermeId=item.fermeId;
@@ -116,66 +108,15 @@ export class FarmsManagerComponent implements OnInit {
          }
 
         this.ngOnInit();
-  
+
       });
-    } 
+    }
 
 
 
-   
-  
+
+
   }
-
-  // verifierUsersBeforeDelete(item:any){
-  //   var withUser=false;
-
-  //   var allUsersFarmsList=[];
-
-  //   this.service.getUsersFarmsList().subscribe(data=> {
-  //       allUsersFarmsList=data;
-  //      for (let i = 0; i <allUsersFarmsList.length; i++) {
-  //        if(allUsersFarmsList[i].fermeId==item.fermeId){
-  //         console.log("Found user");
-  //          withUser=true;
-  //          break;
-  //        }
-  //       }
-  //       console.log("with user,cannot delete ");
-  //     });
-
-  //     if(!withUser){
-  //       console.log("Not with user,can delete ");
-  //     }
-  //   return withUser;
-    
-  // }
-
-  // verifierCowsBeforeDelete(item:any){
-  //   var withCow=false;
-
-  //   var allCowsList=[];
-
-  //   this.service.getCowsList().subscribe(data=> {
-  //       allCowsList=data;
-  //      for (let i = 0; i <allCowsList.length; i++) {
-  //        if(allCowsList[i].fermeId==item.fermeId){
-  //         console.log("Found cow");
-  //          withCow=true;
-  //          break;
-  //        }
-  //       }
-  //       console.log("with cows,cannot delete ");
-  //     });
-
-  //     if(!withCow){
-  //       console.log("Not with cow,can delete ");
-  //     }
-
-  //   return withCow;
-    
-  // }
-      
-
 
   checkUsers(item:any){
     this.service.editingUserFarm.fermeId=item.fermeId;

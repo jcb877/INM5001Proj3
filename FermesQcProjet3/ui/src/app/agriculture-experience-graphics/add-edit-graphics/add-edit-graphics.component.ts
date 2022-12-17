@@ -19,12 +19,10 @@ export class AddEditGraphicsComponent implements OnInit {
 
   farmsList: any = [];
   allFarmsList:Farm[]=[];
-  
+
   constructor(private service:SharedService) {
 
   }
-
-
 
   ngOnInit(): void {
 
@@ -50,18 +48,15 @@ export class AddEditGraphicsComponent implements OnInit {
         this.showSuccessMsg=true;
   }
 
-
-
-
   closeSuccessMsg(){
       this.showSuccessMsg=false;
       this.ngOnInit();
   }
-  
+
   closeFailMsg(){
       this.showFailMsg=false;
       this.ngOnInit();
-  
+
   }
 
 }

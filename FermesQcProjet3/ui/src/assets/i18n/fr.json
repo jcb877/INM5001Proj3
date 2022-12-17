@@ -10,6 +10,9 @@
     "footer":{
         "intro":"Ce site est développé par Jose Carlos Braul, Steve Gordon, Jean-Louis Jousso et Yang Wang"
     },
+    "ph":{
+        "nivacc":"Entrez niveau d'accès"
+    },
     "login":{
         "title":"Page d'authentification",
         "username":"Courriel",
@@ -267,19 +270,19 @@
         "msg_fail":"Échec d'enregistrer l'ensemble ferme usager !",
         "btn_close":"Fermer le message"
     },
-    "graphic":{
-        "title":"The Agriculture Graphs Management Page",
-        "btn_back":"Back To the all functions portal page",
-        "btn_add":"Add new graphic",
-        "btn_edit":"Edit",
-        "btn_delete":"Delete",
-        "col_id":"User-Farm ID",
-        "col_uId":"User Id",
-        "col_fId":"Farm Id",
-        "col_uName":"User Name",
-        "col_fName":"Farm Name",
-        "col_opts":"Operations",
-        "add_title_add":"The form to add new graphic",
+    "graph":{
+        "title":"Gestion des graphiques",
+        "btn_back":"Retour aux graphiques",
+        "btn_add":"Ajout nouveau graphique",
+        "btn_edit":"Modifier",
+        "btn_delete":"Supprimer",
+        "col_id":"ID Graphique",
+        "col_name":"Nom graphique",
+        "col_date":"Date graphique",
+        "col_graph":"Graphiques",
+        "col_opts":"Opérations",
+        "sel_graph":"Selectionner le graphique",
+        "add_title_add":"Ajout d'un nouveau graphique",
         "add_title_update":"The form to update the graphic",
         "add_btn_back":"back",
         "add_btn_add":"Add",
@@ -288,6 +291,10 @@
         "msg_success":"Graphic is saved successfully !",
         "msg_fail":"Failed to save Graphic !",
         "btn_close":"Close message"
+    },
+    "general":{
+        "btn_back":"Retour à toutes les fonctions",
+        "btn_edit":"Modifier",
+        "btn_delete":"Supprimer"
     }
-
 }

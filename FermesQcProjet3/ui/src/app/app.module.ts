@@ -4,8 +4,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NiveauaccesComponent } from './niveauacces/niveauacces.component';
@@ -15,7 +13,6 @@ import { UsagersComponent } from './usagers/usagers.component';
 import { ShowUsgrComponent } from './usagers/show-usgr/show-usgr.component';
 import { AddEditUsgrComponent } from './usagers/add-edit-usgr/add-edit-usgr.component';
 import { SharedService } from './shared.service';
-
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -48,9 +45,6 @@ import { UsersFarmsManagerComponent } from './users-farms-manager/users-farms-ma
 import { AddEditUserFarmComponent } from './users-farms-manager/add-edit-user-farm/add-edit-user-farm.component';
 import { AgricultureExperienceGraphicsComponent } from './agriculture-experience-graphics/agriculture-experience-graphics.component';
 import { AddEditGraphicsComponent } from './agriculture-experience-graphics/add-edit-graphics/add-edit-graphics.component';
-
-
-
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -88,8 +82,6 @@ const appRoutes: Routes = [
   { path: 'AddEditGraphics', component: AddEditGraphicsComponent },
   { path: '**', component: ErrorComponent }
 ]
-
-
 
 @NgModule({
   declarations: [

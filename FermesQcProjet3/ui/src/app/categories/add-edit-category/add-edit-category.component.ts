@@ -22,8 +22,6 @@ export class AddEditCategoryComponent implements OnInit {
 
   }
 
-
-
   ngOnInit(): void {
     this.refreshCategoryList();
     if (this.service.editingCategory.categorieId == 0) {
@@ -86,7 +84,6 @@ export class AddEditCategoryComponent implements OnInit {
         this.showForm = false;
         this.showFailMsg = true;
       }
-      // this.service.editingCategory = { categorieId: 0, nomCategorie: "" };
     });
   }
 

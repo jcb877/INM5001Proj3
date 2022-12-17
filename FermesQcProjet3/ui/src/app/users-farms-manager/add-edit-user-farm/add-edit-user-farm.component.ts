@@ -8,24 +8,22 @@ import { Farm, SharedService, User } from 'src/app/shared.service';
 })
 export class AddEditUserFarmComponent implements OnInit {
 
-  usagersFermesId:number=0;
-  usagerId:number=0;
-  fermeId:number=0;
+  usagersFermesId: number = 0;
+  usagerId: number = 0;
+  fermeId: number = 0;
 
-  showSuccessMsg:boolean=false;
-  showFailMsg:boolean=false;
-  showForm:boolean=true;
-  showUpdateButton:boolean=false;
+  showSuccessMsg: boolean = false;
+  showFailMsg: boolean = false;
+  showForm: boolean = true;
+  showUpdateButton: boolean = false;
 
 
   usersList: User[] = [];
   farmsList: Farm[] = [];
 
-  constructor(private service:SharedService) {
+  constructor(private service: SharedService) {
 
   }
-
-
 
   ngOnInit(): void {
 
@@ -33,23 +31,23 @@ export class AddEditUserFarmComponent implements OnInit {
 
     this.getFarmsList();
 
-    if(this.service.editingUserFarm.usagerId==0){
+    if (this.service.editingUserFarm.usagerId == 0) {
 
-      this.fermeId=this.service.editingUserFarm.fermeId
+      this.fermeId = this.service.editingUserFarm.fermeId
 
-      console.log("For adding new farm user pair for the farm No."+this.fermeId);
+      console.log("For adding new farm user pair for the farm No." + this.fermeId);
 
     }
-    else{
+    else {
       console.log("For update farm user pair");
 
-      this.usagersFermesId=this.service.editingUserFarm.usagersFermesId;
+      this.usagersFermesId = this.service.editingUserFarm.usagersFermesId;
 
-      this.usagerId=this.service.editingUserFarm.usagerId;
+      this.usagerId = this.service.editingUserFarm.usagerId;
 
-      this.fermeId=this.service.editingUserFarm.fermeId;
+      this.fermeId = this.service.editingUserFarm.fermeId;
 
-      this.showUpdateButton=true;
+      this.showUpdateButton = true;
     }
 
   }
@@ -70,46 +68,46 @@ export class AddEditUserFarmComponent implements OnInit {
 
 
 
-  addNew(){
+  addNew() {
 
     var val = {
-      usagerId:this.usagerId,
-      fermeId:this.fermeId
+      usagerId: this.usagerId,
+      fermeId: this.fermeId
     };
 
-    this.service.addUsersFarms(val).subscribe(res=>{
+    this.service.addUsersFarms(val).subscribe(res => {
       alert(res.toString());
 
-      if(res.toString().includes("Success")){
-        this.showForm=false;
-        this.showSuccessMsg=true;
+      if (res.toString().includes("Success")) {
+        this.showForm = false;
+        this.showSuccessMsg = true;
       }
-      else{
-        this.showForm=false;
-        this.showFailMsg=true;
+      else {
+        this.showForm = false;
+        this.showFailMsg = true;
       }
 
     });
   }
 
-  update(){
+  update() {
     var val = {
-      usagersFermesId:this.usagersFermesId,
-      usagerId:this.usagerId,
-      fermeId:this.fermeId,
+      usagersFermesId: this.usagersFermesId,
+      usagerId: this.usagerId,
+      fermeId: this.fermeId,
     };
 
-    this.service.updateUsersFarms(val).subscribe(res=>{
-    alert(res.toString());
+    this.service.updateUsersFarms(val).subscribe(res => {
+      alert(res.toString());
 
-    if(res.toString().includes("Succes")){
-      this.showForm=false;
-      this.showSuccessMsg=true;
-    }
-    else{
-      this.showForm=false;
-      this.showFailMsg=true;
-    }
+      if (res.toString().includes("Succes")) {
+        this.showForm = false;
+        this.showSuccessMsg = true;
+      }
+      else {
+        this.showForm = false;
+        this.showFailMsg = true;
+      }
 
 
     });
@@ -117,14 +115,14 @@ export class AddEditUserFarmComponent implements OnInit {
 
 
 
-  closeSuccessMsg(){
-      this.showSuccessMsg=false;
-      this.ngOnInit();
+  closeSuccessMsg() {
+    this.showSuccessMsg = false;
+    this.ngOnInit();
   }
 
-  closeFailMsg(){
-      this.showFailMsg=false;
-      this.ngOnInit();
+  closeFailMsg() {
+    this.showFailMsg = false;
+    this.ngOnInit();
 
   }
 

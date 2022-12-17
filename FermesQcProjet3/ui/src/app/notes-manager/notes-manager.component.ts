@@ -45,7 +45,7 @@ export class NotesManagerComponent implements OnInit {
       console.log("List length is "+this.experienceList.length);
     })
   }
-  
+
   //for media operation of the selected note
 
   checkAllAssociatedMedias(item: any){
@@ -100,14 +100,14 @@ export class NotesManagerComponent implements OnInit {
     this.service.editingNote.experienceId=0;
   }
 
-  
+
   clearPageForMedia(){
     this.service.editingMedia={
       mediaId: 0,
       media:"",
       noteId: 0
     }
-  
+
   }
 
 
@@ -119,8 +119,6 @@ export class NotesManagerComponent implements OnInit {
         break;
        }
     }
-
-
     return name;
 
   }

@@ -16,7 +16,7 @@ export class ShowUsgrComponent implements OnInit {
   UsagersList: any = [];
 
 
-  AccessNiveauxList: any=[];
+  AccessNiveauxList: any = [];
 
   ModalTitle: string;
   usgr: any;
@@ -25,8 +25,8 @@ export class ShowUsgrComponent implements OnInit {
   ngOnInit(): void {
     this.refreshUsagersList();
     this.refreshNivAccessList();
-    console.log("the user length is  "+this.UsagersList.length);
-    console.log("the access list length is  "+this.AccessNiveauxList.length);
+    console.log("the user length is  " + this.UsagersList.length);
+    console.log("the access list length is  " + this.AccessNiveauxList.length);
 
   }
 
@@ -45,23 +45,17 @@ export class ShowUsgrComponent implements OnInit {
   }
 
   editClick(item: any) {
-    // this.usgr=item;
-    // this.ModalTitle="Edit Usager";
-    // this.ActivateAddEditUsgrComp=true;
-
     this.service.editingUser = item;
   }
 
-  clearPage(){
-    this.service.editingUser.usagerId=0;
-    this.service.editingUser.mail="";
-    this.service.editingUser.prenomUsager="";
-    this.service.editingUser.nomUsager="";
-    this.service.editingUser.motPasse="";
-    this.service.editingUser.accesId=0
+  clearPage() {
+    this.service.editingUser.usagerId = 0;
+    this.service.editingUser.mail = "";
+    this.service.editingUser.prenomUsager = "";
+    this.service.editingUser.nomUsager = "";
+    this.service.editingUser.motPasse = "";
+    this.service.editingUser.accesId = 0
   }
-
-
 
   deleteClick(item: any) {
     if (confirm('Are you sure?')) {
@@ -89,27 +83,22 @@ export class ShowUsgrComponent implements OnInit {
     })
   }
 
-
-
-  refreshNivAccessList(){
-    this.service.getNivAccList().subscribe(data=> {
-      this.AccessNiveauxList=data;
+  refreshNivAccessList() {
+    this.service.getNivAccList().subscribe(data => {
+      this.AccessNiveauxList = data;
     })
   }
 
-  convertAccessIDIntoName(input:number){
-    // console.log("the user length is  "+this.UsagersList.length);
-    // console.log("the access list length is  "+this.AccessNiveauxList.length);
-
-    var name="";
+  convertAccessIDIntoName(input: number) {
+    var name = "";
 
     for (let access of this.AccessNiveauxList) {
-       if(access.accesId==input){
-        name=access.access;
-       }
+      if (access.accesId == input) {
+        name = access.access;
+      }
     }
 
-    name=name.toUpperCase();
+    name = name.toUpperCase();
 
     return name;
   }

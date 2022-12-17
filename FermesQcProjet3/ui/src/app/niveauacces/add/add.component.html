@@ -7,7 +7,7 @@
         <div class="form-group row">
            <label class="col-sm-2 col-form-label">{{'access.add_name'|translate}}</label>
             <div class="col-sm-10">
-               <input type="text" class="form-control"placeholder="Enter Niveau acces" [(ngModel)]="access">
+               <input type="text" class="form-control"   placeholder="Enter Niveau acces" [(ngModel)]="access">
             </div>
         </div>
         <button  *ngIf="!showUpdateButton" (click)="addNewAccess()" class="btn btn-primary">{{'access.add_btn_add'|translate}}</button>&nbsp;&nbsp;
@@ -24,7 +24,7 @@
         <button class="btn btn-success" routerLink="../ShowAccessLevelList" (click)="closeSuccessMsg()">{{'access.btn_close'|translate}}</button>
         </div>
     </div>
-    
+
     <div *ngIf="showFailMsg" class="alert alert-danger">
         <div class="text-center">
             <p>{{'access.msg_fail'|translate}}</p>

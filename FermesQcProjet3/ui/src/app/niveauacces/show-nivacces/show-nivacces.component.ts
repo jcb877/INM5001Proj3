@@ -10,7 +10,7 @@ import { SharedService } from 'src/app/shared.service';
 
 export class ShowNivaccesComponent implements OnInit {
 
-  constructor(private service:SharedService) { 
+  constructor(private service:SharedService) {
     this.ModalTitle = "";
   }
 
@@ -35,9 +35,7 @@ export class ShowNivaccesComponent implements OnInit {
   }
 
   editClick(item: any){
-    // this.nivacces=item;
-    // this.ModalTitle="Edit Niveau Acces";
-    // this.ActivateAddEditNivAccComp=true;
+   
     this.service.editingAccess.accesId=item.accesId;
     this.service.editingAccess.accessName=item.access;
 

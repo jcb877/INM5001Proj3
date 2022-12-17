@@ -10,7 +10,7 @@ export class FarmSelectionComponent implements OnInit {
 
   allFarmsList:Farm[]=[];
 
-  farmsList:Farm[]=[];  
+  farmsList:Farm[]=[];
 
   farmIdsList:number[]=[];
 
@@ -75,7 +75,7 @@ export class FarmSelectionComponent implements OnInit {
             this.farmsList.push(this.allFarmsList[j]);
             break;
           }
-          
+
         console.log("farm Id is "+this.allFarmsList[j].fermeId);
         }
 
@@ -116,10 +116,6 @@ export class FarmSelectionComponent implements OnInit {
 
     console.log("Get id list");
   }
-
-
-
-
 
   getSelectedFarm(){
     for(let f of this.farmsList){

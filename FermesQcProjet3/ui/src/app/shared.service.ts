@@ -22,20 +22,20 @@ export interface Farm {
   addresseFerme: string;
   villeFerme: string;
   provinceFerme: string;
-  deleted:boolean;
-  deletedDate:string
+  deleted: boolean;
+  deletedDate: string
 }
 
 export interface Cow {
-   vacheId:number;
-   nomVache: string;
-   fermeId: number;
+  vacheId: number;
+  nomVache: string;
+  fermeId: number;
 }
 
 export interface UsersFarms {
   usagersFermesId: number;
-  fermeId:number;
-  usagerId:number;
+  fermeId: number;
+  usagerId: number;
 }
 
 
@@ -56,7 +56,7 @@ export interface Category {
 export interface SubCategory {
   sousCategorieId: number;
   nomSousCategorie: string;
-  categorieId:number;
+  categorieId: number;
 }
 
 export interface Note {
@@ -75,14 +75,11 @@ export interface Media {
 
 
 export interface Graphic {
-  Id:number;
-  name:string;
-  date:string;
-  graphicPath:string;
+  Id: number;
+  name: string;
+  date: string;
+  graphicPath: string;
 }
-
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -249,148 +246,130 @@ export class SharedService {
   // ******************************************************************
   //get farms list
   getFarmList(): Observable<any[]> {
-  return this.http.get<any[]>(this.APIUrl + 'fermes/');
-   }
+    return this.http.get<any[]>(this.APIUrl + 'fermes/');
+  }
 
-//add Farm to db
-addFarm(val: any) {
-  return this.http.post(this.APIUrl + 'fermes/', val);
-}
+  //add Farm to db
+  addFarm(val: any) {
+    return this.http.post(this.APIUrl + 'fermes/', val);
+  }
 
-//modify Farm to db
-updateFarm(val: any) {
-  return this.http.put(this.APIUrl + 'fermes/', val);
-}
+  //modify Farm to db
+  updateFarm(val: any) {
+    return this.http.put(this.APIUrl + 'fermes/', val);
+  }
 
-//delete Farm to db
-//just keep it here for the further use if client requirement changes later.
-//currently,the client requirement is to delete it ,but not truely deleted.
-deleteFarm(val: any) {
-  return this.http.delete(this.APIUrl + 'fermes/' + val);
-}
+  deleteFarm(val: any) {
+    return this.http.delete(this.APIUrl + 'fermes/' + val);
+  }
 
+  // ******************************************************************
+  //get cows list
+  getCowsList(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + 'vaches/');
+  }
 
+  //add cow to db
+  addCow(val: any) {
+    return this.http.post(this.APIUrl + 'vaches/', val);
+  }
 
-// ******************************************************************
- //get cows list
- getCowsList(): Observable<any[]> {
-  return this.http.get<any[]>(this.APIUrl + 'vaches/');
-   }
+  //modify cow to db
+  updateCow(val: any) {
+    return this.http.put(this.APIUrl + 'vaches/', val);
+  }
 
-//add cow to db
-addCow(val: any) {
-  return this.http.post(this.APIUrl + 'vaches/', val);
-}
-
-//modify cow to db
-updateCow(val: any) {
-  return this.http.put(this.APIUrl + 'vaches/', val);
-}
-
-//delete cow to db
-deleteCow(val: any) {
-  return this.http.delete(this.APIUrl + 'vaches/' + val);
-}
-// ******************************************************************
+  //delete cow to db
+  deleteCow(val: any) {
+    return this.http.delete(this.APIUrl + 'vaches/' + val);
+  }
+  // ******************************************************************
 
 
-// ******************************************************************
- //get experience list
- getExperiencesList(): Observable<any[]> {
-  return this.http.get<any[]>(this.APIUrl + 'experiences/');
-   }
+  // ******************************************************************
+  //get experience list
+  getExperiencesList(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + 'experiences/');
+  }
 
-//add experience to db
-addExperience(val: any) {
-  return this.http.post(this.APIUrl + 'experiences/', val);
-}
+  //add experience to db
+  addExperience(val: any) {
+    return this.http.post(this.APIUrl + 'experiences/', val);
+  }
 
-//modify experience to db
-updateExperience(val: any) {
-  return this.http.put(this.APIUrl + 'experiences/', val);
-}
+  //modify experience to db
+  updateExperience(val: any) {
+    return this.http.put(this.APIUrl + 'experiences/', val);
+  }
 
-//delete experience to db
-deleteExperience(val: any) {
-  return this.http.delete(this.APIUrl + 'experiences/' + val);
-}
-// ******************************************************************
+  //delete experience to db
+  deleteExperience(val: any) {
+    return this.http.delete(this.APIUrl + 'experiences/' + val);
+  }
 
+  // ******************************************************************
+  //get note list
+  getNotesList(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + 'notes/');
+  }
 
+  //add note to db
+  addNote(val: any) {
+    return this.http.post(this.APIUrl + 'notes/', val);
+  }
 
+  //modify note to db
+  updateNote(val: any) {
+    return this.http.put(this.APIUrl + 'notes/', val);
+  }
 
-// ******************************************************************
- //get note list
- getNotesList(): Observable<any[]> {
-  return this.http.get<any[]>(this.APIUrl + 'notes/');
-   }
+  //delete note to db
+  deleteNote(val: any) {
+    return this.http.delete(this.APIUrl + 'notes/' + val);
+  }
 
-//add note to db
-addNote(val: any) {
-  return this.http.post(this.APIUrl + 'notes/', val);
-}
+  // ******************************************************************
+  //get media list
+  getMediasList(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + 'medias/');
+  }
 
-//modify note to db
-updateNote(val: any) {
-  return this.http.put(this.APIUrl + 'notes/', val);
-}
-
-//delete note to db
-deleteNote(val: any) {
-  return this.http.delete(this.APIUrl + 'notes/' + val);
-}
-// ******************************************************************
-
-
-// ******************************************************************
- //get media list
- getMediasList(): Observable<any[]> {
-  return this.http.get<any[]>(this.APIUrl + 'medias/');
-   }
-
-//add media to db
+  //add media to db
   addMedia(val: any) {
-  return this.http.post(this.APIUrl + 'medias/', val);
-}
+    return this.http.post(this.APIUrl + 'medias/', val);
+  }
 
-//modify media to db
-updateMedia(val: any) {
-  return this.http.put(this.APIUrl + 'medias/', val);
-}
+  //modify media to db
+  updateMedia(val: any) {
+    return this.http.put(this.APIUrl + 'medias/', val);
+  }
 
-//delete media to db
-deleteMedia(val: any) {
-  return this.http.delete(this.APIUrl + 'medias/' + val);
-}
-// ******************************************************************
+  //delete media to db
+  deleteMedia(val: any) {
+    return this.http.delete(this.APIUrl + 'medias/' + val);
+  }
+  // ******************************************************************
 
- //get users farms list
- getUsersFarmsList(): Observable<any[]> {
-  return this.http.get<any[]>(this.APIUrl + 'usagersFermes/');
-   }
+  //get users farms list
+  getUsersFarmsList(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + 'usagersFermes/');
+  }
 
-//add Users Farms to db
+  //add Users Farms to db
   addUsersFarms(val: any) {
-  return this.http.post(this.APIUrl + 'usagersFermes/', val);
-}
+    return this.http.post(this.APIUrl + 'usagersFermes/', val);
+  }
 
-//modify Users Farms to db
-updateUsersFarms(val: any) {
-  return this.http.put(this.APIUrl + 'usagersFermes/', val);
-}
+  //modify Users Farms to db
+  updateUsersFarms(val: any) {
+    return this.http.put(this.APIUrl + 'usagersFermes/', val);
+  }
 
-//delete Users Farms to db
-deleteUsersFarms(val: any) {
-  return this.http.delete(this.APIUrl + 'usagersFermes/' + val);
-}
-// ******************************************************************
-
-
-
-
-
-
-
+  //delete Users Farms to db
+  deleteUsersFarms(val: any) {
+    return this.http.delete(this.APIUrl + 'usagersFermes/' + val);
+  }
+  // ******************************************************************
 
   //for user to login
   currentLoggedInUser: User = { usagerId: 0, mail: "", prenomUsager: "", nomUsager: "", motPasse: "", accesId: 0 };
@@ -423,7 +402,7 @@ deleteUsersFarms(val: any) {
 
   showFarmsSelection: boolean = false;
 
-  showCowManager:boolean=false;
+  showCowManager: boolean = false;
 
 
   //to control to show logout button
@@ -501,12 +480,12 @@ deleteUsersFarms(val: any) {
   }
 
 
-   //to control to show cow manager
-   showCowManagerChanged: Subject<boolean> = new Subject<boolean>();
+  //to control to show cow manager
+  showCowManagerChanged: Subject<boolean> = new Subject<boolean>();
 
-   showCowManagerSelectionEnabled() {
-     this.showCowManagerChanged.next(true);
-   }
+  showCowManagerSelectionEnabled() {
+    this.showCowManagerChanged.next(true);
+  }
 
 
 
@@ -515,13 +494,13 @@ deleteUsersFarms(val: any) {
 
   editingUser: User = { usagerId: 0, mail: "", prenomUsager: "", nomUsager: "", motPasse: "", accesId: 0 };
 
-  editingFarm: Farm = { fermeId: 0, nomFerme: "", addresseFerme: "", villeFerme: "", provinceFerme: "",deleted:false,deletedDate:""};
+  editingFarm: Farm = { fermeId: 0, nomFerme: "", addresseFerme: "", villeFerme: "", provinceFerme: "", deleted: false, deletedDate: "" };
 
-  editingExperience: Experience = { experienceId: 0, nomExperience: "", dateExperience: "", categorieId: 0, sousCategorieId: 0, vacheId: 0};
+  editingExperience: Experience = { experienceId: 0, nomExperience: "", dateExperience: "", categorieId: 0, sousCategorieId: 0, vacheId: 0 };
 
   editingCategory: Category = { categorieId: 0, nomCategorie: "" };
 
-  editingSubCategory: SubCategory = { sousCategorieId: 0, nomSousCategorie: "", categorieId:0};
+  editingSubCategory: SubCategory = { sousCategorieId: 0, nomSousCategorie: "", categorieId: 0 };
 
   editingCow: Cow = {
     vacheId: 0,
@@ -533,13 +512,13 @@ deleteUsersFarms(val: any) {
   editingNote: Note = {
     noteId: 0,
     dateNote: "",
-    note:"",
+    note: "",
     experienceId: 0
   };
 
-  editingMedia:Media={
+  editingMedia: Media = {
     mediaId: 0,
-    media:"",
+    media: "",
     noteId: 0
   }
 
@@ -550,7 +529,7 @@ deleteUsersFarms(val: any) {
   }
 
   //currently selected farm
-  currentlySelectedFarm: Farm = { fermeId: 0, nomFerme: "Not Selected Yet ", addresseFerme: "", villeFerme: "", provinceFerme: "",deleted:false,deletedDate:""};
+  currentlySelectedFarm: Farm = { fermeId: 0, nomFerme: "Not Selected Yet ", addresseFerme: "", villeFerme: "", provinceFerme: "", deleted: false, deletedDate: "" };
 
 
 }

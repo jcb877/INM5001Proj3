@@ -9,53 +9,49 @@ import { FormsModule } from "@angular/forms";
 })
 export class SubCategoriesComponent implements OnInit {
 
-  subCategoriesList:SubCategory[]=[];
+  subCategoriesList: SubCategory[] = [];
 
 
   categoriesList: Category[] = [];
-  
-    constructor(private service:SharedService) {
 
-    }
+  constructor(private service: SharedService) {
+
+  }
+
+  ngOnInit(): void {
+    this.refreshSubCategoryList();
+    this.refreshCategoryList();
+
+  }
+
+  refreshCategoryList() {
+    this.service.getCategoryList().subscribe(data => {
+      this.categoriesList = data;
+    })
+  }
 
 
+  editClick(item: any) {
+    console.log(item);
 
-    ngOnInit(): void {
-      this.refreshSubCategoryList();
-      this.refreshCategoryList();
+    this.service.editingSubCategory = item;
+  }
 
-    }
-
-
-
-    refreshCategoryList() {
-      this.service.getCategoryList().subscribe(data => {
-        this.categoriesList = data;
+  deleteClick(item: any) {
+    if (confirm('Are you sure?')) {
+      this.service.deleteSubCategory(item.sousCategorieId).subscribe(data => {
+        alert(data.toString());
+        this.ngOnInit();
       })
     }
+  }
 
-
-    editClick(item:any){
-      console.log(item);
-
-      this.service.editingSubCategory=item;
-    }
-
-    deleteClick(item:any){
-      if(confirm('Are you sure?')){
-        this.service.deleteSubCategory(item.sousCategorieId).subscribe(data=>{
-          alert(data.toString());
-          this.ngOnInit();
-        })
-      }
-    }
-
-    clearPage(){
-      this.service.editingSubCategory.sousCategorieId=0;
-      this.service.editingSubCategory.nomSousCategorie="";
-      // this.service.editingSubCategory.categorieId=0
-      this.service.editingSubCategory.categorieId=0;
-    }
+  clearPage() {
+    this.service.editingSubCategory.sousCategorieId = 0;
+    this.service.editingSubCategory.nomSousCategorie = "";
+    // this.service.editingSubCategory.categorieId=0
+    this.service.editingSubCategory.categorieId = 0;
+  }
 
   refreshSubCategoryList() {
     this.service.getSubCategoryList().subscribe(data => {
@@ -63,19 +59,16 @@ export class SubCategoriesComponent implements OnInit {
     })
   }
 
-  convertIdIntoNameCategory(Id:number){
-    var name="";
+  convertIdIntoNameCategory(Id: number) {
+    var name = "";
     for (let i = 0; i < this.categoriesList.length; i++) {
-       if(this.categoriesList[i].categorieId==Id){
-        name=this.categoriesList[i].nomCategorie;
+      if (this.categoriesList[i].categorieId == Id) {
+        name = this.categoriesList[i].nomCategorie;
         break;
-       }
+      }
     }
     return name;
   }
-
-
-
 
 }
 
