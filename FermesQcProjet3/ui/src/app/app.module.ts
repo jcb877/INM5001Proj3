@@ -43,8 +43,8 @@ import { MediaManagerComponent } from './media-manager/media-manager.component';
 import { AddEditMediaComponent } from './media-manager/add-edit-media/add-edit-media.component';
 import { UsersFarmsManagerComponent } from './users-farms-manager/users-farms-manager.component';
 import { AddEditUserFarmComponent } from './users-farms-manager/add-edit-user-farm/add-edit-user-farm.component';
-import { AgricultureExperienceGraphicsComponent } from './agriculture-experience-graphics/agriculture-experience-graphics.component';
 import { AddEditGraphicsComponent } from './agriculture-experience-graphics/add-edit-graphics/add-edit-graphics.component';
+import { AgricultureExperienceGraphicsComponent } from './agriculture-experience-graphics/agriculture-experience-graphics.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

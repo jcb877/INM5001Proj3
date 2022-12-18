@@ -1,39 +1,43 @@
-<div id="fixedHeader" >
+<!-- Page commune pour l'entête et le pied de page -->
+<div id="fixedHeader">
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <span class="col-sm-2">{{'header.title'|translate}} </span>
-      <span class="col-sm-4">
-        <ul class="nav nav-pills">
-          <li class="nav-item" routerLinkActive="active"><a routerLink="Acceuil" routerLinkActive="active" class="nav-link">{{'header.home'|translate}}</a></li>
-          <li class="nav-item" routerLinkActive="active"><a routerLink="Login" routerLinkActive="active" class="nav-link">{{'header.login'|translate}}</a></li>
-        </ul>
-      </span>
-      <span class="col-sm-4">
-        <div class="language-picker-area">
-          <span class="picker-label">{{'header.choose_lang'|translate}}</span>&nbsp;&nbsp;&nbsp;
-          <span>
-            <select (change)="selectLang($event)" language-picker>
-              <option value="fr">{{'header.lang_fr'|translate}}</option>
-              <option value="en">{{'header.lang_en'|translate}}</option>
-            </select>
-          </span>       
-        </div>
-      </span>
-  </header>       
+    <span class="col-sm-2">{{'header.title'|translate}} </span>
+    <span class="col-sm-4">
+
+      <!-- Entête -->
+      <ul class="nav nav-pills">
+        <li class="nav-item" routerLinkActive="active"><a routerLink="Acceuil" routerLinkActive="active"
+            class="nav-link">{{'header.home'|translate}}</a></li>
+        <li class="nav-item" routerLinkActive="active"><a routerLink="Login" routerLinkActive="active"
+            class="nav-link">{{'header.login'|translate}}</a></li>
+      </ul>
+    </span>
+    <span class="col-sm-4">
+      <div class="language-picker-area">
+        <span class="picker-label">{{'header.choose_lang'|translate}}</span>&nbsp;&nbsp;&nbsp;
+        <span>
+          <select (change)="selectLang($event)" language-picker>
+            <option value="fr">{{'header.lang_fr'|translate}}</option>
+            <option value="en">{{'header.lang_en'|translate}}</option>
+          </select>
+        </span>
+      </div>
+    </span>
+  </header>
 </div>
 
-
-
+<!-- Contenu dynamique selon les pages web consultées -->
 <div class="component-container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
 
 <hr>
+
+<!-- Pied de page avec information de l'équipe -->
 <div id="fixedFooter">
-  <footer class="text-center text-black"> 
-     <div class="text-center p-4">
+  <footer class="text-center text-black">
+    <div class="text-center p-4">
       {{'footer.intro'|translate}}
-     </div>
+    </div>
   </footer>
 </div>
-
-

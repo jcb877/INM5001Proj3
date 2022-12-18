@@ -30,7 +30,7 @@
         "info_username":"Bienvenue ",
         "info_uId":"Votre identifiant est ",
         "info_uAccess":"Votre accès est ",
-        "info_selectedFarm":"Votre ferme sélectionnée est ",
+        "info_selectedFarm":"Votre ferme sélectionnée est : ",
         "btn_accessLevelManager":"Gestionnaire d'accès",
         "btn_userManager":"Gestionnaire de utilisateurs",
         "btn_farmManager":"Gestionnaire de fermes",
