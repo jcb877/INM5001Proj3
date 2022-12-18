@@ -1,3 +1,4 @@
+<!-- Page pour ajouter ou modifier une ferme -->
 <div id="outer" *ngIf="showForm">
   <div class="text-left">
     &nbsp;&nbsp;&nbsp;<button routerLink="../FarmsManager"
@@ -13,43 +14,42 @@
   </div>
 
   <div id="inner">
-
     <div class="form-group row" style="width: 70%;">
 
+      <!-- Nom de la ferme -->
       <label class="col-sm-4 col-form-label">{{'farm.col_name'|translate}}</label>
       <div class="col-sm-8">
         <input type="text" class="form-control" [(ngModel)]="nomFerme" placeholder="Enter Farm Name">
       </div>
-
       <br>
       <br>
 
+      <!-- Adresse de la ferme -->
       <label class="col-sm-4 col-form-label">{{'farm.col_fAds'|translate}}</label>
       <div class="col-sm-8">
         <input type="text" class="form-control" [(ngModel)]="addresseFerme" placeholder="Enter Farm address">
       </div>
-
       <br>
       <br>
 
+      <!-- Ville de la ferme -->
       <label class="col-sm-4 col-form-label">{{'farm.col_fCity'|translate}}</label>
       <div class="col-sm-8">
         <input type="text" class="form-control" [(ngModel)]="villeFerme" placeholder="Enter Farm located city">
       </div>
-
       <br>
       <br>
 
+      <!-- Province de la ferme -->
       <label class="col-sm-4 col-form-label">{{'farm.col_fProvince'|translate}}</label>
       <div class="col-sm-8">
         <input type="text" class="form-control" [(ngModel)]="provinceFerme" placeholder="Enter Farm located province">
       </div>
-
       <br>
       <br>
     </div>
 
-
+    <!-- Bouton pour ajouter ou mettre à jour -->
     <div>
       <button (click)="addNewFarm()" *ngIf="!showUpdateButton"
         class="btn btn-primary">{{'farm.add_btn_add'|translate}}</button>&nbsp;&nbsp;
@@ -57,12 +57,10 @@
         class="btn btn-primary">{{'farm.add_btn_update'|translate}}</button>&nbsp;&nbsp;
       <button routerLink="../FarmsManager" class="btn btn-warning">{{'farm.add_btn_cancel'|translate}}</button>
     </div>
-
   </div>
-
 </div>
 
-
+<!-- Message indiquant que l'opération a été effectuée avec succès -->
 <div *ngIf="showSuccessMsg" class="alert alert-success" id="msgSuccess">
   <div class="text-center">
     <p>{{'farm.msg_success'|translate}}</p>
@@ -73,6 +71,7 @@
   </div>
 </div>
 
+<!-- Message indiquant qu'une erreur est survenue -->
 <div *ngIf="showFailMsg" class="alert alert-danger" id="msgFail">
   <div class="text-center">
     <p>{{'farm.msg_fail'|translate}}</p>
