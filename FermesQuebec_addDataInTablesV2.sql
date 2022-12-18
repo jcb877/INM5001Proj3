@@ -1,3 +1,5 @@
+-- INM5001 fermes Québec : données de tests pour valider l'applications.
+
 INSERT INTO `fermesqc`.`usagerapp_categories`
 (`categorieId`,
 `nomCategorie`)
