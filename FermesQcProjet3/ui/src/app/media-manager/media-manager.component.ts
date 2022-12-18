@@ -41,13 +41,13 @@ export class MediaManagerComponent implements OnInit {
 
   // Supprimer un média
   deleteClick(item: any) {
-    if (confirm('Are you sure? Êtes-vous sûr?')) {
+    if (confirm('Are you sure?\nÊtes-vous sûr?')) {
       this.service.deleteMedia(item.mediaId).subscribe(res => {
         if (res.toString().includes("Succes")) {
-          alert("Le media est été supprimé. The media is deleted.");
+          alert("Le media est été supprimé.\nThe media is deleted.");
         }
         else {
-          alert("Echec à supprimer. Delete has failed.");
+          alert("Echec à supprimer.\nDelete has failed.");
         }
         this.ngOnInit();
       })

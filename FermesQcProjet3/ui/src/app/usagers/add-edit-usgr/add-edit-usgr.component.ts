@@ -98,7 +98,7 @@ export class AddEditUsgrComponent implements OnInit {
 
     if (this.checkBeforeAddingNewUser()) {
       //username is already existed
-      alert("Le nom d'utilisateur existes deja.The user name already exists");
+      alert("Le nom d'utilisateur existe déjà.\nThe user name already exists");
     }
     else {
 

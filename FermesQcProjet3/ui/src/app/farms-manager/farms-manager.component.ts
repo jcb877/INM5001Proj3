@@ -70,7 +70,7 @@ export class FarmsManagerComponent implements OnInit {
 
   // Supprimer la ferme
   async deleteClick(item: any) {
-    if (confirm('Are you sure ? Êtes-vous sûr ?')) {
+    if (confirm('Are you sure?\nÊtes-vous sûr?')) {
       var dateInString = this.generateCurrentDate();
 
       var farmToDelete = {
@@ -87,10 +87,10 @@ export class FarmsManagerComponent implements OnInit {
 
       this.service.updateFarm(farmToDelete).subscribe(res => {
         if (res.toString().includes("Succes")) {
-          alert("La ferme est été supprimée. The farm is deleted.");
+          alert("La ferme est été supprimée.\nThe farm is deleted.");
         }
         else {
-          alert("Échec à supprimer. Delete has failed.");
+          alert("Échec à supprimer.\nDelete has failed.");
         }
         this.ngOnInit();
       });

@@ -24,7 +24,7 @@ export class CategoriesComponent implements OnInit {
 
   // Supprimer une catégorie
   deleteClick(item: any) {
-    if (confirm('Are you sure?')) {
+    if (confirm('Are you sure?\nÊtes-vous sûr?')) {
       this.service.deleteCategory(item.categorieId).subscribe(data => {
         alert(data.toString());
         this.ngOnInit();

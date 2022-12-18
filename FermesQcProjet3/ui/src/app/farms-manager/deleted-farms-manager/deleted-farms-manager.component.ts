@@ -38,7 +38,7 @@ export class DeletedFarmsManagerComponent implements OnInit {
 
   // Fonction permettant d'enlever la ferme de la liste des fermes supprimées
   recoverClick(item: any) {
-    if (confirm('Are you sure ? Êtes-vous sûr ?')) {
+    if (confirm('Are you sure?\nÊtes-vous sûr?')) {
 
       var farmToRecover = {
         fermeId: item.fermeId,
@@ -53,10 +53,10 @@ export class DeletedFarmsManagerComponent implements OnInit {
 
       this.service.updateFarm(farmToRecover).subscribe(res => {
         if (res.toString().includes("Succes")) {
-          alert("La ferme est été récupérée. The farm is recovered.");
+          alert("La ferme est été récupérée.\nThe farm is recovered.");
         }
         else {
-          alert("Échec à récupérer. Recovery has failed.");
+          alert("Échec à récupérer.\nRecovery has failed.");
         }
         this.ngOnInit();
       })

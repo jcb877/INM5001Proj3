@@ -1,15 +1,20 @@
+<!-- Page d'ajout ou de modification d'un niveau d'accès -->
 <div id="outer">
   <div *ngIf="showForm">
     <div class="text-center">
       <p *ngIf="!showUpdateButton" class="p-2 bg-info text-light text-center">{{'access.add_title_add'|translate}}</p>
       <p *ngIf="showUpdateButton" class="p-2 bg-info text-light text-center">{{'access.add_title_update'|translate}}</p>
     </div>
+
+    <!-- Champ pour entrer le niveau d'accès -->
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">{{'access.add_name'|translate}}</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" placeholder="Enter Niveau acces" [(ngModel)]="access">
       </div>
     </div>
+
+    <!-- Bouton pour ajouter ou mettre à jour le niveau d'accès -->
     <button *ngIf="!showUpdateButton" (click)="addNewAccess()"
       class="btn btn-primary">{{'access.add_btn_add'|translate}}</button>&nbsp;&nbsp;
     <button *ngIf="showUpdateButton" (click)="updateAccess()"
@@ -17,7 +22,7 @@
     <button routerLink="../ShowAccessLevelList" class="btn btn-warning">{{'access.add_btn_cancel'|translate}}</button>
   </div>
 
-
+  <!-- Message indiquant que l'opération a été effectuée avec succès -->
   <div *ngIf="showSuccessMsg" class="alert alert-success">
     <div class="text-center">
       <p>{{'access.msg_success'|translate}}</p>
@@ -28,6 +33,7 @@
     </div>
   </div>
 
+  <!-- Message indiquant qu'une erreur est survenue -->
   <div *ngIf="showFailMsg" class="alert alert-danger">
     <div class="text-center">
       <p>{{'access.msg_fail'|translate}}</p>

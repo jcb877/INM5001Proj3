@@ -1,41 +1,46 @@
-
+<!-- Page de visualisation des notes -->
 <div id="outer">
-    <div class="text-left">
-      &nbsp;&nbsp;&nbsp;<button routerLink="../ExperienceManager" class="btn btn-primary">{{'note.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
-      <button routerLink="../AddEditNote" (click)="clearPage()" class="btn btn-success">{{'note.btn_add'|translate}}</button>
-    </div>
-    <div class="line">
-      <hr>
-    </div>
-    <div>
-      <p class="p-2 bg-info text-light text-center">{{'note.title'|translate}}</p>
-      <table class="table table-striped">
-          <thead>
-              <tr>
-                  <th>{{'note.col_id'|translate}}</th>
-                  <th>{{'note.col_date'|translate}}</th>
-                  <th>{{'note.col_content'|translate}}</th>
-                  <th>{{'note.col_eId'|translate}}</th>
-                  <th>{{'note.col_media'|translate}}</th>
-                  <th>{{'note.col_opts'|translate}}</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let n of notesList">
-                  <td>{{n.noteId}}</td>
-                  <td>{{n.dateNote}}</td>
-                  <td>{{n.note}}</td>
-                  <td>{{ convertIdIntoNameExperience(n.experienceId)}}</td>
-                  <td class="options">                   
-                    <button routerLink="../MediasManager" class="btn btn-primary" (click)="checkAllAssociatedMedias(n)">{{'note.btn_checkMedia'|translate}}</button>&nbsp;&nbsp;
-                    <button routerLink="../AddEditMedia" class="btn btn-success" (click)="addAssociatedMedia(n)">{{'note.btn_addMedia'|translate}}</button>&nbsp;&nbsp;
-                  </td>
-                  <td class="options">                   
-                      <button routerLink="../AddEditNote" class="btn btn-primary" (click)="editClick(n)">{{'farm.btn_edit'|translate}}</button>&nbsp;&nbsp;
-                      <button class="btn btn-danger" (click)="deleteClick(n)">{{'farm.btn_delete'|translate}}</button>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-    </div>
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../ExperienceManager"
+      class="btn btn-primary">{{'note.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddEditNote" (click)="clearPage()"
+      class="btn btn-success">{{'note.btn_add'|translate}}</button>
   </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'note.title'|translate}}</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{'note.col_id'|translate}}</th>
+          <th>{{'note.col_date'|translate}}</th>
+          <th>{{'note.col_content'|translate}}</th>
+          <th>{{'note.col_eId'|translate}}</th>
+          <th>{{'note.col_media'|translate}}</th>
+          <th>{{'note.col_opts'|translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let n of notesList">
+          <td>{{n.noteId}}</td>
+          <td>{{n.dateNote}}</td>
+          <td>{{n.note}}</td>
+          <td>{{ convertIdIntoNameExperience(n.experienceId)}}</td>
+          <td class="options">
+            <button routerLink="../MediasManager" class="btn btn-primary"
+              (click)="checkAllAssociatedMedias(n)">{{'note.btn_checkMedia'|translate}}</button>&nbsp;&nbsp;
+            <button routerLink="../AddEditMedia" class="btn btn-success"
+              (click)="addAssociatedMedia(n)">{{'note.btn_addMedia'|translate}}</button>&nbsp;&nbsp;
+          </td>
+          <td class="options">
+            <button routerLink="../AddEditNote" class="btn btn-primary"
+              (click)="editClick(n)">{{'farm.btn_edit'|translate}}</button>&nbsp;&nbsp;
+            <button class="btn btn-danger" (click)="deleteClick(n)">{{'farm.btn_delete'|translate}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

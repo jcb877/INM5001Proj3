@@ -58,7 +58,7 @@ export class ShowUsgrComponent implements OnInit {
   }
 
   deleteClick(item: any) {
-    if (confirm('Are you sure?')) {
+    if (confirm('Are you sure?\nÊtes-vous sûr?')) {
       this.service.deleteUsager(item.usagerId).subscribe(data => {
         alert(data.toString());
         this.refreshUsagersList();

@@ -47,12 +47,11 @@ export class LoginComponent implements OnInit {
   submitForm() {
     this.mail = this.loginForm.value.userName;
     this.pw = Md5.hashStr(this.loginForm.value.password);
-    console.log("input values are got");
 
     // Message d'alerte si les champs ne contiennentt aucune information
     this.getAllUsers();
     if (this.mail === "" && this.pw === "") {
-      alert("Saisissez votre courriel et votre mot de passe!   Please input email and password!");
+      alert("Saisissez votre courriel et votre mot de passe!\nPlease input email and password!");
     }
     else {
       // Vérifier si l'utilisateur existe ou non
@@ -69,7 +68,7 @@ export class LoginComponent implements OnInit {
       }
       // Si l'utilisateur n'est pas trouvé, message d'alerte
       if (!this.userFound) {
-        alert("L'utilisateur n'existe pas! The user does not exist!");
+        alert("L'utilisateur n'existe pas!\nThe user does not exist!");
         this.loginForm.value.userName.value = '';
       }
 
@@ -77,13 +76,13 @@ export class LoginComponent implements OnInit {
       if (this.userFound) {
         // Identification réussie
         if (this.pw === this.pwRef) {
-          alert("Bienvenue!   Welcome!");
+          alert("Bienvenue!\nWelcome!");
           console.log(this.service.currentLoggedInUser.mail);
           this.showAllFuncAfterLoginWithSuccess(this.service.currentLoggedInUser.accesId);
         }
         else {
           // Identification incorrecte
-          alert("Erreur,vérifiez l'information entrée!  Error, please verify information entered!");
+          alert("Erreur, vérifiez l'information entrée!\nError, please verify information entered!");
           console.log(this.mail);
           console.log(this.pw);
           console.log(this.pwRef);

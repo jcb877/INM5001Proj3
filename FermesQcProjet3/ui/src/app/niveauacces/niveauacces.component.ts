@@ -8,12 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NiveauaccesComponent implements OnInit {
 
-  // accessList:Access[] = [];
-
   constructor(private service: SharedService) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
 }

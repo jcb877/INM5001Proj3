@@ -55,14 +55,14 @@ export class ExperienceComponent implements OnInit {
 
   // Supprimer une expérience
   deleteClick(item: any) {
-    if (confirm('Are you sure? Êtes-vous sûr ?')) {
+    if (confirm('Are you sure?\nÊtes-vous sûr ?')) {
       this.service.deleteExperience(item.experienceId).subscribe(res => {
 
         if (res.toString().includes("Succes")) {
-          alert("L'Expérience est été supprimée. The experience is deleted.");
+          alert("L'expérience est été supprimée.\nThe experience is deleted.");
         }
         else {
-          alert("Échec lors de la suppression. Delete has failed.");
+          alert("Échec lors de la suppression.\nDelete has failed.");
         }
         this.ngOnInit();
       })

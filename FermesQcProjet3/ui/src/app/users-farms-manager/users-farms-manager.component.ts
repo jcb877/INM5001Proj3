@@ -83,7 +83,7 @@ export class UsersFarmsManagerComponent implements OnInit {
 
 
   deleteClick(item: any) {
-    if (confirm('Are you sure ? Vous etes sur ?')) {
+    if (confirm('Are you sure?\nÊtes-vous sûr?')) {
       this.service.deleteUsersFarms(item.usagersFermesId).subscribe(data => {
         alert(data.toString());
         this.ngOnInit();

@@ -59,7 +59,7 @@ export class CowManagerComponent implements OnInit {
 
   // Supprimer une vache
   deleteClick(item: any) {
-    if (confirm('Are you sure ? Vous etes sur ?')) {
+    if (confirm('Are you sure?\nÊtes-vous sûr?')) {
       this.service.deleteCow(item.vacheId).subscribe(data => {
         alert(data.toString());
         this.ngOnInit();
