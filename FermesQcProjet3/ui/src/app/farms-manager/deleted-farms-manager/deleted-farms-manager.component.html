@@ -1,38 +1,38 @@
-
 <div id="outer">
-    <div class="text-left">
-      &nbsp;&nbsp;&nbsp;<button routerLink="../FarmsManager" class="btn btn-primary">{{'farm.d_btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
-    </div>
-    <div class="line">
-      <hr>
-    </div>
-    <div>
-      <p class="p-2 bg-info text-light text-center">{{'farm.d_title'|translate}}</p>
-      <table class="table table-striped">
-          <thead>
-              <tr>
-                  <th>{{'farm.col_id'|translate}}</th>
-                  <th>{{'farm.col_name'|translate}}</th>
-                  <th>{{'farm.col_fAds'|translate}}</th>
-                  <th>{{'farm.col_fCity'|translate}}</th>
-                  <th>{{'farm.col_fProvince'|translate}}</th>
-                  <th>{{'farm.d_col_deletedDate'|translate}}</th>
-                  <th>{{'farm.col_opts'|translate}}</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let farm of farmsList">
-                  <td>{{farm.fermeId}}</td>
-                  <td>{{farm.nomFerme}}</td>
-                  <td>{{farm.addresseFerme}}</td>
-                  <td>{{farm.villeFerme}}</td>
-                  <td>{{farm.provinceFerme}}</td>
-                  <td>{{farm.deletedDate}}</td>
-                  <td class="options">                   
-                      <button class="btn btn-success" (click)="recoverClick(farm)">{{'farm.d_btn_recover'|translate}}</button>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-    </div>
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../FarmsManager"
+      class="btn btn-primary">{{'farm.d_btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
   </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'farm.d_title'|translate}}</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{'farm.col_id'|translate}}</th>
+          <th>{{'farm.col_name'|translate}}</th>
+          <th>{{'farm.col_fAds'|translate}}</th>
+          <th>{{'farm.col_fCity'|translate}}</th>
+          <th>{{'farm.col_fProvince'|translate}}</th>
+          <th>{{'farm.d_col_deletedDate'|translate}}</th>
+          <th>{{'farm.col_opts'|translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let farm of farmsList">
+          <td>{{farm.fermeId}}</td>
+          <td>{{farm.nomFerme}}</td>
+          <td>{{farm.addresseFerme}}</td>
+          <td>{{farm.villeFerme}}</td>
+          <td>{{farm.provinceFerme}}</td>
+          <td>{{farm.deletedDate}}</td>
+          <td class="options">
+            <button class="btn btn-success" (click)="recoverClick(farm)">{{'farm.d_btn_recover'|translate}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

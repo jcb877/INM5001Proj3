@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Category, SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -6,8 +6,8 @@ import { Category, SharedService } from 'src/app/shared.service';
   templateUrl: './add-edit-category.component.html',
   styleUrls: ['./add-edit-category.component.css']
 })
-export class AddEditCategoryComponent implements OnInit {
 
+export class AddEditCategoryComponent implements OnInit {
   categorieId: number = 0;
   categoryName: string = "";
 
@@ -18,9 +18,7 @@ export class AddEditCategoryComponent implements OnInit {
   showForm: boolean = true;
   showUpdateButton: boolean = false;
 
-  constructor(private service: SharedService) {
-
-  }
+  constructor(private service: SharedService) { }
 
   ngOnInit(): void {
     this.refreshCategoryList();
@@ -29,23 +27,18 @@ export class AddEditCategoryComponent implements OnInit {
     }
     else {
       console.log("For update category");
-
       this.categorieId = this.service.editingCategory.categorieId;
       this.categoryName = this.service.editingCategory.nomCategorie;
-
       this.showUpdateButton = true;
     }
-
   }
 
-
+  // Ajout d'une nouvelle catégorie
   addNewCategory() {
-
     var val = {
       nomCategorie: this.categoryName
     };
 
-    //modify this once farm api is done
     this.service.addCategory(val).subscribe(res => {
       alert(res.toString());
 
@@ -57,24 +50,18 @@ export class AddEditCategoryComponent implements OnInit {
         this.showForm = false;
         this.showFailMsg = true;
       }
-
     });
-
-
   }
 
+  // Mise à jour de la catégorie
   updateCategory() {
-
     var val = {
       categorieId: this.categorieId,
       nomCategorie: this.categoryName
     };
 
-    console.log(val);
-
     this.service.updateCategory(val).subscribe(res => {
       alert(res.toString());
-
 
       if (res.toString().includes("Succes")) {
         this.showForm = false;
@@ -87,22 +74,22 @@ export class AddEditCategoryComponent implements OnInit {
     });
   }
 
-
+  // Fermeture de la boite de message de succès
   closeSuccessMsg() {
     this.showSuccessMsg = false;
     this.ngOnInit();
   }
 
+  // Fermeture de la boite de message d'erreur
   closeFailMsg() {
     this.showFailMsg = false;
     this.ngOnInit();
-
   }
 
+  // Obtenir la liste des catégories
   refreshCategoryList() {
     this.service.getCategoryList().subscribe(data => {
       this.categoriesList = data;
     })
   }
-
 }

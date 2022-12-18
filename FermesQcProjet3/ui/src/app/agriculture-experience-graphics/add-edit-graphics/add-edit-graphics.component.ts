@@ -8,54 +8,49 @@ import { Farm, SharedService } from 'src/app/shared.service';
 })
 export class AddEditGraphicsComponent implements OnInit {
 
-  name:string="";
-  date:string="";
+  name: string = "";
+  date: string = "";
 
-
-  showSuccessMsg:boolean=false;
-  showFailMsg:boolean=false;
-  showForm:boolean=true;
-  showUpdateButton:boolean=false;
+  showSuccessMsg: boolean = false;
+  showFailMsg: boolean = false;
+  showForm: boolean = true;
+  showUpdateButton: boolean = false;
 
   farmsList: any = [];
-  allFarmsList:Farm[]=[];
+  allFarmsList: Farm[] = [];
 
-  constructor(private service:SharedService) {
+  constructor(private service: SharedService) { }
 
-  }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-
-
-  }
-
-
-  getFarmsList(){
-    this.service.getFarmList().subscribe(data=> {
-      this.allFarmsList=data;
+  // Obtention de la liste des fermes
+  getFarmsList() {
+    this.service.getFarmList().subscribe(data => {
+      this.allFarmsList = data;
       for (let i = 0; i < this.allFarmsList.length; i++) {
-        if(this.allFarmsList[i].deleted!=true){
-          this.farmsList.push(this.allFarmsList[i]);  //only not deleted farms in the list
+        if (this.allFarmsList[i].deleted != true) {
+          this.farmsList.push(this.allFarmsList[i]);  //liste des fermes non supprimées seulement
         }
-     }
+      }
     })
   }
 
-
-  addNew(){
-
-        this.showForm=false;
-        this.showSuccessMsg=true;
+  // Modification de la page lorsque l'ajout est correctement effectué. Le formulaire est caché et le message apparait.
+  addNew() {
+    this.showForm = false;
+    this.showSuccessMsg = true;
   }
 
-  closeSuccessMsg(){
-      this.showSuccessMsg=false;
-      this.ngOnInit();
+  // Fermeture de la fenêtre du message de succès
+  closeSuccessMsg() {
+    this.showSuccessMsg = false;
+    this.ngOnInit();
   }
 
-  closeFailMsg(){
-      this.showFailMsg=false;
-      this.ngOnInit();
+  // Fermeture de la fenêtre du message d'échec
+  closeFailMsg() {
+    this.showFailMsg = false;
+    this.ngOnInit();
 
   }
 

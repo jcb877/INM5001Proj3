@@ -1,34 +1,37 @@
-
+<!-- Page de visualisation de la liste des vaches -->
 <div id="outer">
-    <div class="text-left">
-      &nbsp;&nbsp;&nbsp;<button routerLink="../FarmsManager" class="btn btn-primary">{{'cow.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
-      <button routerLink="../AddEditCow" (click)="clearPage()" class="btn btn-success">{{'cow.btn_add'|translate}}</button>
-    </div>
-    <div class="line">
-      <hr>
-    </div>
-    <div>
-      <p class="p-2 bg-info text-light text-center">{{'cow.title'|translate}}</p>
-      <table class="table table-striped">
-          <thead>
-              <tr>
-                  <th>{{'cow.cow_id'|translate}}</th>
-                  <th>{{'cow.cow_name'|translate}}</th>
-                  <th>{{'cow.farm_id'|translate}}</th>
-                  <th>{{'farm.col_opts'|translate}}</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let cow of cowsList">
-                  <td>{{cow.vacheId}}</td>
-                  <td>{{cow.nomVache}}</td>
-                  <td>{{ convertIdIntoName(cow.fermeId)}}</td>
-                  <td class="options">                   
-                      <button routerLink="../AddEditCow" class="btn btn-primary" (click)="editClick(cow)">{{'farm.btn_edit'|translate}}</button>&nbsp;&nbsp;
-                      <button class="btn btn-danger" (click)="deleteClick(cow)">{{'farm.btn_delete'|translate}}</button>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-    </div>
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../FarmsManager"
+      class="btn btn-primary">{{'cow.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddEditCow" (click)="clearPage()"
+      class="btn btn-success">{{'cow.btn_add'|translate}}</button>
   </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'cow.title'|translate}}</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{'cow.cow_id'|translate}}</th>
+          <th>{{'cow.cow_name'|translate}}</th>
+          <th>{{'cow.farm_id'|translate}}</th>
+          <th>{{'farm.col_opts'|translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cow of cowsList">
+          <td>{{cow.vacheId}}</td>
+          <td>{{cow.nomVache}}</td>
+          <td>{{ convertIdIntoName(cow.fermeId)}}</td>
+          <td class="options">
+            <button routerLink="../AddEditCow" class="btn btn-primary"
+              (click)="editClick(cow)">{{'farm.btn_edit'|translate}}</button>&nbsp;&nbsp;
+            <button class="btn btn-danger" (click)="deleteClick(cow)">{{'farm.btn_delete'|translate}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
