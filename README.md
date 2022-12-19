@@ -44,7 +44,7 @@ DATABASES = {
 
 - À partir du repertoire FermesQcProjet3
 
-   -- Executer le fichier batch startApp.bat
+   -- Executer le fichier batch `startApp.bat`
 
 ---
 
