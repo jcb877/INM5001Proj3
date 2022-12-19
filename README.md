@@ -1,64 +1,73 @@
-# INM5001Proj3
-=======
-Avant de commencer
-Assurer vous d'avoir d'installer sur votre machine
-Node.js
-Angular
-Python
+# **INM5001 Proj3**
 
+### **Avant de commencer :**
 
--------------------  BackEnd ---------------------
+Assurez-vous d'avoir installé sur votre machine:
 
-Demmarrer les API python
+1. Node.js
+2. Angular
+3. Python
+4. MySQL
 
+---
 
-----Activer l'environnement virtuel python
-----à partir de l'intérieur du répertoire ..\FermesQuebecPrj3\
-(Copier et coller la commande suivante)
-labenv\Scripts\activate 
+## **MySQL**
 
----------Dans le projet (FermesQcAPI) ----------
----------Éditer fichier settings.py -----------
---------- Entrer le nom usager et mot de passe de votre session locale de Mysql-----
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fermesqc',
-        'USER': '******',
-        'PASSWORD': '*******',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
+- Créer une base de données **fermeqc**
+
+---
+
+## **Backend**
+
+### Activer l'environnement virtuel python
+
+- À partir de l'intérieur du répertoire ..\FermesQuebecPrj3\
+- Si PC: tapez `labenv\Scripts\activate`
+- Si Mac: tapez `source labenv\Scripts\activate`
+
+### Dans le répertoire FermesQcAPI
+
+- Éditer le fichier **settings.py** en entrant votre nom usager et votre mot de passe de votre session locale de MySQL
+```
+DATABASES = {  
+   'default': {  
+      'ENGINE': 'django.db.backends.mysql',  
+      'NAME': 'fermesqc',  
+      'USER': `'******'`,  
+      'PASSWORD': `'*******'`,  
+      'HOST': '127.0.0.1',  
+      'PORT': '3306',  
+   }  
 }
-
---------- Modifier la position de fichier Python.exe-----
+```
+<!-- --------- Modifier la position de fichier Python.exe-----
    -- Verifier il est ou:
-      Typer la commande Where is python dans la fenetre Command.Et Il va montrer,et juste copier la position de dossier sans \
+      Typer la commande Where is python dans la fenetre Command.Et Il va montrer,et juste copier la position de dossier sans \ -->
 
-   --coller la position dans le FermesQCProjet3->FermesQcAPI->labenv->pyvenv.cfg
+   <!-- --coller la position dans le FermesQCProjet3->FermesQcAPI->labenv->pyvenv.cfg -->
 
+<!-- ------Supprimer le fichier migrations
+   --Generalement,il se trouve FermesQCProjet3->UsagerApp -->
 
-------Supprimer le fichier migrations
-   --Generalement,il se trouve FermesQCProjet3->UsagerApp
+### Ajouter les nouvelles tables
 
-------Ajouter les nouvelles tables --------
-python manage.py makemigrations UsagerApp
-python manage.py migrate UsagerApp
-python manage.py loaddata add_data.json
+- `python manage.py makemigrations UsagerApp`
+- `python manage.py migrate UsagerApp`
+- `python manage.py loaddata add_data.json`
 
+### Démarrer le serveur Python
 
------------Executer le program ------------
-python manage.py runserver
+- `python manage.py runserver`
 
----------------------------------------------------------------
+---
 
+## **Frontend**
 
----------------  Front End---------------------------------
+- À partir de l'intérieur répertoire **ui**
+- Ouvrir un command prompt partir l'application
+- `ng serve --open`
 
---------- À partir de l'intérieur répertoire ui--------------------
---------- ouvrir un command prompt partir l'application -----------
-ng serve
-
------------------------------------------------------------
-
-
+---
+## **Information d'authentification**
+**courriel :**  `abc@abc.com`    
+**mot de passe :** `Inm5001!`  (chiffre zéro)

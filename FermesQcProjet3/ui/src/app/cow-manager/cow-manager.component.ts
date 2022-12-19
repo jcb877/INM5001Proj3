@@ -6,96 +6,82 @@ import { Cow, Farm, SharedService } from '../shared.service';
   templateUrl: './cow-manager.component.html',
   styleUrls: ['./cow-manager.component.css']
 })
+
 export class CowManagerComponent implements OnInit {
+  cowsList: Cow[] = [];
+  allCowsList: Cow[] = [];
+  farmsList: Farm[] = [];
+  allFarmsList: Farm[] = [];
+  farmName: string = "";
 
-  cowsList:Cow[]=[];
-
-  allCowsList:Cow[]=[];
-
-  farmsList:Farm[]=[];
-
-  allFarmsList:Farm[]=[];
-
-  farmName:string="";
-  
-  constructor(private service:SharedService) { }
+  constructor(private service: SharedService) { }
 
   ngOnInit(): void {
     this.getCowsList();
     this.getFarmsList();
   }
 
-  getCowsList(){
-    this.cowsList=[];
-
-    this.allCowsList=[];
-
-    this.service.getCowsList().subscribe(data=> {
-      this.allCowsList=data;
+  // Obtenir la liste des vaches
+  getCowsList() {
+    this.cowsList = [];
+    this.allCowsList = [];
+    this.service.getCowsList().subscribe(data => {
+      this.allCowsList = data;
       for (let i = 0; i < this.allCowsList.length; i++) {
-        if(this.allCowsList[i].fermeId==this.service.editingCow.fermeId){
+        if (this.allCowsList[i].fermeId == this.service.editingCow.fermeId) {
           this.cowsList.push(this.allCowsList[i]);
         }
-     }
+      }
     })
   }
 
-  getFarmsList(){
-    this.service.getFarmList().subscribe(data=> {
-      this.allFarmsList=data;
+  // Obtenir la liste des fermes
+  getFarmsList() {
+    this.service.getFarmList().subscribe(data => {
+      this.allFarmsList = data;
       for (let i = 0; i < this.allFarmsList.length; i++) {
-        if(this.allFarmsList[i].deleted!=true){
+        if (this.allFarmsList[i].deleted != true) {
           this.farmsList.push(this.allFarmsList[i]);  //only not deleted farms in the list
         }
-     }
+      }
     })
   }
 
-  
-
-  editClick(item: any){
-    this.service.editingCow.vacheId=item.vacheId;
-    this.service.editingCow.nomVache=item.nomVache;
-    this.service.editingCow.fermeId=item.fermeId;
-
-
-    console.log("Editing cow id "+this.service.editingCow.vacheId);
-    console.log("Editing cow name "+this.service.editingCow.nomVache);
-    console.log("Editing farm id "+this.service.editingCow.fermeId);
-
-
+  // Modifier une vache
+  editClick(item: any) {
+    this.service.editingCow.vacheId = item.vacheId;
+    this.service.editingCow.nomVache = item.nomVache;
+    this.service.editingCow.fermeId = item.fermeId;
+    console.log("Editing cow id " + this.service.editingCow.vacheId);
+    console.log("Editing cow name " + this.service.editingCow.nomVache);
+    console.log("Editing farm id " + this.service.editingCow.fermeId);
   }
 
-  
-
-  deleteClick(item: any){
-    if(confirm('Are you sure ? Vous etes sur ?')){
-      this.service.deleteCow(item.vacheId).subscribe(data=>{
+  // Supprimer une vache
+  deleteClick(item: any) {
+    if (confirm('Are you sure?\nÊtes-vous sûr?')) {
+      this.service.deleteCow(item.vacheId).subscribe(data => {
         alert(data.toString());
         this.ngOnInit();
       })
     }
   }
 
-
-  clearPage(){
-    this.service.editingCow.vacheId=0;
-    this.service.editingCow.nomVache="";
+  // Effacer les données
+  clearPage() {
+    this.service.editingCow.vacheId = 0;
+    this.service.editingCow.nomVache = "";
   }
 
-
-  convertIdIntoName(Id:number){
-    var name="";
+  // Conversion de la clé primaire au nom de la ferme à laquelle la vache appartient
+  convertIdIntoName(Id: number) {
+    var name = "";
     for (let i = 0; i < this.farmsList.length; i++) {
-       if(this.farmsList[i].fermeId==Id){
-        name=this.farmsList[i].nomFerme;
+      if (this.farmsList[i].fermeId == Id) {
+        name = this.farmsList[i].nomFerme;
         break;
-       }
+      }
     }
-
-
     return name;
-
   }
-
 }

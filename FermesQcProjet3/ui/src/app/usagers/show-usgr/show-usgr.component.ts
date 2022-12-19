@@ -1,5 +1,4 @@
-import { NiveauaccesComponent } from './../../niveauacces/niveauacces.component';
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -7,6 +6,7 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './show-usgr.component.html',
   styleUrls: ['./show-usgr.component.css']
 })
+
 export class ShowUsgrComponent implements OnInit {
 
   constructor(private service: SharedService) {
@@ -14,12 +14,11 @@ export class ShowUsgrComponent implements OnInit {
   }
 
   UsagersList: any = [];
-
-
   AccessNiveauxList: any = [];
 
   ModalTitle: string;
   usgr: any;
+
   ActivateAddEditUsgrComp: boolean = false;
 
   ngOnInit(): void {
@@ -30,6 +29,7 @@ export class ShowUsgrComponent implements OnInit {
 
   }
 
+  // Ajout d'un usager
   addClick() {
     this.usgr = {
       usagerId: 0,
@@ -44,10 +44,12 @@ export class ShowUsgrComponent implements OnInit {
     this.ActivateAddEditUsgrComp = true;
   }
 
+  // Modifier un utilisateur
   editClick(item: any) {
     this.service.editingUser = item;
   }
 
+  // Supprimer les informations entrées dans les champs
   clearPage() {
     this.service.editingUser.usagerId = 0;
     this.service.editingUser.mail = "";
@@ -57,19 +59,23 @@ export class ShowUsgrComponent implements OnInit {
     this.service.editingUser.accesId = 0
   }
 
+  // Supprimer un utilisateur
   deleteClick(item: any) {
-    if (confirm('Are you sure?')) {
+    if (confirm('Are you sure?\nÊtes-vous sûr?')) {
       this.service.deleteUsager(item.usagerId).subscribe(data => {
         alert(data.toString());
         this.refreshUsagersList();
       })
     }
   }
+
+
   closeClick() {
     this.ActivateAddEditUsgrComp = false;
     this.refreshUsagersList();
   }
 
+  // Obtenir la liste des usagers
   refreshUsagersList() {
     this.service.getUsagerList().subscribe(data => {
       this.UsagersList = data;
@@ -83,12 +89,14 @@ export class ShowUsgrComponent implements OnInit {
     })
   }
 
+  // Obtenir la liste des niveaux d'accès
   refreshNivAccessList() {
     this.service.getNivAccList().subscribe(data => {
       this.AccessNiveauxList = data;
     })
   }
 
+  // Convertir la clé primaire en nom d'accès pour l'usager
   convertAccessIDIntoName(input: number) {
     var name = "";
 
@@ -97,12 +105,8 @@ export class ShowUsgrComponent implements OnInit {
         name = access.access;
       }
     }
-
     name = name.toUpperCase();
-
     return name;
   }
-
-
 }
 

@@ -1,113 +1,116 @@
+<!-- Page d'ajout ou de modification d'un usager -->
 <div id="outer" *ngIf="showForm">
-    <div class="text-left">
-        &nbsp;&nbsp;&nbsp;<button routerLink="../ShowUserList"
-            class="btn btn-primary">{{'user.add_btn_back'|translate}}</button>
-    </div>
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../ShowUserList"
+      class="btn btn-primary">{{'user.add_btn_back'|translate}}</button>
+  </div>
 
-    <div class="line">
-        <hr>
-    </div>
+  <div class="line">
+    <hr>
+  </div>
 
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'user.add_title_add'|translate}}</p>
+  </div>
+
+  <div id="inner">
+    <div class="form-group row" style="width: 70%;">
+
+      <!-- Champ courriel avec validations de champ -->
+      <label class="col-sm-4 col-form-label">{{'user.add_name'|translate}}</label>
+      <div class="col-sm-8">
+        <input type="email" class="form-control" [(ngModel)]="mail" placeholder="Enter email" required email
+          #email="ngModel">
+        <div class="alert alert-danger" [hidden]="!(email.dirty && email.errors?.['required'])"> Field is
+          required</div>
+        <div class="alert alert-danger" [hidden]="!(email.dirty && email.errors?.['email'])"> Need to enter a valid
+          email</div>
+      </div>
+      <br>
+      <br>
+
+      <!-- Champ Prénom de l'usager -->
+      <label class="col-sm-4 col-form-label">{{'user.add_fname'|translate}}</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" [(ngModel)]="prenomUsager" placeholder="Enter First Name" required
+          #prenom="ngModel">
+        <div class="alert alert-danger" [hidden]="!(prenom.dirty && prenom.errors?.['required'])"> Field is
+          required</div>
+      </div>
+      <br>
+      <br>
+
+      <!-- Champ Nom de l'usager -->
+      <label class="col-sm-4 col-form-label">{{'user.add_lname'|translate}}</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" [(ngModel)]="nomUsager" placeholder="Enter Last Name" required
+          #nom="ngModel">
+        <div class="alert alert-danger" [hidden]="!(nom.dirty && nom.errors?.['required'])"> Field is
+          required</div>
+      </div>
+      <br>
+      <br>
+
+      <!-- Champ mot de passe avec validations de champ -->
+      <label class="col-sm-4 col-form-label">{{'user.add_pw'|translate}}</label>
+      <div class="col-sm-8">
+        <input type="password" class="form-control" [(ngModel)]="motPasse" placeholder="Enter Password" required
+          minlength="6" maxlength="12" ngModel
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$" #pass="ngModel">
+        <div class="alert alert-danger" [hidden]="!(pass.dirty && pass.errors?.['required'])"> Field is
+          required</div>
+        <div class="alert alert-danger" [hidden]="!(pass.dirty && pass.errors?.['minlength'])"> Min is 6
+          characters</div>
+        <div class="alert alert-danger" [hidden]="!(pass.dirty && pass.errors?.['maxlength'])"> Max is 12
+          characters</div>
+        <div class="alert alert-danger" [hidden]="!(pass.dirty && pass.errors?.['pattern'])"> Password must
+          contain at least 6 characters which has at least: 1 uppercase, 1 lowercase, 1 digit and 1 special
+          character</div>
+      </div>
+      <br>
+      <br>
+
+      <!-- Sélection du niveau d'accès pour cet utilisateur -->
+      <label class="col-sm-4 col-form-label">{{'user.add_accessL'|translate}}</label>
+      <div class="col-sm-8">
+        <select class="form-control" [(ngModel)]="accesId">
+          <option>--Select--</option>
+          <option *ngFor="let access of NivAccesList" [value]="access.accesId">{{access.access}}</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <!-- Bouton ajouter ou modifier -->
     <div>
-        <p class="p-2 bg-info text-light text-center">{{'user.add_title_add'|translate}}</p>
+      <button (click)="addNewUser()" *ngIf="!showUpdateButton"
+        class="btn btn-primary">{{'user.add_btn_add'|translate}}</button>&nbsp;&nbsp;
+      <button (click)="updateUser()" *ngIf="showUpdateButton"
+        class="btn btn-primary">{{'user.add_btn_update'|translate}}</button>&nbsp;&nbsp;
+      <button routerLink="../ShowUserList" class="btn btn-warning">{{'user.add_btn_cancel'|translate}}</button>
     </div>
-
-    <div id="inner">
-
-        <div class="form-group row" style="width: 70%;">
-
-            <label class="col-sm-4 col-form-label">{{'user.add_name'|translate}}</label>
-            <div class="col-sm-8">
-                <input type="email" class="form-control" [(ngModel)]="mail" placeholder="Enter email" required email
-                    #email="ngModel">
-                <div class="alert alert-danger" [hidden]="!(email.dirty && email.errors?.['required'])"> Field is
-                    required</div>
-                <div class="alert alert-danger" [hidden]="!(email.dirty && email.errors?.['email'])"> Need to enter a valid email</div>
-            </div>
-
-            <br>
-            <br>
-
-            <label class="col-sm-4 col-form-label">{{'user.add_fname'|translate}}</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" [(ngModel)]="prenomUsager" placeholder="Enter First Name"
-                    required #prenom="ngModel">
-                <div class="alert alert-danger" [hidden]="!(prenom.dirty && prenom.errors?.['required'])"> Field is
-                    required</div>
-            </div>
-
-            <br>
-            <br>
-
-            <label class="col-sm-4 col-form-label">{{'user.add_lname'|translate}}</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" [(ngModel)]="nomUsager" placeholder="Enter Last Name" required
-                    #nom="ngModel">
-                <div class="alert alert-danger" [hidden]="!(nom.dirty && nom.errors?.['required'])"> Field is
-                    required</div>
-            </div>
-
-            <br>
-            <br>
-
-            <label class="col-sm-4 col-form-label">{{'user.add_pw'|translate}}</label>
-            <div class="col-sm-8">
-                <input type="password" class="form-control" [(ngModel)]="motPasse" placeholder="Enter Password" required
-                    minlength="6" ngModel pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$"
-                    #pass="ngModel">
-                <div class="alert alert-danger" [hidden]="!(pass.dirty && pass.errors?.['required'])"> Field is
-                    required</div>
-                <div class="alert alert-danger" [hidden]="!(pass.dirty && pass.errors?.['minlength'])"> Min is 6
-                    characters</div>
-                <div class="alert alert-danger" [hidden]="!(pass.dirty && pass.errors?.['pattern'])"> Password must
-                    contain at least 6 characters which has at least: 1 uppercase, 1 lowercase, 1 digit and 1 special
-                    character</div>
-            </div>
-
-            <br>
-            <br>
-
-            <label class="col-sm-4 col-form-label">{{'user.add_accessL'|translate}}</label>
-            <div class="col-sm-8">
-                <select class="form-control" [(ngModel)]="accesId">
-                    <option>--Select--</option>
-                    <option *ngFor="let access of NivAccesList" [value]="access.accesId">{{access.access}}</option>
-                </select>
-            </div>
-        </div>
-
-        <br>
-        <br>
-
-        <div>
-            <button (click)="addNewUser()" *ngIf="!showUpdateButton"
-                class="btn btn-primary">{{'user.add_btn_add'|translate}}</button>&nbsp;&nbsp;
-            <button (click)="updateUser()" *ngIf="showUpdateButton"
-                class="btn btn-primary">{{'user.add_btn_update'|translate}}</button>&nbsp;&nbsp;
-            <button routerLink="../ShowUserList" class="btn btn-warning">{{'user.add_btn_cancel'|translate}}</button>
-        </div>
-
-    </div>
-
+  </div>
 </div>
 
-
+<!-- Message indiquant que l'opération a été effectuée avec succès -->
 <div *ngIf="showSuccessMsg" class="alert alert-success" id="msgSuccess">
-    <div class="text-center">
-        <p>{{'user.msg_success'|translate}}</p>
-    </div>
-    <div class="text-center">
-        <button class="btn btn-success" routerLink="../ShowUserList"
-            (click)="closeSuccessMsg()">{{'user.btn_close'|translate}}</button>
-    </div>
+  <div class="text-center">
+    <p>{{'user.msg_success'|translate}}</p>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-success" routerLink="../ShowUserList"
+      (click)="closeSuccessMsg()">{{'user.btn_close'|translate}}</button>
+  </div>
 </div>
 
+<!-- Message indiquant qu'une erreur est survenue -->
 <div *ngIf="showFailMsg" class="alert alert-danger" id="msgFail">
-    <div class="text-center">
-        <p>{{'user.msg_fail'|translate}}</p>
-    </div>
-    <div class="text-center">
-        <button class="btn btn-warning" routerLink="../ShowUserList"
-            (click)="closeFailMsg()">{{'user.btn_close'|translate}}</button>
-    </div>
+  <div class="text-center">
+    <p>{{'user.msg_fail'|translate}}</p>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-warning" routerLink="../ShowUserList"
+      (click)="closeFailMsg()">{{'user.btn_close'|translate}}</button>
+  </div>
 </div>

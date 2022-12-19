@@ -2,20 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
+// Interface pour les usagers
 export interface User {
   usagerId: number;
-  mail: string;   //this is username
+  mail: string;
   prenomUsager: string;
   nomUsager: string;
   motPasse: string;
   accesId: number;
 }
 
+// Interface pour les niveaux d'accès
 export interface Access {
   accesId: number;
   accessName: string;
 }
 
+// Interface pour les fermes
 export interface Farm {
   fermeId: number;
   nomFerme: string;
@@ -26,19 +29,21 @@ export interface Farm {
   deletedDate: string
 }
 
+// Interface pour les vaches
 export interface Cow {
   vacheId: number;
   nomVache: string;
   fermeId: number;
 }
 
+// Interface pour les liens usagers-fermes
 export interface UsersFarms {
   usagersFermesId: number;
   fermeId: number;
   usagerId: number;
 }
 
-
+// Interface pour les expériences
 export interface Experience {
   experienceId: number;
   nomExperience: string;
@@ -48,17 +53,20 @@ export interface Experience {
   vacheId: number;
 }
 
+// Interface pour les catégories
 export interface Category {
   categorieId: number;
   nomCategorie: string;
 }
 
+// Interface pour les sous-catégories
 export interface SubCategory {
   sousCategorieId: number;
   nomSousCategorie: string;
   categorieId: number;
 }
 
+// Interface pour les notes
 export interface Note {
   noteId: number;
   dateNote: string;
@@ -66,14 +74,14 @@ export interface Note {
   experienceId: number;
 }
 
-
+// Interface pour les médias
 export interface Media {
   mediaId: number;
   media: string;
   noteId: number;
 }
 
-
+// Interface pour les graphiques
 export interface Graphic {
   Id: number;
   name: string;
@@ -84,7 +92,6 @@ export interface Graphic {
 @Injectable({
   providedIn: 'root'
 })
-
 
 
 export class SharedService {
@@ -142,7 +149,6 @@ export class SharedService {
       this.showFarmsSelection = value;
       console.log("Now show Farms Selection flag value is changed as " + value);
     })
-
 
     this.showCowManagerChanged.subscribe((value) => {
       this.showCowManager = value;
@@ -373,37 +379,23 @@ export class SharedService {
 
   //for user to login
   currentLoggedInUser: User = { usagerId: 0, mail: "", prenomUsager: "", nomUsager: "", motPasse: "", accesId: 0 };
-
   currentLoggedInUserAccess: string = "";
 
 
-  //flags for controlling
+  // Flags for controlling web pages
   showLoginButton: boolean = true;
-
   showLogoutButton: boolean = false;
-
   loggedOut: boolean = false;
-
   showAccessManager: boolean = false;
-
   showUserAccountManager: boolean = false;
-
   showFarmsManager: boolean = false;
-
   showCategoriesManager: boolean = false;
-
   showSubCategoriesManager: boolean = false;
-
   showGraphsFarmExperimentsLink: boolean = false;
-
   showExperienceManager: boolean = false;
-
   showNotesManager: boolean = false;
-
   showFarmsSelection: boolean = false;
-
   showCowManager: boolean = false;
-
 
   //to control to show logout button
   showLogoutButtonChanged: Subject<boolean> = new Subject<boolean>();
@@ -489,25 +481,55 @@ export class SharedService {
 
 
 
-  //variable for transferring
-  editingAccess: Access = { accesId: 0, accessName: "" };
+  //variable for transferring data to models
+  editingAccess: Access = {
+    accesId: 0,
+    accessName: ""
+  };
 
-  editingUser: User = { usagerId: 0, mail: "", prenomUsager: "", nomUsager: "", motPasse: "", accesId: 0 };
+  editingUser: User = {
+    usagerId: 0, mail: "",
+    prenomUsager: "",
+    nomUsager: "",
+    motPasse: "",
+    accesId: 0
+  };
 
-  editingFarm: Farm = { fermeId: 0, nomFerme: "", addresseFerme: "", villeFerme: "", provinceFerme: "", deleted: false, deletedDate: "" };
+  editingFarm: Farm = {
+    fermeId: 0,
+    nomFerme: "",
+    addresseFerme: "",
+    villeFerme: "",
+    provinceFerme: "",
+    deleted: false,
+    deletedDate: ""
+  };
 
-  editingExperience: Experience = { experienceId: 0, nomExperience: "", dateExperience: "", categorieId: 0, sousCategorieId: 0, vacheId: 0 };
+  editingExperience: Experience = {
+    experienceId: 0,
+    nomExperience: "",
+    dateExperience: "",
+    categorieId: 0,
+    sousCategorieId: 0,
+    vacheId: 0
+  };
 
-  editingCategory: Category = { categorieId: 0, nomCategorie: "" };
+  editingCategory: Category = {
+    categorieId: 0,
+    nomCategorie: ""
+  };
 
-  editingSubCategory: SubCategory = { sousCategorieId: 0, nomSousCategorie: "", categorieId: 0 };
+  editingSubCategory: SubCategory = {
+    sousCategorieId: 0,
+    nomSousCategorie: "",
+    categorieId: 0
+  };
 
   editingCow: Cow = {
     vacheId: 0,
     nomVache: '',
     fermeId: 0
   };
-
 
   editingNote: Note = {
     noteId: 0,
@@ -528,9 +550,14 @@ export class SharedService {
     fermeId: 0
   }
 
-  //currently selected farm
-  currentlySelectedFarm: Farm = { fermeId: 0, nomFerme: "Not Selected Yet ", addresseFerme: "", villeFerme: "", provinceFerme: "", deleted: false, deletedDate: "" };
-
-
+  currentlySelectedFarm: Farm = {
+    fermeId: 0,
+    nomFerme: "",
+    addresseFerme: "",
+    villeFerme: "",
+    provinceFerme: "",
+    deleted: false,
+    deletedDate: ""
+  };
 }
 

@@ -12,9 +12,7 @@ export class AppComponent {
 
   constructor(private translateService: TranslateService) {
     translateService.setDefaultLang('fr');
-
   }
-
 
   selectLang(event: any) {
     this.translateService.use(event.target.value);

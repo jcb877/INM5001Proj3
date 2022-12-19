@@ -6,22 +6,18 @@ import { Farm, SharedService } from 'src/app/shared.service';
   templateUrl: './deleted-farms-manager.component.html',
   styleUrls: ['./deleted-farms-manager.component.css']
 })
+
 export class DeletedFarmsManagerComponent implements OnInit {
-
   farmsList: Farm[] = [];
-
   originalFarmsList: Farm[] = [];
-
 
   constructor(private service: SharedService) { }
 
   ngOnInit(): void {
-
     this.getDeletedFarmsList();
   }
 
-
-  //only get the Deleted farms
+  // Obtenir la liste des fermes supprimées
   getDeletedFarmsList() {
     this.farmsList = [];
 
@@ -30,7 +26,6 @@ export class DeletedFarmsManagerComponent implements OnInit {
 
       console.log("The original farm list length is " + this.originalFarmsList.length);
 
-
       for (let i = 0; i < this.originalFarmsList.length; i++) {
         if (this.originalFarmsList[i].deleted == true) {
           this.farmsList.push(this.originalFarmsList[i]);
@@ -38,12 +33,12 @@ export class DeletedFarmsManagerComponent implements OnInit {
       }
 
       console.log("The valid farm list length is " + this.farmsList.length);
-
     })
   }
 
+  // Fonction permettant d'enlever la ferme de la liste des fermes supprimées
   recoverClick(item: any) {
-    if (confirm('Are you sure ? Vous etes sur ?')) {
+    if (confirm('Are you sure?\nÊtes-vous sûr?')) {
 
       var farmToRecover = {
         fermeId: item.fermeId,
@@ -58,17 +53,13 @@ export class DeletedFarmsManagerComponent implements OnInit {
 
       this.service.updateFarm(farmToRecover).subscribe(res => {
         if (res.toString().includes("Succes")) {
-          alert("La ferme est été récupérée. The farm is recovered.");
+          alert("La ferme est été récupérée.\nThe farm is recovered.");
         }
         else {
-          alert("Echec a récupérer. Recovery is failed.");
+          alert("Échec à récupérer.\nRecovery has failed.");
         }
-
         this.ngOnInit();
-
       })
     }
   }
-
-
 }

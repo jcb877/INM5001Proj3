@@ -1,68 +1,72 @@
+<!-- Page d'ajout ou modification du lien usager et ferme -->
 <div id="outer" *ngIf="showForm">
-    <div class="text-left">
-        &nbsp;&nbsp;&nbsp;<button routerLink="../UsersFarmsManager" class="btn btn-primary">{{'uf.add_btn_back'|translate}}</button>
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../UsersFarmsManager"
+      class="btn btn-primary">{{'uf.add_btn_back'|translate}}</button>
+  </div>
+
+  <div class="line">
+    <hr>
+  </div>
+
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'uf.add_title_add'|translate}}</p>
+  </div>
+
+  <div id="inner">
+    <div class="form-group row" style="width: 70%;">
+
+      <!-- Sélection de l'usager -->
+      <label class="col-sm-4 col-form-label">{{'uf.col_uName'|translate}}</label>
+      <div class="col-sm-8">
+        <select class="form-control" [(ngModel)]="usagerId">
+          <option>--Select--</option>
+          <option *ngFor="let u of usersList" [value]="u.usagerId">{{u.mail}}</option>
+        </select>
+      </div>
+      <br>
+      <br>
+
+      <!-- Sélection de la ferme qui sera associée à l'usager -->
+      <label class="col-sm-4 col-form-label">{{'cow.farm_id'|translate}}</label>
+      <div class="col-sm-8">
+        <select class="form-control" name="sub_catId" [(ngModel)]="fermeId">
+          <option>--Select--</option>
+          <option *ngFor="let farm of farmsList" [value]="farm.fermeId">{{farm.nomFerme}}</option>
+        </select>
+      </div>
     </div>
 
-    <div class="line">
-        <hr>
-    </div>
-
+    <!-- Bouton d'ajout ou de modification -->
     <div>
-        <p class="p-2 bg-info text-light text-center">{{'uf.add_title_add'|translate}}</p>
+      <button (click)="addNew()" *ngIf="!showUpdateButton"
+        class="btn btn-primary">{{'farm.add_btn_add'|translate}}</button>&nbsp;&nbsp;
+      <button (click)="update()" *ngIf="showUpdateButton"
+        class="btn btn-primary">{{'farm.add_btn_update'|translate}}</button>&nbsp;&nbsp;
+      <button routerLink="../UsersFarmsManager" class="btn btn-warning">{{'farm.add_btn_cancel'|translate}}</button>
     </div>
-
-    <div id="inner">
-
-        <div class="form-group row" style="width: 70%;">
-
-           <label class="col-sm-4 col-form-label">{{'uf.col_uName'|translate}}</label>
-           <div class="col-sm-8">
-               <select class="form-control" [(ngModel)]="usagerId">
-                 <option>--Select--</option>
-                 <option *ngFor="let u of usersList" [value]="u.usagerId">{{u.mail}}</option>
-              </select>
-           </div>
-
-           <br>
-           <br>
-           <label class="col-sm-4 col-form-label">{{'cow.farm_id'|translate}}</label>
-             <div class="col-sm-8">
-               <select class="form-control" name="sub_catId" [(ngModel)]="fermeId">
-                 <option>--Select--</option>
-                 <option *ngFor="let farm of farmsList" [value]="farm.fermeId">{{farm.nomFerme}}</option>
-              </select>
-             </div>
-
-        </div>
-
-
-    <div>
-        <button (click)="addNew()" *ngIf="!showUpdateButton" class="btn btn-primary">{{'farm.add_btn_add'|translate}}</button>&nbsp;&nbsp;
-        <button (click)="update()" *ngIf="showUpdateButton" class="btn btn-primary">{{'farm.add_btn_update'|translate}}</button>&nbsp;&nbsp;
-        <button routerLink="../UsersFarmsManager" class="btn btn-warning">{{'farm.add_btn_cancel'|translate}}</button>
-    </div>
-
- </div>
-
+  </div>
 </div>
 
 
+<!-- Message indiquant que l'opération a été effectuée avec succès -->
 <div *ngIf="showSuccessMsg" class="alert alert-success" id="msgSuccess">
-    <div class="text-center">
-        <p>{{'uf.msg_success'|translate}}</p>
-    </div>
-    <div class="text-center">
-    <button class="btn btn-success" routerLink="../UsersFarmsManager" (click)="closeSuccessMsg()">{{'farm.btn_close'|translate}}</button>
-    </div>
+  <div class="text-center">
+    <p>{{'uf.msg_success'|translate}}</p>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-success" routerLink="../UsersFarmsManager"
+      (click)="closeSuccessMsg()">{{'farm.btn_close'|translate}}</button>
+  </div>
 </div>
 
+<!-- Message indiquant qu'une erreur est survenue -->
 <div *ngIf="showFailMsg" class="alert alert-danger" id="msgFail">
-    <div class="text-center">
-        <p>{{'uf.msg_fail'|translate}}</p>
-    </div>
-    <div class="text-center">
-    <button class="btn btn-warning" routerLink="../UsersFarmsManager" (click)="closeFailMsg()">{{'farm.btn_close'|translate}}</button>
-    </div>
+  <div class="text-center">
+    <p>{{'uf.msg_fail'|translate}}</p>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-warning" routerLink="../UsersFarmsManager"
+      (click)="closeFailMsg()">{{'farm.btn_close'|translate}}</button>
+  </div>
 </div>
-
-

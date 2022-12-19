@@ -1,4 +1,4 @@
-
+<!-- Page de visualisation des niveaux d'accès -->
 <div id="outer">
   <div class="text-left">
     &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'access.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
@@ -21,7 +21,7 @@
             <tr *ngFor="let level of NiveauAccesList">
                 <td>{{level.accesId}}</td>
                 <td>{{level.access}}</td>
-                <td class="options">                   
+                <td class="options">
                     <button routerLink="../AddAccess" class="btn btn-primary" (click)="editClick(level)">{{'access.btn_edit'|translate}}</button>&nbsp;&nbsp;
                     <button class="btn btn-danger" (click)="deleteClick(level)" >{{'access.btn_delete'|translate}}</button>
                 </td>

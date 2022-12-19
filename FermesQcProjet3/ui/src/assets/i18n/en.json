@@ -27,7 +27,7 @@
         "info_username":"Welcome ",
         "info_uId":"Your user ID is ",
         "info_uAccess":"Your access is ",
-        "info_selectedFarm":"Your selected farm is ",
+        "info_selectedFarm":"Your selected farm is : ",
         "btn_accessLevelManager":"Access level manager",
         "btn_userManager":"User account manager",
         "btn_farmManager":"Farms manager",

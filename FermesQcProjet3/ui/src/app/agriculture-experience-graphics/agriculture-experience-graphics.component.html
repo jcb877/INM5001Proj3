@@ -1,36 +1,38 @@
-
+<!-- Page de visualisation des graphiques -->
 <div id="outer">
-    <div class="text-left">
-      &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'general.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
-      <button routerLink="../AddEditGraphics" class="btn btn-success">{{'graph.btn_add'|translate}}</button>
-    </div>
-    <div class="line">
-      <hr>
-    </div>
-    <div>
-      <p class="p-2 bg-info text-light text-center">{{'graph.title'|translate}}</p>
-      <table class="table table-striped">
-          <thead>
-              <tr>
-                  <th>{{'graph.col_id'|translate}}</th>
-                  <th>{{'graph.col_name'|translate}}</th>
-                  <th>{{'graph.col_date'|translate}}</th>
-                  <th>{{'graph.col_graph'|translate}}</th>
-                  <th>{{'graph.col_opts'|translate}}</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let g of GraphicList">
-                  <td>{{g.Id}}</td>
-                  <td>{{g.name}}</td>
-                  <td>{{g.date}}</td>
-                  <td><img src={{g.graphicPath}} class="d-block" width="260" alt="Développement"></td>
-                  <td class="options">
-                    <button routerLink="../AddEditCategory" class="btn btn-primary">{{'cat.btn_edit'|translate}}</button>&nbsp;&nbsp;
-                    <button class="btn btn-danger">{{'cat.btn_delete'|translate}}</button>
-                </td>
-              </tr>
-          </tbody>
-      </table>
-    </div>
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../Functions"
+      class="btn btn-primary">{{'general.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddEditGraphics" class="btn btn-success">{{'graph.btn_add'|translate}}</button>
   </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'graph.title'|translate}}</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{'graph.col_id'|translate}}</th>
+          <th>{{'graph.col_name'|translate}}</th>
+          <th>{{'graph.col_date'|translate}}</th>
+          <th>{{'graph.col_graph'|translate}}</th>
+          <th>{{'graph.col_opts'|translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let g of GraphicList">
+          <td>{{g.Id}}</td>
+          <td>{{g.name}}</td>
+          <td>{{g.date}}</td>
+          <td><img src={{g.graphicPath}} class="d-block" width="260" alt="Développement"></td>
+          <td class="options">
+            <button routerLink="../AddEditCategory"
+              class="btn btn-primary">{{'cat.btn_edit'|translate}}</button>&nbsp;&nbsp;
+            <button class="btn btn-danger">{{'cat.btn_delete'|translate}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
