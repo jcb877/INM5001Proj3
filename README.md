@@ -19,6 +19,37 @@ Assurez-vous d'avoir installé sur votre machine:
 
 ## **Backend**
 
+### Methode Automatique
+
+### Dans le répertoire FermesQcAPI
+
+- Éditer le fichier **settings.py** en entrant votre nom usager et votre mot de passe de votre session locale de MySQL
+```
+DATABASES = {  
+   'default': {  
+      'ENGINE': 'django.db.backends.mysql',  
+      'NAME': 'fermesqc',  
+      'USER': `'******'`,  
+      'PASSWORD': `'*******'`,  
+      'HOST': '127.0.0.1',  
+      'PORT': '3306',  
+   }  
+}
+```
+<!-- --------- Modifier la position de fichier Python.exe-----
+   -- Verifier il est ou:
+      Typer la commande Where is python dans la fenetre Command.Et Il va montrer,et juste copier la position de dossier sans \ -->
+
+   <!-- --coller la position dans le FermesQCProjet3->FermesQcAPI->labenv->pyvenv.cfg -->
+
+- À partir du repertoire FermesQcProjet3
+
+   -- Executer le fichier batch startApp.bat
+
+---
+
+### Methode Manuelle
+
 ### Activer l'environnement virtuel python
 
 - À partir de l'intérieur du répertoire ..\FermesQuebecPrj3\
