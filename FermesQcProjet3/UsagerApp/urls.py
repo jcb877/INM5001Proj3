@@ -6,7 +6,9 @@ from UsagerApp import views
 from django.conf.urls.static import static
 from django.conf import settings
 
-
+"""
+API URL pour le GET et URL pour les POST, PUT et DELETE
+"""
 urlpatterns=[
     url(r'^niveauAcces/$',views.niveauAccesApi),
     url(r'^niveauAcces/([0-9]+)$', views.niveauAccesApi),
@@ -38,6 +40,8 @@ urlpatterns=[
     url(r'^medias/$', views.MediaApi),
     url(r'^medias/([0-9]+)$', views.MediaApi),
 
+    url(r'^forgetPassword/$', views.ForgetPasswordApi),
+    url(r'^forgetPassword/^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$', views.ForgetPasswordApi),
 
     url(r'^SaveFile/$',views.SaveFile)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -2,6 +2,9 @@ from dataclasses import field
 from rest_framework import serializers
 from UsagerApp.models import Categories, SousCategories, Experiences, NiveauAcces, Notes, Usagers, UsagersFermes, Fermes, Vaches, Medias
 
+"""
+Serialization des donées extraites de la BD en JSON 
+"""
 class NiveauAccesSerializer(serializers.ModelSerializer):
     class Meta:
         model = NiveauAcces

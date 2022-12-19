@@ -9,7 +9,11 @@ from UsagerApp.serializers import NiveauAccesSerializer, UsagersSerializer, Usag
 
 from django.core.files.storage import default_storage
 
+
 # Create your views here.
+"""
+API pour mettre à jour les niveau acces (CRUD)
+"""
 @csrf_exempt
 def niveauAccesApi(request, accesId=0):
     if request.method=='GET':
@@ -38,6 +42,9 @@ def niveauAccesApi(request, accesId=0):
         niveauAcces.delete()
         return JsonResponse("Deleted Succesfully!!", safe=False)
 
+"""
+API pour mettre à jour les usagers (CRUD)
+"""
 @csrf_exempt
 def usagersApi(request, usagerId=0):
     if request.method=='GET':
@@ -58,12 +65,31 @@ def usagersApi(request, usagerId=0):
         if usager_serializer.is_valid():
             usager_serializer.save()
             return JsonResponse("Updated Succesfully!!", safe=False)
-        return JsonResponse("Failed to update",safe=False)
+        return JsonResponse("Failed to update", safe=False)
     elif request.method=='DELETE':
         usager=Usagers.objects.get(usagerId=usagerId)
         usager.delete()
         return JsonResponse("Deleted Succesfully!!", safe=False)
 
+"""
+API pour usagers mot de passe oublié (CRUD)
+"""
+@csrf_exempt
+def ForgetPasswordApi(request, usagerId=0):
+    if request.method=='POST':
+        usagers = Usagers.objects.all()
+        email = usagers.model.mail
+        usager_data = JSONParser().parse(request)
+        usager_serializer = UsagersSerializer(data=usager_data)
+        if usager_serializer.is_valid():
+            values = usager_serializer
+            
+        usagers_serializer = UsagersSerializer(usagers, many=True)
+        return JsonResponse(usagers_serializer.data, safe=False)
+
+"""
+API pour mettre à jour les usagers fermes attachés à une ferme(CRUD)
+"""
 @csrf_exempt
 def UsagersFermesApi(request, usagersFermesId=0):
     if request.method=='GET':
@@ -90,6 +116,9 @@ def UsagersFermesApi(request, usagersFermesId=0):
         usagersFermes.delete()
         return JsonResponse("Deleted Succesfully!!", safe=False)
 
+"""
+API pour mettre à jour les Fermes (CRUD)
+"""
 @csrf_exempt
 def FermesApi(request, fermeId=0):
     if request.method=='GET':
@@ -116,6 +145,9 @@ def FermesApi(request, fermeId=0):
         ferme.delete()
         return JsonResponse("Delected Succesfully", safe=False)    
 
+"""
+API pour mettre à jour les Vaches (CRUD)
+"""
 @csrf_exempt
 def VachesApi(request, vacheId=0):
     if request.method=='GET':
@@ -142,6 +174,9 @@ def VachesApi(request, vacheId=0):
         vache.delete()
         return JsonResponse("Delected Succesfully", safe=False)  
 
+"""
+API pour mettre à jour les experiences (CRUD)
+"""
 @csrf_exempt
 def ExperiencesApi(request, experienceId=0):
     if request.method=='GET':
@@ -168,6 +203,9 @@ def ExperiencesApi(request, experienceId=0):
         experiences.delete()
         return JsonResponse("Delected Succesfully", safe=False) 
 
+"""
+API pour mettre à jour les categories (CRUD)
+"""
 @csrf_exempt
 def CategoriesApi(request, categorieId=0):
     if request.method=='GET':
@@ -194,6 +232,9 @@ def CategoriesApi(request, categorieId=0):
         categories.delete()
         return JsonResponse("Delected Succesfully", safe=False) 
 
+"""
+API pour mettre à jour les sous categories (CRUD)
+"""
 @csrf_exempt
 def SousCategoriesApi(request, sousCategorieId=0):
     if request.method=='GET':
@@ -220,6 +261,9 @@ def SousCategoriesApi(request, sousCategorieId=0):
         sousCategories.delete()
         return JsonResponse("Delected Succesfully", safe=False) 
 
+"""
+API pour mettre à jour les notes (CRUD)
+"""
 @csrf_exempt
 def NotesApi(request, noteId=0):
     if request.method=='GET':
@@ -246,6 +290,9 @@ def NotesApi(request, noteId=0):
         notes.delete()
         return JsonResponse("Delected Succesfully", safe=False) 
 
+"""
+API pour mettre à jour les medias (CRUD)
+"""
 @csrf_exempt
 def MediaApi(request, mediaId=0):
     if request.method=='GET':
