@@ -1,0 +1,47 @@
+<!-- Page de visualisation des expériences -->
+<div id="outer">
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../Functions"
+      class="btn btn-primary">{{'e.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddEditExperience" (click)="clearPage()"
+      class="btn btn-success">{{'e.btn_add'|translate}}</button>
+  </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'e.title'|translate}}</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{'e.col_id'|translate}}</th>
+          <th>{{'e.col_name'|translate}}</th>
+          <th>{{'e.col_date'|translate}}</th>
+          <th>{{'e.col_catId'|translate}}</th>
+          <th>{{'e.col_sCatId'|translate}}</th>
+          <th>{{'e.col_cowId'|translate}}</th>
+          <th>Note</th>
+          <th>{{'e.col_opts'|translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of experienceList">
+          <td>{{e.experienceId}}</td>
+          <td>{{e.nomExperience}}</td>
+          <td>{{e.dateExperience}}</td>
+          <td>{{convertIdIntoNameCategory(e.categorieId)}}</td>
+          <td>{{convertIdIntoNameSubCategory(e.sousCategorieId)}}</td>
+          <td>{{convertIdIntoNameCow(e.vacheId)}}</td>
+          <td class="options">
+            <button routerLink="../NotesManager" class="btn btn-primary" (click)="checkNotes(e)">Notes Attachés</button>
+          </td>
+          <td class="options">
+            <button routerLink="../AddEditExperience" class="btn btn-primary"
+              (click)="editClick(e)">{{'e.btn_edit'|translate}}</button>&nbsp;&nbsp;
+            <button class="btn btn-danger" (click)="deleteClick(e)">{{'e.btn_delete'|translate}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

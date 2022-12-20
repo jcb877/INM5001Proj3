@@ -1,0 +1,44 @@
+<!-- Page de visualisation de la liste des utilisateurs -->
+
+<div id="outer">
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../Functions"
+      class="btn btn-primary">{{'user.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddEditUser" (click)="clearPage()"
+      class="btn btn-success">{{'user.btn_add'|translate}}</button>
+  </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'user.title'|translate}}</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{'user.col_id'|translate}}</th>
+          <th>{{'user.col_name'|translate}}</th>
+          <th>{{'user.col_fname'|translate}}</th>
+          <th>{{'user.col_lname'|translate}}</th>
+          <th hidden>{{'user.col_pw'|translate}}</th>
+          <th>{{'user.col_accessId'|translate}}</th>
+          <th>{{'user.col_opts'|translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of UsagersList">
+          <td>{{user.usagerId}}</td>
+          <td>{{user.mail}}</td>
+          <td>{{user.prenomUsager}}</td>
+          <td>{{user.nomUsager}}</td>
+          <td hidden>{{user.motPasse}}</td>
+          <td>{{convertAccessIDIntoName(user.accesId)}}</td>
+          <td class="options">
+            <button routerLink="../AddEditUser" class="btn btn-primary"
+              (click)="editClick(user)">{{'user.btn_edit'|translate}}</button>&nbsp;&nbsp;
+            <button class="btn btn-danger" (click)="deleteClick(user)">{{'user.btn_delete'|translate}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

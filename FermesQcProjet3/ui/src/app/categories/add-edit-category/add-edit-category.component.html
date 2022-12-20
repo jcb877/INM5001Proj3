@@ -1,0 +1,46 @@
+<!-- Page d'ajout des catégories -->
+<div id="outer">
+  <div *ngIf="showForm">
+    <div class="text-center">
+      <!-- Sélection du titre de la page selon que ce soit un ajout ou une modification de la catégorie -->
+      <p *ngIf="!showUpdateButton" class="p-2 bg-info text-light text-center">{{'cat.add_title_add'|translate}}</p>
+      <p *ngIf="showUpdateButton" class="p-2 bg-info text-light text-center">{{'cat.add_title_update'|translate}}</p>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">{{'cat.col_name'|translate}}</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Enter New Category" name="categoryName"
+          [(ngModel)]="categoryName">
+      </div>
+    </div>
+
+    <!-- Sélection du bouton selon que ce soit un ajout ou une modification de la catégorie -->
+    <button *ngIf="!showUpdateButton" (click)="addNewCategory()"
+      class="btn btn-primary">{{'cat.add_btn_add'|translate}}</button>&nbsp;&nbsp;
+    <button *ngIf="showUpdateButton" (click)="updateCategory()"
+      class="btn btn-primary">{{'cat.add_btn_update'|translate}}</button>&nbsp;&nbsp;
+    <button routerLink="../CategoriesManager" class="btn btn-warning">{{'cat.add_btn_cancel'|translate}}</button>
+  </div>
+
+  <!-- Message d'ajout complété avec succès -->
+  <div *ngIf="showSuccessMsg" class="alert alert-success">
+    <div class="text-center">
+      <p>{{'cat.msg_success'|translate}}</p>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-success" routerLink="../CategoriesManager"
+        (click)="closeSuccessMsg()">{{'cat.btn_close'|translate}}</button>
+    </div>
+  </div>
+
+  <!-- Message d'erreur indiquant que la catégorie n'a pas été ajoutée -->
+  <div *ngIf="showFailMsg" class="alert alert-danger">
+    <div class="text-center">
+      <p>{{'cat.msg_fail'|translate}}</p>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-warning" routerLink="../CategoriesManager"
+        (click)="closeFailMsg()">{{'cat.btn_close'|translate}}</button>
+    </div>
+  </div>
+</div>

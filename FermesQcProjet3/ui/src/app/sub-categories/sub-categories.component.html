@@ -1,0 +1,41 @@
+<!-- Page de visualisation des sous-catégories -->
+<form #showForm="ngForm">
+
+  <div id="outer">
+    <div class="text-left">
+      &nbsp;&nbsp;&nbsp;<button routerLink="../Functions"
+        class="btn btn-primary">{{'scat.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+      <button routerLink="../AddEditSubCategory" (click)="clearPage()"
+        class="btn btn-success">{{'scat.btn_add'|translate}}</button>
+    </div>
+    <div class="line">
+      <hr>
+    </div>
+    <div>
+      <p class="p-2 bg-info text-light text-center">{{'scat.title'|translate}}</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>{{'scat.col_id'|translate}}</th>
+            <th>{{'scat.col_name'|translate}}</th>
+            <th>{{'scat.col_catName'|translate}}</th>
+            <th>{{'scat.col_opts'|translate}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of subCategoriesList">
+            <td>{{c.sousCategorieId}}</td>
+            <td>{{c.nomSousCategorie}}</td>
+            <td>{{convertIdIntoNameCategory(c.categorieId)}}</td>
+            <td class="options">
+              <button routerLink="../AddEditSubCategory" class="btn btn-primary"
+                (click)="editClick(c)">{{'scat.btn_edit'|translate}}</button>&nbsp;&nbsp;
+              <button class="btn btn-danger" (click)="deleteClick(c)">{{'scat.btn_delete'|translate}}</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</form>

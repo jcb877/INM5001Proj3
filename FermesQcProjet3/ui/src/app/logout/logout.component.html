@@ -1,0 +1,11 @@
+<!-- Page indiquant que l'utilisateur est déconnecté -->
+
+<div class="border border-info" id="outer" *ngIf="sharedService.showLoginButton">
+  <div id="inner1">
+    <p class="p-2 bg-info text-light text-center">{{'logout.msg'|translate}}</p>
+  </div>
+  <!-- Retour à la page d'acceuil -->
+  <div id="inner2" class="b">
+    <button routerLink="../Acceuil" class="btn btn-primary b_middle">{{'logout.btn'|translate}}</button>
+  </div>
+</div>

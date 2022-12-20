@@ -1,0 +1,63 @@
+<!-- Sélection d'une ferme associée à l'utilisateur -->
+<div id="outer" *ngIf="showForm">
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../Functions" class="btn btn-primary">{{'access.btn_back'|translate}}</button>
+  </div>
+
+  <div class="line">
+    <hr>
+  </div>
+
+  <div>
+    <p class="p-2 bg-info text-light text-center"> {{'farm.title' | translate}} </p>
+  </div>
+
+  <div id="inner">
+
+    <div class="form-group row" style="width: 70%;">
+
+      <!-- Nom de la ferme -->
+      <label class="col-sm-4 col-form-label">{{'farm.l_selection'|translate}}</label>
+      <div class="col-sm-8">
+        <select class="form-control" [(ngModel)]="nomFerme">
+          <option>--Select--</option>
+          <ng-container *ngFor="let f of farmsList">
+            <option *ngIf="!f.deleted">{{f.nomFerme}}</option>
+          </ng-container>
+        </select>
+        <br>
+      </div>
+
+
+      <div>
+        <button (click)="selectFarm()" class="btn btn-primary"> {{'farm.btn_select'|translate}} </button>&nbsp;&nbsp;
+        <button routerLink="../Functions" class="btn btn-warning">{{'access.add_btn_cancel'|translate}}</button>
+      </div>
+
+    </div>
+
+    <br>
+
+  </div>
+
+</div>
+
+<!-- Message indiquant que l'opération a été effectuée avec succès -->
+<div *ngIf="showSuccessMsg" class="alert alert-success" id="msgSuccess">
+  <div class="text-center">
+    <p>Farm is selected successfully !</p>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-success" routerLink="../Functions" (click)="closeSuccessMsg()">Close message</button>
+  </div>
+</div>
+
+<!-- Message indiquant que l'opération a échouée -->
+<div *ngIf="showFailMsg" class="alert alert-danger" id="msgFail">
+  <div class="text-center">
+    <p>Failed to select farm !</p>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-warning" routerLink="../Functions" (click)="closeFailMsg()">Close message</button>
+  </div>
+</div>

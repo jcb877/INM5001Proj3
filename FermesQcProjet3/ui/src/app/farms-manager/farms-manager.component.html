@@ -1,0 +1,51 @@
+<!-- Page de visualisation de la liste des fermes -->
+<div id="outer">
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../Functions"
+      class="btn btn-primary">{{'farm.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddEditFarm" (click)="clearPage()"
+      class="btn btn-success">{{'farm.btn_add'|translate}}</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../DeletedFarmsManager" class="btn btn-success">{{'farm.btn_deletedManager'|translate}}</button>
+  </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'farm.title'|translate}}</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{'farm.col_id'|translate}}</th>
+          <th>{{'farm.col_name'|translate}}</th>
+          <th>{{'farm.col_fAds'|translate}}</th>
+          <th>{{'farm.col_fCity'|translate}}</th>
+          <th>{{'farm.col_fProvince'|translate}}</th>
+          <th>{{'farm.col_opts1'|translate}}</th>
+          <th>{{'farm.col_opts'|translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let farm of farmsList">
+          <td>{{farm.fermeId}}</td>
+          <td>{{farm.nomFerme}}</td>
+          <td>{{farm.addresseFerme}}</td>
+          <td>{{farm.villeFerme}}</td>
+          <td>{{farm.provinceFerme}}</td>
+          <td class="options">
+            <!-- Bouton pour associer les usagers à la ferme -->
+            <button routerLink="../UsersFarmsManager" class="btn btn-primary"
+              (click)="checkUsers(farm)">{{'farm.btn_users'|translate}}</button>&nbsp;&nbsp;
+            <!-- Bouton pour associer les vaches à la ferme -->
+            <button routerLink="../CowManager" class="btn btn-success"
+              (click)="checkCows(farm)">{{'farm.btn_cows'|translate}}</button>
+          </td>
+          <td class="options">
+            <button routerLink="../AddEditFarm" class="btn btn-primary"
+              (click)="editClick(farm)">{{'farm.btn_edit'|translate}}</button>&nbsp;&nbsp;
+            <button class="btn btn-danger" (click)="deleteClick(farm)">{{'farm.btn_delete'|translate}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

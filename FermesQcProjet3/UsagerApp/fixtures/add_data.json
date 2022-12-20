@@ -1,0 +1,41 @@
+[
+    {
+        "model": "UsagerApp.niveauacces",
+        "pk": 1,
+        "fields": {
+            "access": "Admin"
+        }
+    },
+    {
+        "model": "UsagerApp.niveauacces",
+        "pk": 2,
+        "fields": {
+            "access": "Chercheur"
+        }
+    },
+    {
+        "model": "UsagerApp.niveauacces",
+        "pk": 3,
+        "fields": {
+            "access": "PI"
+        }
+    },
+    {
+        "model": "UsagerApp.niveauacces",
+        "pk": 4,
+        "fields": {
+            "access": "superAdmin"
+        }
+    },
+    {
+        "model": "UsagerApp.usagers",
+        "pk": 1,
+        "fields": {
+            "mail": "abc@abc.com",
+            "prenomUsager": "Admin",
+            "nomUsager": "Admin",
+            "motPasse": "725228a5e23bea57081947ccb45f41ae",
+            "accesId_id": 4
+        }
+    }
+]

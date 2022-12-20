@@ -1,0 +1,37 @@
+<!-- Page de visualisation des médias (photos ou vidéos) -->
+<div id="outer">
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../NotesManager"
+      class="btn btn-primary">{{'media.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddEditMedia" (click)="clearPage()"
+      class="btn btn-success">{{'media.btn_add'|translate}}</button>
+  </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'media.title'|translate}}</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{'media.col_id'|translate}}</th>
+          <th>{{'media.col_media'|translate}}</th>
+          <th>{{'media.col_nId'|translate}}</th>
+          <th>{{'media.col_opts'|translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of mediasList">
+          <td>{{m.mediaId}}</td>
+          <td>{{m.media}}</td>
+          <td>{{m.noteId}}</td>
+          <td class="options">
+            <button routerLink="../AddEditMedia" class="btn btn-primary"
+              (click)="editClick(m)">{{'farm.btn_edit'|translate}}</button>&nbsp;&nbsp;
+            <button class="btn btn-danger" (click)="deleteClick(m)">{{'farm.btn_delete'|translate}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

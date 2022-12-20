@@ -1,0 +1,37 @@
+<!-- Page de visualisation des liens usagers-fermes -->
+<div id="outer">
+  <div class="text-left">
+    &nbsp;&nbsp;&nbsp;<button routerLink="../FarmsManager"
+      class="btn btn-primary">{{'uf.btn_back'|translate}}</button>&nbsp;&nbsp;&nbsp;
+    <button routerLink="../AddEditUserFarm" (click)="clearPage()"
+      class="btn btn-success">{{'uf.btn_add'|translate}}</button>
+  </div>
+  <div class="line">
+    <hr>
+  </div>
+  <div>
+    <p class="p-2 bg-info text-light text-center">{{'uf.title'|translate}}</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{{'uf.col_id'|translate}}</th>
+          <th>{{'uf.col_uId'|translate}}</th>
+          <th>{{'uf.col_fId'|translate}}</th>
+          <!-- <th>{{'uf.col_opts'|translate}}</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let uf of usersFarmsList">
+          <td>{{uf.usagersFermesId}}</td>
+          <td>{{convertIdIntoNameUser(uf.usagerId)}}</td>
+          <td>{{convertIdIntoNameFarm(uf.fermeId)}}</td>
+          <td class="options">
+            <button routerLink="../AddEditUserFarm" class="btn btn-primary"
+              (click)="editClick(uf)">{{'farm.btn_edit'|translate}}</button>&nbsp;&nbsp;
+            <button class="btn btn-danger" (click)="deleteClick(uf)">{{'farm.btn_delete'|translate}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
